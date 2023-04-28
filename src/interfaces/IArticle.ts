@@ -8,6 +8,7 @@ export default interface IArticle {
   social_image: string
   tag_list: string[]
   tags: string
+  body_markdown: string
   slug: string
   path: string
   url: string
