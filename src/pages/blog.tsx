@@ -19,7 +19,7 @@ export default function Blog({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
+        <div className="mt-14 lg:mt-32 font-light w-full text-black">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl mb-2">
             I share anything that may help others, technologies I&apos;m using
             and cool things I&apos;ve made.
