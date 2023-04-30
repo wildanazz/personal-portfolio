@@ -5,7 +5,8 @@ import Navbar from '@/components/Navbar'
 import Social from '@/components/Social'
 
 const myFont = localFont({
-  src: './font/iosevka-term-light.woff2',
+  src: [{ path: './font/iosevka-term-light.woff2', weight: '300' }],
+  adjustFontFallback: false,
   fallback: ['monospace'],
 })
 
