@@ -10,20 +10,23 @@ export default function Blog({
   return (
     <>
       <Head>
-        <title>WA | Blog</title>
+        <title>WA | Blog 🗞️</title>
         <meta
           name="description"
-          content="I share anything that may help others, technologies I'm using and cool things I've made."
+          content="Blog - I share anything that may help others, technologies I'm using and cool things I've made."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
         <div className="mt-14 lg:mt-32 font-light w-full text-black">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl mb-2">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669]">
+            Blog
+          </h1>
+          <p className="text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
             I share anything that may help others, technologies I&apos;m using
             and cool things I&apos;ve made.
-          </h1>
+          </p>
         </div>
 
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-24 md:mt-32 xl:mt-44">

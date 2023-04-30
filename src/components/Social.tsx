@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 export default function Social() {
   return (
     <div className="flex flex-col items-center fixed right-[36px] bottom-0">
-      <motion.div className="mb-[8px]" whileHover={{ scale: 1.5 }}>
+      <motion.div className="mb-[8px]" whileTap={{ scale: 1.5 }}>
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: [0, 1, 1.5, 1] }}
@@ -28,7 +28,7 @@ export default function Social() {
           </a>
         </motion.div>
       </motion.div>
-      <motion.div className="mb-[8px]" whileHover={{ scale: 1.5 }}>
+      <motion.div className="mb-[8px]" whileTap={{ scale: 1.5 }}>
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: [0, 1, 1.5, 1] }}
@@ -52,7 +52,7 @@ export default function Social() {
           </a>
         </motion.div>
       </motion.div>
-      <motion.div className="mb-[8px]" whileHover={{ scale: 1.5 }}>
+      <motion.div className="mb-[8px]" whileTap={{ scale: 1.5 }}>
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: [0, 1, 1.5, 1] }}
@@ -76,7 +76,7 @@ export default function Social() {
           </a>
         </motion.div>
       </motion.div>
-      <motion.div className="mb-[8px]" whileHover={{ scale: 1.5 }}>
+      <motion.div className="mb-[8px]" whileTap={{ scale: 1.5 }}>
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: [0, 1, 1.5, 1] }}
@@ -101,7 +101,7 @@ export default function Social() {
         </motion.div>
       </motion.div>
       <motion.span
-        className="w-[2px] h-[8rem] bg-black mt-[8px]"
+        className="w-[2px] h-[8rem] bg-[#d23669] mt-[8px]"
         initial={{
           height: 0,
         }}

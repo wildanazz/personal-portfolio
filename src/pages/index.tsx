@@ -1,7 +1,8 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import { InferGetStaticPropsType } from 'next'
 import Layout from '@/components/Layout'
-import { getLatestAndFeaturedArticles } from '@/lib/load-articles'
+import { getArticlesFromAPI } from '@/lib/load-articles'
 
 export default function Home({
   latestArticle,
@@ -10,7 +11,7 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>WA | Home</title>
+        <title>WA | Home 👨‍🚀</title>
         <meta
           name="description"
           content="Hi, I'm Wildan - I'm a Software Engineer in Brisbane, AU"
@@ -20,12 +21,12 @@ export default function Home({
       </Head>
       <Layout>
         {/* Header */}
-        <div className="w-full text-black font-light mt-14 lg:mt-28">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl mb-2">
+        <div className="mt-14 lg:mt-32 font-light w-full text-black">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669]">
             Hi, I&apos;m Wildan
           </h1>
           <p className="text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
-            I&apos;m a Software Engineer in Brisbane, AU
+            I&apos;m a Software Engineer in Brisbane, AU.
           </p>
         </div>
 
@@ -53,22 +54,26 @@ export default function Home({
             Latest article
           </h2>
           <div className="mb-14 flex flex-col sm:flex-row w-full">
-            <a className="w-full text-gray-500 sm:w-4/5">
-              <div key={latestArticle.id}>
-                <h3 className="text-2xl text-gray-600">
-                  {latestArticle.title}
-                </h3>
-                <p className="text-sm my-1">
-                  <span>{latestArticle.published_at}</span>
-                  <span className="px-1">-</span>
-                  <span>{latestArticle.tag_list.map((tag) => `#${tag} `)}</span>
-                </p>
-                <p className="text-base mt-2">{latestArticle.description}</p>
-                <p className="text-base mt-2 underline hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
-                  Read more
-                </p>
-              </div>
-            </a>
+            <Link href={`/blog/${latestArticle.slug}`} legacyBehavior>
+              <a className="w-full text-gray-500 sm:w-4/5">
+                <div key={latestArticle.id}>
+                  <h3 className="text-2xl text-gray-600">
+                    {latestArticle.title}
+                  </h3>
+                  <p className="text-sm my-1">
+                    <span>{latestArticle.published_at}</span>
+                    <span className="px-1">-</span>
+                    <span>
+                      {latestArticle.tag_list.map((tag) => `#${tag} `)}
+                    </span>
+                  </p>
+                  <p className="text-base mt-2">{latestArticle.description}</p>
+                  <p className="text-base mt-2 underline hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
+                    Read more
+                  </p>
+                </div>
+              </a>
+            </Link>
           </div>
 
           {/* Featured Article */}
@@ -78,26 +83,28 @@ export default function Home({
                 Featured article
               </h2>
               <div className="mb-14 flex flex-col sm:flex-row w-full">
-                <a className="w-full text-gray-500 sm:w-4/5">
-                  <div key={featuredArticle.id}>
-                    <h3 className="text-2xl text-gray-600">
-                      {featuredArticle.title}
-                    </h3>
-                    <p className="text-sm my-1">
-                      <span>{featuredArticle.published_at}</span>
-                      <span className="px-1">-</span>
-                      <span>
-                        {featuredArticle.tag_list.map((tag) => `#${tag} `)}
-                      </span>
-                    </p>
-                    <p className="text-base mt-2">
-                      {featuredArticle.description}
-                    </p>
-                    <p className="text-base mt-2 underline hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
-                      Read more
-                    </p>
-                  </div>
-                </a>
+                <Link href={`/blog/${featuredArticle.slug}`} legacyBehavior>
+                  <a className="w-full text-gray-500 sm:w-4/5">
+                    <div key={featuredArticle.id}>
+                      <h3 className="text-2xl text-gray-600">
+                        {featuredArticle.title}
+                      </h3>
+                      <p className="text-sm my-1">
+                        <span>{featuredArticle.published_at}</span>
+                        <span className="px-1">-</span>
+                        <span>
+                          {featuredArticle.tag_list.map((tag) => `#${tag} `)}
+                        </span>
+                      </p>
+                      <p className="text-base mt-2">
+                        {featuredArticle.description}
+                      </p>
+                      <p className="text-base mt-2 underline hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
+                        Read more
+                      </p>
+                    </div>
+                  </a>
+                </Link>
               </div>
             </>
           )}
@@ -108,8 +115,18 @@ export default function Home({
 }
 
 export const getStaticProps = async () => {
-  const { latestArticle, featuredArticle } =
-    await getLatestAndFeaturedArticles()
+  const articles = await getArticlesFromAPI()
+
+  // Get latest article
+  const latestArticle = articles[0]
+
+  // Get featured article
+  const featuredArticle =
+    articles.find(
+      (article) =>
+        article.slug ===
+        'deploy-docker-application-to-droplet-using-github-actions-cicd-o8a'
+    ) || null
 
   return { props: { latestArticle, featuredArticle } }
 }
