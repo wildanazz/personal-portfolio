@@ -10,23 +10,3 @@ export async function getArticlesFromAPI(): Promise<IArticle[]> {
 
   return articles
 }
-
-export async function getLatestAndFeaturedArticles(): Promise<{
-  latestArticle: IArticle
-  featuredArticle: IArticle | null
-}> {
-  const articles = await getArticlesFromAPI()
-
-  // Get latest article
-  const latestArticle = articles[0]
-
-  // Get featured article
-  const featuredArticle =
-    articles.find(
-      (article) =>
-        article.slug ===
-        'deploy-docker-application-to-droplet-using-github-actions-cicd-o8a'
-    ) || null
-
-  return { latestArticle, featuredArticle }
-}
