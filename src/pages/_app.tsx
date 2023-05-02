@@ -12,10 +12,10 @@ const myFont = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <main className={myFont.className}>
       <Component {...pageProps} />
       <Social />
       <Navbar />
-    </>
+    </main>
   )
 }
