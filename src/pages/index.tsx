@@ -34,15 +34,15 @@ export default function Home({
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-24 md:mt-32 xl:mt-44">
           <h2 className="text-3xl md:text-4xl mb-4 text-black">About</h2>
           <p className="my-2">
-            I spend most of my time creating beautiful website with great user
-            experience using React.js. Sometimes I use Node.js, Docker,
-            Kubernetes, and Python. I&apos;m currently experimenting with
-            Serverless technologies on AWS and Azure.
+            I build and develop web and mobile application. Sometimes I use
+            Node.js, Python, and Java. Also, I often utilize cloud computing
+            technology such as Docker and Kubernetes for my projects. I&apos;m
+            now currently experimenting with Serverless technologies on AWS.
           </p>
           <p className="my-2">
-            I also like to spend my time creating content for my blog where I
+            Moreover, I like to spend my time creating content for my blog I
             discuss other projects I&apos;ve been working on, interesting
-            problems I&apos;ve had to solve and create tutorials to educate and
+            problems I&apos;ve had to solve and create tutorials to educate, and
             help others use various technologies for the first time or in a more
             efficient manner.
           </p>
