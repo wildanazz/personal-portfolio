@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import moment from 'moment'
 import { InferGetStaticPropsType } from 'next'
 import Layout from '@/components/Layout'
 import { getArticlesFromAPI } from '@/lib/load-articles'
@@ -26,7 +27,7 @@ export default function Home({
             Hi, I&apos;m Wildan
           </h1>
           <p className="text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
-            I&apos;m a Software Engineer in Brisbane, AU.
+            I&apos;m a Software Engineer and currently living in Brisbane, AU.
           </p>
         </div>
 
@@ -35,16 +36,28 @@ export default function Home({
           <h2 className="text-3xl md:text-4xl mb-4 text-black">About</h2>
           <p className="my-2">
             I build and develop web and mobile application. Sometimes I use
-            Node.js, Python, and Java. Also, I often utilize cloud computing
-            technology such as Docker and Kubernetes for my projects. I&apos;m
-            now currently experimenting with Serverless technologies on AWS.
+            Node.js, Python, and Java. I also make use of Cloud Computing
+            technologies such as Docker and Kubernetes for my projects many
+            times. I&apos;m now currently experimenting with Serverless
+            technologies on AWS.
           </p>
           <p className="my-2">
-            Moreover, I like to spend my time creating content for my blog I
-            discuss other projects I&apos;ve been working on, interesting
-            problems I&apos;ve had to solve and create tutorials to educate, and
-            help others use various technologies for the first time or in a more
-            efficient manner.
+            In my spare time I create content for my blog where I discuss other
+            projects I&apos;ve been working on, interesting problems I&apos;ve
+            had to solve and create tutorials to educate, and help others use
+            various technologies for the first time or in a more efficient
+            manner.
+          </p>
+          <p className="my-2">
+            Check out my resume{' '}
+            <Link
+              href="/Resume.pdf"
+              className="text-[#d23669] font-bold hover:text-gray-600"
+              target="_blank"
+            >
+              here
+            </Link>
+            .
           </p>
         </div>
 
@@ -61,7 +74,11 @@ export default function Home({
                     {latestArticle.title}
                   </h3>
                   <p className="text-sm my-1">
-                    <span>{latestArticle.published_at}</span>
+                    <span>
+                      {moment(latestArticle.published_at).format(
+                        'Do MMMM YYYY'
+                      )}
+                    </span>
                     <span className="px-1">-</span>
                     <span>
                       {latestArticle.tag_list.map((tag) => `#${tag} `)}
@@ -90,7 +107,11 @@ export default function Home({
                         {featuredArticle.title}
                       </h3>
                       <p className="text-sm my-1">
-                        <span>{featuredArticle.published_at}</span>
+                        <span>
+                          {moment(featuredArticle.published_at).format(
+                            'Do MMMM YYYY'
+                          )}
+                        </span>
                         <span className="px-1">-</span>
                         <span>
                           {featuredArticle.tag_list.map((tag) => `#${tag} `)}
