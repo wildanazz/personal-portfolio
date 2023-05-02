@@ -6,9 +6,9 @@ import Social from '@/components/Social'
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Navbar />
-      <Social />
       <Component {...pageProps} />
+      <Social />
+      <Navbar />
     </>
   )
 }
