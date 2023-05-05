@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Layout from '@/components/Layout'
+import moment from 'moment'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 
 export default function ArticlePage({ article }: any) {
@@ -21,7 +22,7 @@ export default function ArticlePage({ article }: any) {
 
         {/* Date */}
         <p className="text-center w-full my-4 italic leading-relaxed text-gray-600">
-          {article.published_at}
+          {moment(article.published_at).format('Do MMMM YYYY')}
         </p>
 
         {/* Content */}
