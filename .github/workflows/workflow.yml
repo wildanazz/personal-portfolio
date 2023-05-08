@@ -1,9 +1,12 @@
 name: CI
 
 on:
+  push:
+    branches:
+      - 'main'
   pull_request:
     branches:
-      - main
+      - 'main'
   workflow_dispatch:
 
 jobs:
@@ -30,6 +33,7 @@ jobs:
         run: docker push ${{ secrets.REGISTRY_NAME }}/wildanazz.com-docker:$(echo $GITHUB_SHA | head -c7)
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build_and_push
     steps:
