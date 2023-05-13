@@ -40,14 +40,9 @@ export default function ArticlePage({ article }: any) {
 }
 
 export const getStaticProps = async ({ params }: any) => {
-  const cacheContents = fs.readFileSync(
-    path.join(process.cwd(), 'cache.json'),
-    'utf-8'
-  )
-  const article = JSON.parse(cacheContents).find(
-    (cachedArticle: { id: number; slug: string }) =>
-      cachedArticle.slug === params.slug
-  )
+  const articles = await getArticlesFromAPI()
+
+  const article = articles.find((article) => article.slug === params.slug)
 
   return { props: { article }, revalidate: 10 }
 }
