@@ -49,7 +49,7 @@ export const getStaticProps = async ({ params }: any) => {
       cachedArticle.slug === params.slug
   )
 
-  return { props: { article } }
+  return { props: { article }, revalidate: 10 }
 }
 
 export const getStaticPaths = async () => {
@@ -66,5 +66,5 @@ export const getStaticPaths = async () => {
     }
   })
 
-  return { paths, fallback: false }
+  return { paths, fallback: 'blocking' }
 }
