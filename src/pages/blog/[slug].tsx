@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import fs from 'fs'
+import path from 'path'
 import Layout from '@/components/Layout'
 import moment from 'moment'
 import { getArticlesFromAPI } from '@/lib/load-articles'
@@ -38,19 +40,31 @@ export default function ArticlePage({ article }: any) {
 }
 
 export const getStaticProps = async ({ params }: any) => {
-  const articles = await getArticlesFromAPI()
-  const article = articles.find((article) => article.slug === params.slug)
+  const cacheContents = fs.readFileSync(
+    path.join(process.cwd(), 'cache.json'),
+    'utf-8'
+  )
+  const article = JSON.parse(cacheContents).find(
+    (cachedArticle: { id: number; slug: string }) =>
+      cachedArticle.slug === params.slug
+  )
 
-  return { props: { article }, revalidate: 3600 }
+  return { props: { article } }
 }
 
 export const getStaticPaths = async () => {
   const articles = await getArticlesFromAPI()
+
+  fs.writeFileSync(
+    path.join(process.cwd(), 'cache.json'),
+    JSON.stringify(articles)
+  )
+
   const paths = articles.map(({ slug }) => {
     return {
       params: { slug },
     }
   })
 
-  return { paths, fallback: 'blocking' }
+  return { paths, fallback: false }
 }

@@ -149,5 +149,5 @@ export const getStaticProps = async () => {
         'deploy-docker-application-to-droplet-using-github-actions-cicd-o8a'
     ) || null
 
-  return { props: { latestArticle, featuredArticle }, revalidate: 60 }
+  return { props: { latestArticle, featuredArticle } }
 }

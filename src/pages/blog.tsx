@@ -59,5 +59,5 @@ export default function Blog({
 export const getStaticProps = async () => {
   const articles = await getArticlesFromAPI()
 
-  return { props: { articles }, revalidate: 60 }
+  return { props: { articles } }
 }
