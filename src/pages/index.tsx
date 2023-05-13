@@ -4,6 +4,7 @@ import moment from 'moment'
 import { InferGetStaticPropsType } from 'next'
 import Layout from '@/components/Layout'
 import { getArticlesFromAPI } from '@/lib/load-articles'
+import { writeArticlesToCache } from '@/lib/utils'
 
 export default function Home({
   latestArticle,
@@ -137,6 +138,9 @@ export default function Home({
 
 export const getStaticProps = async () => {
   const articles = await getArticlesFromAPI()
+
+  // Write articles to cache
+  writeArticlesToCache(articles)
 
   // Get latest article
   const latestArticle = articles[0]
