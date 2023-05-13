@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import fs from 'fs'
-import path from 'path'
 import Layout from '@/components/Layout'
 import moment from 'moment'
 import { getArticlesFromAPI } from '@/lib/load-articles'
@@ -49,11 +47,6 @@ export const getStaticProps = async ({ params }: any) => {
 
 export const getStaticPaths = async () => {
   const articles = await getArticlesFromAPI()
-
-  fs.writeFileSync(
-    path.join(process.cwd(), 'cache.json'),
-    JSON.stringify(articles)
-  )
 
   const paths = articles.map(({ slug }) => {
     return {
