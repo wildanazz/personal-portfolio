@@ -44,25 +44,16 @@ export const getStaticProps = async ({ params }: any) => {
 
   const article = articles.find((article) => article.slug === params.slug)
 
-  // const cacheContents = fs.readFileSync(
-  //   path.join(process.cwd(), 'cache.json'),
-  //   'utf-8'
-  // )
-  // const article = JSON.parse(cacheContents).find(
-  //   (cachedArticle: { id: number; slug: string }) =>
-  //     cachedArticle.slug === params.slug
-  // )
-
   return { props: { article }, revalidate: 10 }
 }
 
 export const getStaticPaths = async () => {
   const articles = await getArticlesFromAPI()
 
-  // fs.writeFileSync(
-  //   path.join(process.cwd(), 'cache.json'),
-  //   JSON.stringify(articles)
-  // )
+  fs.writeFileSync(
+    path.join(process.cwd(), 'cache.json'),
+    JSON.stringify(articles)
+  )
 
   const paths = articles.map(({ slug }) => {
     return {
