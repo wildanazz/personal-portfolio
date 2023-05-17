@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { GitHub, Twitter, Facebook, LinkedIn } from './Icons'
 
 export default function Social() {
   return (
@@ -19,12 +20,7 @@ export default function Social() {
             target="_blank"
             rel="noreferrer"
           >
-            <Image
-              src={'/images/github.svg'}
-              alt="github"
-              width={36}
-              height={36}
-            />
+            <GitHub width={36} height={36} />
           </a>
         </motion.div>
       </motion.div>
@@ -43,12 +39,7 @@ export default function Social() {
             target="_blank"
             rel="noreferrer"
           >
-            <Image
-              src={'/images/twitter.svg'}
-              alt="twitter"
-              width={36}
-              height={36}
-            />
+            <Twitter width={36} height={36} />
           </a>
         </motion.div>
       </motion.div>
@@ -67,12 +58,7 @@ export default function Social() {
             target="_blank"
             rel="noreferrer"
           >
-            <Image
-              src={'/images/facebook.svg'}
-              alt="facebook"
-              width={36}
-              height={36}
-            />
+            <Facebook width={36} height={36} />
           </a>
         </motion.div>
       </motion.div>
@@ -91,22 +77,17 @@ export default function Social() {
             target="_blank"
             rel="noreferrer"
           >
-            <Image
-              src={'/images/linkedin.svg'}
-              alt="linkedin"
-              width={36}
-              height={36}
-            />
+            <LinkedIn width={36} height={36} />
           </a>
         </motion.div>
       </motion.div>
       <motion.span
-        className="w-[2px] h-[8rem] bg-[#d23669] mt-[8px]"
+        className="w-[2px] bg-[#d23669] dark:bg-[#00ace9] mt-[8px]"
         initial={{
           height: 0,
         }}
         animate={{
-          height: '8rem',
+          height: '2rem',
         }}
         transition={{
           type: 'spring',

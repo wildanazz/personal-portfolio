@@ -14,21 +14,21 @@ export default function ArticlePage({ article }: any) {
       </Head>
       <Layout>
         {/* Header */}
-        <div className="mt-14 lg:mt-32 font-light w-full text-black">
+        <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl mb-2 md:text-center">
             {article.title}
           </h1>
         </div>
 
         {/* Date */}
-        <p className="text-center w-full my-4 italic leading-relaxed text-gray-600">
+        <p className="text-center w-full my-4 italic leading-relaxed text-gray-600 dark:text-gray-300">
           {moment(article.published_at).format('Do MMMM YYYY')}
         </p>
 
         {/* Content */}
         <section className="mt-6 font-light leading-relaxed w-full flex flex-col items-center">
           <article
-            className="prose lg:prose-lg w-full md:w-5/6 xl:w-9/12"
+            className="prose dark:prose-dark lg:prose-lg w-full md:w-5/6 xl:w-9/12"
             dangerouslySetInnerHTML={{ __html: article.body_markdown }}
           />
         </section>

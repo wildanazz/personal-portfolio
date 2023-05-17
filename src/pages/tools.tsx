@@ -42,8 +42,8 @@ export default function Tools() {
       </Head>
       <Layout>
         {/* Header */}
-        <div className="mt-14 lg:mt-32 font-light w-full text-black">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669]">
+        <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#00ace9]">
             Tools
           </h1>
           <p className="text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
