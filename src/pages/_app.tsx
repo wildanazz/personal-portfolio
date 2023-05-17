@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Social from '@/components/Social'
+import Footer from '@/components/Footer'
 import { useEffect } from 'react'
 
 const myFont = localFont({
@@ -30,6 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <AnimatePresence>
         <Component {...pageProps} />
       </AnimatePresence>
+      <Footer />
       <Social />
       <Navbar />
     </main>
