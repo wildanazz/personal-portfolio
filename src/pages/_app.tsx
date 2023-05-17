@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Social from '@/components/Social'
+import { useEffect } from 'react'
 
 const myFont = localFont({
   src: [{ path: './font/iosevka-term-light.woff2', weight: '300' }],
@@ -12,6 +13,18 @@ const myFont = localFont({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  })
+
   return (
     <main className={myFont.className}>
       <AnimatePresence>
