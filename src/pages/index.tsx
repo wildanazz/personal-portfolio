@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import Link from 'next/link'
 import moment from 'moment'
 import { InferGetStaticPropsType } from 'next'
@@ -25,8 +26,15 @@ export default function Home({
       <Layout>
         {/* Header */}
         <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#00ace9]">
+          <h1 className="flex flex-row items-center text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#00ace9]">
             Hi, I&apos;m Wildan
+            <Image
+              src={'/images/helmet.svg'}
+              width={100}
+              height={100}
+              alt="profile"
+              className="pl-4"
+            />
           </h1>
           <p className="text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
             I&apos;m a Software Engineer and currently living in Brisbane, AU.
