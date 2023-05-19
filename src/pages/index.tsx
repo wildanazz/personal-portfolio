@@ -26,16 +26,17 @@ export default function Home({
       <Layout>
         {/* Header */}
         <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
-          <h1 className="flex flex-row items-center text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#00ace9]">
-            Hi, I&apos;m Wildan
+          <div className="flex flex-row gap-4 flex-wrap pb-4 items-center">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#00ace9]">
+              Hi, I&apos;m Wildan
+            </h1>
             <Image
               src={'/images/helmet.svg'}
-              width={100}
-              height={100}
-              alt="profile"
-              className="pl-4"
+              width={80}
+              height={80}
+              alt="helmet"
             />
-          </h1>
+          </div>
           <p className="text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
             I&apos;m a Software Engineer and currently living in Brisbane, AU.
           </p>
