@@ -3,7 +3,6 @@ import localFont from 'next/font/local'
 import type { AppProps } from 'next/app'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from '@/components/Navbar'
-import Social from '@/components/Social'
 import Footer from '@/components/Footer'
 import { useEffect } from 'react'
 
@@ -32,7 +31,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </AnimatePresence>
       <Footer />
-      <Social />
       <Navbar />
     </main>
   )

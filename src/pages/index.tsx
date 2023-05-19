@@ -3,6 +3,7 @@ import Link from 'next/link'
 import moment from 'moment'
 import { InferGetStaticPropsType } from 'next'
 import Layout from '@/components/Layout'
+import Social from '@/components/Social'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import { writeArticlesToCache } from '@/lib/utils'
 
@@ -134,6 +135,7 @@ export default function Home({
           )}
         </div>
       </Layout>
+      <Social />
     </>
   )
 }
