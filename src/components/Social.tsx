@@ -4,7 +4,7 @@ import { GitHub, Twitter, Facebook, LinkedIn } from './Icons'
 
 export default function Social() {
   return (
-    <div className="flex flex-col items-center fixed right-[36px] bottom-0">
+    <div className="flex flex-col items-center fixed right-[30px] bottom-0">
       <motion.div className="mb-[8px]" whileTap={{ scale: 1.5 }}>
         <motion.div
           initial={{ scale: 0 }}
