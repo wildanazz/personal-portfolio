@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useState } from 'react'
 import { InferGetStaticPropsType } from 'next'
 import moment from 'moment'
 import { motion } from 'framer-motion'
@@ -9,6 +10,8 @@ import Link from 'next/link'
 export default function Blog({
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [isHovered, setHovered] = useState(false)
+
   return (
     <>
       <Head>
@@ -34,11 +37,17 @@ export default function Blog({
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-24 md:mt-32 xl:mt-44">
           {articles.map((article) => (
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
               key={article.id}
             >
-              <div className="mb-14 flex flex-col sm:flex-row w-full">
+              <motion.div
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                animate={{ opacity: isHovered ? 0.25 : 1 }}
+                whileHover={{ opacity: 1, scale: 1.025 }}
+                className="mb-14 flex flex-col sm:flex-row w-full"
+              >
                 <Link href={`/blog/${article.slug}`} legacyBehavior>
                   <a className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300">
                     <h3 className="text-2xl text-gray-600 dark:text-gray-100">
@@ -57,7 +66,7 @@ export default function Blog({
                     </p>
                   </a>
                 </Link>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
