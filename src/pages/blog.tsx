@@ -36,11 +36,7 @@ export default function Blog({
 
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-24 md:mt-32 xl:mt-44">
           {articles.map((article) => (
-            <motion.div
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              key={article.id}
-            >
+            <motion.div key={article.id}>
               <motion.div
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
