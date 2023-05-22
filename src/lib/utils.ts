@@ -17,3 +17,19 @@ export function getArticlesFromCache(): IArticle[] {
 
   return JSON.parse(cacheContents)
 }
+
+export function writeProjectsToCache(projects: any[]) {
+  fs.writeFileSync(
+    path.join(process.cwd(), 'projects-cache.json'),
+    JSON.stringify(projects)
+  )
+}
+
+export function getProjectsFromCache(): any[] {
+  const cacheContents = fs.readFileSync(
+    path.join(process.cwd(), 'projects-cache.json'),
+    'utf-8'
+  )
+
+  return JSON.parse(cacheContents)
+}
