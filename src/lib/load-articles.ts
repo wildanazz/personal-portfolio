@@ -1,4 +1,5 @@
 import IArticle from '@/interfaces/IArticle'
+import { getArticlesFromCache } from './utils'
 
 export async function getArticlesFromAPI(): Promise<IArticle[]> {
   const response = await fetch('https://dev.to/api/articles/me/published', {
@@ -8,7 +9,7 @@ export async function getArticlesFromAPI(): Promise<IArticle[]> {
 
   if (!response.ok) {
     // if there is a server error, get articles from cache
-    return getArticlesFromAPI()
+    return getArticlesFromCache()
   } else {
     return response.json()
   }
