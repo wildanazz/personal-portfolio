@@ -1,17 +1,24 @@
+import { useState } from 'react'
 import Head from 'next/head'
+import { InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import moment from 'moment'
-import { InferGetStaticPropsType } from 'next'
+import { motion } from 'framer-motion'
 import Layout from '@/components/Layout'
 import Social from '@/components/Social'
+import Footer from '@/components/Footer'
 import { getArticlesFromAPI } from '@/lib/load-articles'
-import { writeArticlesToCache } from '@/lib/utils'
+import { getProjectsFromApi } from '@/lib/load-projects'
+import { writeArticlesToCache, writeProjectsToCache } from '@/lib/utils'
 
 export default function Home({
   latestArticle,
   featuredArticle,
+  latestProjects,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [isHovered, setHovered] = useState(false)
+
   return (
     <>
       <Head>
@@ -142,8 +149,38 @@ export default function Home({
               </div>
             </>
           )}
+          <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
+            Latest Projects
+          </h2>
+          <div className="w-auto xl:w-full">
+            <div className="mb-14 flex flex-col w-full gap-4">
+              {latestProjects.map((project: any) => (
+                <motion.article
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => setHovered(false)}
+                  animate={{ opacity: isHovered ? 0.25 : 1 }}
+                  whileHover={{ opacity: 1, scale: 1.025 }}
+                  key={project.id}
+                  className="bg-[#00020d] bg-opacity-10 rounded-md"
+                >
+                  <Link href={project.html_url} legacyBehavior>
+                    <a className="w-full text-gray-500 dark:text-gray-300 block p-[40px] break-words">
+                      <p className="text-xs uppercase tracking-[2.5px]">
+                        {project.language}
+                      </p>
+                      <h3 className="text-2xl text-gray-600 dark:text-gray-100 mt-2">
+                        {project.full_name}
+                      </h3>
+                      <p className="text-base mt-2">{project.description}</p>
+                    </a>
+                  </Link>
+                </motion.article>
+              ))}
+            </div>
+          </div>
         </div>
       </Layout>
+      <Footer />
       <Social />
     </>
   )
@@ -151,12 +188,22 @@ export default function Home({
 
 export const getStaticProps = async () => {
   const articles = await getArticlesFromAPI()
+  const projects = await getProjectsFromApi()
 
   // Write articles to cache
   writeArticlesToCache(articles)
 
+  // Write projects to cache
+  writeProjectsToCache(projects)
+
   // Get latest article
   const latestArticle = articles[0]
+
+  // Get latest projects
+  const latestProjects = []
+  for (let index = 0; index < 3; index++) {
+    latestProjects[index] = projects[index]
+  }
 
   // Get featured article
   const featuredArticle =
@@ -166,5 +213,8 @@ export const getStaticProps = async () => {
         'deploy-docker-application-to-droplet-using-github-actions-cicd-o8a'
     ) || null
 
-  return { props: { latestArticle, featuredArticle }, revalidate: 10 }
+  return {
+    props: { latestArticle, featuredArticle, latestProjects },
+    revalidate: 10,
+  }
 }
