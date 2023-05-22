@@ -1,11 +1,12 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import { useState } from 'react'
 import { InferGetStaticPropsType } from 'next'
 import moment from 'moment'
 import { motion } from 'framer-motion'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import Layout from '@/components/Layout'
-import Link from 'next/link'
+import Footer from '@/components/Footer'
 
 export default function Blog({
   articles,
@@ -67,6 +68,7 @@ export default function Blog({
           ))}
         </div>
       </Layout>
+      <Footer />
     </>
   )
 }

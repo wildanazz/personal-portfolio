@@ -30,7 +30,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <AnimatePresence>
         <Component {...pageProps} />
       </AnimatePresence>
-      <Footer />
       <Navbar />
     </main>
   )

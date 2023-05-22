@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { toollist } from '@/components/Toolslist'
 import Layout from '@/components/Layout'
+import Footer from '@/components/Footer'
 
 const variant = {
   hidden: {
@@ -79,6 +80,7 @@ export default function Tools() {
           })}
         </motion.div>
       </Layout>
+      <Footer />
     </>
   )
 }

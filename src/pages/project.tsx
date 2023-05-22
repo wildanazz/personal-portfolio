@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { InferGetStaticPropsType } from 'next'
 import { motion } from 'framer-motion'
 import { getProjectsFromApi } from '@/lib/load-projects'
-import Footer from '@/components/Footer'
 
 export default function Project({
   projects,
@@ -37,7 +36,21 @@ export default function Project({
             <p className="text-2xl sm:text-3xl lg:text-4xl">
               Collections of projects I&apos;ve been working and worked on.
             </p>
-            <Footer />
+            <div className="hidden xl:block">
+              <footer className="fixed bottom-0 flex flex-col items-center h-[90px] mt-12 w-auto xl:w-1/5">
+                <a
+                  className="text-sm mb-4 text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors"
+                  href="mailto:mwa@wildanazz.com?Subject=Hello"
+                >
+                  mwa@wildanazz.com
+                </a>
+                <Link href="https://developers.forem.com/api" legacyBehavior>
+                  <a className="text-sm mb-8 text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors">
+                    Powered by the Dev.to API. Find out more.
+                  </a>
+                </Link>
+              </footer>
+            </div>
           </div>
           {/* Contents */}
           <div className="text-base sm:text-lg font-light leading-relaxed text-gray-600 mt-24 md:mt-32 xl:mt-44 right-0 static xl:absolute w-auto xl:w-3/5">
