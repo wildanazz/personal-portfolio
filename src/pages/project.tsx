@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { InferGetStaticPropsType } from 'next'
 import { motion } from 'framer-motion'
 import { getProjectsFromApi } from '@/lib/load-projects'
+import Footer from '@/components/Footer'
 
 export default function Project({
   projects,
@@ -22,9 +23,9 @@ export default function Project({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <motion.div
-        initial={{ x: -200, y: 0, opacity: 0 }}
-        animate={{ x: 0, y: 0, opacity: 1 }}
-        exit={{ x: 0, y: -100, opacity: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         transition={{ type: 'linear' }}
       >
         <main className="relative flex flex-col mt-24 mx-8 sm:mx-16 md:mx-36 lg:mx-52 xl:mx-80 2xl:mx-96">
@@ -36,20 +37,8 @@ export default function Project({
             <p className="text-2xl sm:text-3xl lg:text-4xl">
               Collections of projects I&apos;ve been working and worked on.
             </p>
-            <div className="hidden xl:block">
-              <footer className="fixed bottom-0 flex flex-col items-center h-[90px] mt-12 w-auto xl:w-1/5">
-                <a
-                  className="text-sm mb-4 text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors"
-                  href="mailto:mwa@wildanazz.com?Subject=Hello"
-                >
-                  mwa@wildanazz.com
-                </a>
-                <Link href="https://developers.forem.com/api" legacyBehavior>
-                  <a className="text-sm mb-8 text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors">
-                    Powered by the Dev.to API. Find out more.
-                  </a>
-                </Link>
-              </footer>
+            <div className="hidden xl:block fixed bottom-0 w-auto xl:w-1/5">
+              <Footer />
             </div>
           </div>
           {/* Contents */}
@@ -81,6 +70,9 @@ export default function Project({
           </div>
         </main>
       </motion.div>
+      <div className="block xl:hidden">
+        <Footer />
+      </div>
     </>
   )
 }
