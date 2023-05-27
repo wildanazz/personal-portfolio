@@ -1,6 +1,7 @@
+import IProject from '@/interfaces/IProject'
 import { getProjectsFromCache } from './utils'
 
-export async function getProjectsFromApi(): Promise<any> {
+export async function getProjectsFromApi(): Promise<IProject[]> {
   const response = await fetch(
     'https://api.github.com/users/wildanazz/repos?sort=pushed',
     {

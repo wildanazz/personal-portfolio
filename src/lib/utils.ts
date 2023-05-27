@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import IArticle from '@/interfaces/IArticle'
+import IProject from '@/interfaces/IProject'
 
 export function writeArticlesToCache(articles: IArticle[]) {
   fs.writeFileSync(
@@ -18,14 +19,14 @@ export function getArticlesFromCache(): IArticle[] {
   return JSON.parse(cacheContents)
 }
 
-export function writeProjectsToCache(projects: any[]) {
+export function writeProjectsToCache(projects: IProject[]) {
   fs.writeFileSync(
     path.join(process.cwd(), 'projects-cache.json'),
     JSON.stringify(projects)
   )
 }
 
-export function getProjectsFromCache(): any[] {
+export function getProjectsFromCache(): IProject[] {
   const cacheContents = fs.readFileSync(
     path.join(process.cwd(), 'projects-cache.json'),
     'utf-8'
