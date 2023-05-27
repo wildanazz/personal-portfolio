@@ -2,7 +2,7 @@ import { getProjectsFromCache } from './utils'
 
 export async function getProjectsFromApi(): Promise<any> {
   const response = await fetch(
-    'https://api.github.com/users/wildanazz/repos?sort=pushed&per_page=9',
+    'https://api.github.com/users/wildanazz/repos?sort=pushed',
     {
       method: 'GET',
       headers: {
