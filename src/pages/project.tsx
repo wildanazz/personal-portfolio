@@ -55,7 +55,7 @@ export default function Project({
           {/* Contents */}
           <div className="text-base sm:text-lg font-light leading-relaxed text-gray-600 mt-24 md:mt-32 xl:mt-44 right-0 static xl:absolute w-auto xl:w-3/5">
             <div className="mb-14 flex flex-col w-full gap-4">
-              {projects.map((project: any) => (
+              {projects.map((project) => (
                 <motion.article
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
