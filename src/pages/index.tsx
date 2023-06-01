@@ -9,13 +9,13 @@ import Layout from '@/components/Layout'
 import Social from '@/components/Social'
 import Footer from '@/components/Footer'
 import { getArticlesFromAPI } from '@/lib/load-articles'
-import { getProjectsFromApi } from '@/lib/load-projects'
+import { getLanguagesFromFork, getProjectsFromApi } from '@/lib/load-projects'
 import { writeArticlesToCache, writeProjectsToCache } from '@/lib/utils'
 
 export default function Home({
   latestArticle,
   featuredArticle,
-  latestProjects,
+  featuredProjects,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [isHovered, setHovered] = useState(false)
 
@@ -150,28 +150,38 @@ export default function Home({
             </>
           )}
           <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
-            Latest Projects
+            Featured projects
           </h2>
           <div className="w-auto xl:w-full">
             <div className="mb-14 flex flex-col w-full gap-4">
-              {latestProjects.map((project: any) => (
+              {featuredProjects.map(({ fork, data, languages }: any) => (
                 <motion.article
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.025 }}
-                  key={project.id}
+                  key={data.id}
                   className="bg-[#00020d] bg-opacity-10 rounded-md"
                 >
-                  <Link href={project.html_url} legacyBehavior>
+                  <Link href={data.html_url} legacyBehavior>
                     <a className="w-full text-gray-500 dark:text-gray-300 block p-[40px] break-words">
-                      <p className="text-xs uppercase tracking-[2.5px]">
-                        {project.language}
-                      </p>
+                      {fork ? (
+                        <p className="text-xs uppercase tracking-[2.5px]">
+                          <span>
+                            {languages.map(
+                              (language: String) => `${language} `
+                            )}
+                          </span>
+                        </p>
+                      ) : (
+                        <p className="text-xs uppercase tracking-[2.5px]">
+                          {data.language}
+                        </p>
+                      )}
                       <h3 className="text-2xl text-gray-600 dark:text-gray-100 mt-2">
-                        {project.full_name}
+                        {data.full_name}
                       </h3>
-                      <p className="text-base mt-2">{project.description}</p>
+                      <p className="text-base mt-2">{data.description}</p>
                     </a>
                   </Link>
                 </motion.article>
@@ -199,12 +209,6 @@ export const getStaticProps = async () => {
   // Get latest article
   const latestArticle = articles[0]
 
-  // Get latest projects
-  const latestProjects = []
-  for (let index = 0; index < 3; index++) {
-    latestProjects[index] = projects[index]
-  }
-
   // Get featured article
   const featuredArticle =
     articles.find(
@@ -213,8 +217,36 @@ export const getStaticProps = async () => {
         'deploy-docker-application-to-droplet-using-github-actions-cicd-o8a'
     ) || null
 
+  // Get featured projects
+  const featuredProjects = []
+
+  featuredProjects.push({
+    fork: false,
+    data:
+      projects.find(
+        (Project) => Project.full_name === 'wildanazz/wildanazz.com'
+      ) || null,
+  })
+
+  const languages = await getLanguagesFromFork()
+  featuredProjects.push({
+    fork: true,
+    data:
+      projects.find(
+        (Project) => Project.full_name === 'wildanazz/PatternFlow'
+      ) || null,
+    languages: Object.keys(languages),
+  })
+
+  featuredProjects.push({
+    fork: false,
+    data:
+      projects.find((Project) => Project.full_name === 'wildanazz/minote') ||
+      null,
+  })
+
   return {
-    props: { latestArticle, featuredArticle, latestProjects },
+    props: { latestArticle, featuredArticle, featuredProjects },
     revalidate: 10,
   }
 }

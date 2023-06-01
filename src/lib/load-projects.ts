@@ -1,5 +1,5 @@
 import IProject from '@/interfaces/IProject'
-import { getProjectsFromCache } from './utils'
+import { getProjectsFromCache, getLanguagesFromCache } from './utils'
 
 export async function getProjectsFromApi(): Promise<IProject[]> {
   const response = await fetch(
@@ -19,4 +19,8 @@ export async function getProjectsFromApi(): Promise<IProject[]> {
   } else {
     return response.json()
   }
+}
+
+export async function getLanguagesFromFork(): Promise<any> {
+  return getLanguagesFromCache()
 }
