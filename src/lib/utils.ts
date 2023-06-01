@@ -34,3 +34,12 @@ export function getProjectsFromCache(): IProject[] {
 
   return JSON.parse(cacheContents)
 }
+
+export function getLanguagesFromCache(): Promise<any> {
+  const cacheContents = fs.readFileSync(
+    path.join(process.cwd(), 'languages-cache.json'),
+    'utf-8'
+  )
+
+  return JSON.parse(cacheContents)
+}
