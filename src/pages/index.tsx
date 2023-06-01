@@ -154,34 +154,36 @@ export default function Home({
           </h2>
           <div className="w-auto xl:w-full">
             <div className="mb-14 flex flex-col w-full gap-4">
-              {featuredProjects.map(({ fork, data, languages }: any) => (
+              {featuredProjects.map((project: any) => (
                 <motion.article
                   onMouseEnter={() => setHovered(true)}
                   onMouseLeave={() => setHovered(false)}
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.025 }}
-                  key={data.id}
+                  key={project.data.id}
                   className="bg-[#00020d] bg-opacity-10 rounded-md"
                 >
-                  <Link href={data.html_url} legacyBehavior>
+                  <Link href={project.data.html_url} legacyBehavior>
                     <a className="w-full text-gray-500 dark:text-gray-300 block p-[40px] break-words">
-                      {fork ? (
+                      {project.fork ? (
                         <p className="text-xs uppercase tracking-[2.5px]">
                           <span>
-                            {languages.map(
+                            {project.languages.map(
                               (language: String) => `${language} `
                             )}
                           </span>
                         </p>
                       ) : (
                         <p className="text-xs uppercase tracking-[2.5px]">
-                          {data.language}
+                          {project.data.language}
                         </p>
                       )}
                       <h3 className="text-2xl text-gray-600 dark:text-gray-100 mt-2">
-                        {data.full_name}
+                        {project.data.full_name}
                       </h3>
-                      <p className="text-base mt-2">{data.description}</p>
+                      <p className="text-base mt-2">
+                        {project.data.description}
+                      </p>
                     </a>
                   </Link>
                 </motion.article>
