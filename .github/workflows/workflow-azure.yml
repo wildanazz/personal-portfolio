@@ -1,0 +1,48 @@
+name: Azure CI/CD
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Create env file
+        run: |
+          touch .env
+          echo DEV_API_KEY=${{ secrets.DEV_API_KEY }} >> .env
+          echo GITHUB_API_KEY=${{ secrets.GITHUB_API_KEY }} >> .env
+      - name: Build and push docker image
+        uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }}
+          username: ${{ secrets.AZURE_USERNAME }}
+          password: ${{ secrets.AZURE_PASSWORD }}
+      - run: |
+          docker build -t ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }}/wildanazz.com-docker:$(echo $GITHUB_SHA | head -c7) .
+          docker push ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }}/wildanazz.com-docker:$(echo $GITHUB_SHA | head -c7)
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build_and_push
+    steps:
+      - name: Deploy to Azure virtual machine via SSH action
+        uses: appleboy/ssh-action@v0.1.10
+        env:
+          AZURE_CONTAINER_REGISTRY_NAME: ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }}
+          AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
+          AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
+        with:
+          host: ${{ secrets.AZURE_HOST }}
+          username: ${{ secrets.AZURE_USERNAME }}
+          key: ${{ secrets.AZURE_SSHKEY }}
+          envs: AZURE_CONTAINER_REGISTRY_NAME, AZURE_USERNAME, AZURE_PASSWORD, GITHUB_SHA
+          script: |
+            docker login -u ${{ secrets.AZURE_USERNAME }} -p ${{ secrets.AZURE_PASSWORD }} ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }}
+            if [ ! -z "$(docker ps | grep "wildanazz.com-docker")" ]; then docker stop wildanazz.com-docker && docker rm wildanazz.com-docker; else echo "No running container found"; fi
+            docker run -d -p 3000:3000 --restart always --name wildanazz.com-docker ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME }}/wildanazz.com-docker:$(echo $GITHUB_SHA | head -c7)
