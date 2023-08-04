@@ -50,7 +50,7 @@ export default function Home({
         </div>
 
         {/* About */}
-        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 dark:text-gray-300 mt-24 md:mt-32 xl:mt-44">
+        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 dark:text-gray-300 mt-24">
           <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
             About
           </h2>
