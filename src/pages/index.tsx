@@ -168,7 +168,7 @@ export default function Home({
             <Link href={`/blog/${latestArticle.slug}`} legacyBehavior>
               <a className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300">
                 <div key={latestArticle.id}>
-                  <h3 className="text-2xl text-gray-600 dark:text-gray-100">
+                  <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#00ace9]">
                     {latestArticle.title}
                   </h3>
                   <p className="text-sm my-1">
@@ -201,7 +201,7 @@ export default function Home({
                 <Link href={`/blog/${featuredArticle.slug}`} legacyBehavior>
                   <a className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300">
                     <div key={featuredArticle.id}>
-                      <h3 className="text-2xl text-gray-600 dark:text-gray-100">
+                      <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#00ace9]">
                         {featuredArticle.title}
                       </h3>
                       <p className="text-sm my-1">
