@@ -134,7 +134,7 @@ export default function Tools() {
 
         {/* Images */}
         <motion.div
-          className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed mt-12 w-full"
+          className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed mt-12 w-full gap-x-5"
           variants={variant}
           initial="hidden"
           animate="show"
@@ -146,7 +146,11 @@ export default function Tools() {
                 className="m-4 flex flex-col justify-center"
                 variants={variantItem}
               >
-                <motion.div whileTap={{ scale: 1.1 }}>
+                <motion.div
+                  whileTap={{ scale: 1.1 }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                >
                   <Image
                     src={tool.path}
                     alt={tool.title}
