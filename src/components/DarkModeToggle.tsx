@@ -30,7 +30,6 @@ const DarkModeToggle = (): JSX.Element => {
   return (
     <AnimatePresence mode="wait" initial={false}>
       <motion.button
-        className="flex justify-center items-center absolute top-[30px] left-[24px] rounded-[50px] text-3xl text-yellow-400 dark:text-yellow-300 focus:outline-none"
         onClick={() => toggleMode()}
         key={darkModeActive ? 'dark-icon' : 'light-icon'}
         initial={{ y: -20, opacity: 0 }}

@@ -5,6 +5,7 @@ import Curtain from '@/components/Curtain'
 import { navigations } from '@/components/Navigations'
 import Toggle from '@/components/Toggle'
 import DarkModeToggle from './DarkModeToggle'
+import Profile from './Profile'
 
 const variants = {
   visible: {
@@ -35,7 +36,10 @@ export default function Navbar() {
       variants={variants}
     >
       <Curtain isOpen={isOpen} />
-      <DarkModeToggle />
+      <div className="flex flex-row justify-center items-center absolute top-[30px] left-[24px] rounded-[50px] text-3xl text-yellow-400 dark:text-yellow-300 focus:outline-none gap-5">
+        <Profile />
+        <DarkModeToggle />
+      </div>
       <nav className="text-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
         {isOpen &&
           navigations.map((item) => {

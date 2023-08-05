@@ -9,7 +9,7 @@ type ToggleProps = {
 export default function Toggle({ isOpen, handleToggle }: ToggleProps) {
   return (
     <motion.div
-      className="flex justify-center items-center absolute top-[24px] right-[24px] rounded-[50px] cursor-pointer active:scale-90"
+      className="flex justify-center items-center absolute top-[30px] right-[24px] rounded-[50px] cursor-pointer active:scale-90"
       role="menuitem"
       tabIndex={0}
       onClick={handleToggle}
