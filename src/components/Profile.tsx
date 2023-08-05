@@ -6,7 +6,7 @@ export default function Profile() {
     <Link href="/">
       <Image
         alt="me"
-        src="/Me.jpg"
+        src={'https://wildanazz.blob.core.windows.net/profile/Me.JPG'}
         width={48}
         height={48}
         className="rounded-full"
