@@ -149,7 +149,7 @@ export default function Home({
               </div>
             </>
           )}
-          <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
+          <h2 className="text-3xl md:text-4xl mb-5 text-black dark:text-white">
             Featured projects
           </h2>
           <div className="w-auto xl:w-full">
