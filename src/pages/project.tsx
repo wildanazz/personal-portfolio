@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { InferGetStaticPropsType } from 'next'
 import { motion } from 'framer-motion'
 import { getProjectsFromApi } from '@/lib/load-projects'
-import Footer from '@/components/Footer'
+import { GitHub, Twitter, Facebook, LinkedIn } from '@/components/Icons'
 
 export default function Project({
   projects,
@@ -34,12 +34,90 @@ export default function Project({
             <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#00ace9]">
               Projects
             </h1>
-            <p className="text-2xl sm:text-3xl lg:text-4xl">
+            <p className="pb-4 text-2xl sm:text-3xl lg:text-4xl">
               Collections of projects I&apos;ve been working and worked on.
             </p>
+            <div className="flex flex-row gap-1">
+              <motion.div whileTap={{ scale: 1.5 }}>
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: [0, 1, 1.5, 1] }}
+                  transition={{
+                    type: 'spring',
+                    duration: 1,
+                    delay: 0.2,
+                  }}
+                >
+                  <a
+                    href="https://github.com/wildanazz"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <GitHub width={36} height={36} />
+                  </a>
+                </motion.div>
+              </motion.div>
+              <motion.div whileTap={{ scale: 1.5 }}>
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: [0, 1, 1.5, 1] }}
+                  transition={{
+                    type: 'spring',
+                    duration: 1,
+                    delay: 0.4,
+                  }}
+                >
+                  <a
+                    href="https://twitter.com/wildanazz"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Twitter width={36} height={36} />
+                  </a>
+                </motion.div>
+              </motion.div>
+              <motion.div whileTap={{ scale: 1.5 }}>
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: [0, 1, 1.5, 1] }}
+                  transition={{
+                    type: 'spring',
+                    duration: 1,
+                    delay: 0.6,
+                  }}
+                >
+                  <a
+                    href="https://www.facebook.com/wildanazzwa/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Facebook width={36} height={36} />
+                  </a>
+                </motion.div>
+              </motion.div>
+              <motion.div whileTap={{ scale: 1.5 }}>
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: [0, 1, 1.5, 1] }}
+                  transition={{
+                    type: 'spring',
+                    duration: 1,
+                    delay: 0.8,
+                  }}
+                >
+                  <a
+                    href="https://www.linkedin.com/in/wildanazz/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <LinkedIn width={36} height={36} />
+                  </a>
+                </motion.div>
+              </motion.div>
+            </div>
           </div>
           {/* Contents */}
-          <div className="text-base sm:text-lg font-light leading-relaxed text-gray-600 mt-24 right-0 static xl:absolute w-auto xl:w-3/5">
+          <div className="text-base sm:text-lg font-light leading-relaxed text-gray-600 mt-12 right-0 static xl:absolute w-auto xl:w-3/5">
             <div className="mb-14 flex flex-col w-full gap-4">
               {projects.map((project) => (
                 <motion.article

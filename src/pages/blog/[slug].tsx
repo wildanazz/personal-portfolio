@@ -3,6 +3,7 @@ import moment from 'moment'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import Layout from '@/components/Layout'
+import Social from '@/components/Social'
 import Footer from '@/components/Footer'
 
 export default function ArticlePage({ article }: any) {
@@ -38,13 +39,14 @@ export default function ArticlePage({ article }: any) {
         </p>
 
         {/* Content */}
-        <section className="mb-14 mt-6 font-light leading-relaxed w-full flex flex-col items-center">
+        <section className="mt-6 font-light leading-relaxed w-full flex flex-col items-center">
           <article
             className="prose dark:prose-dark lg:prose-lg w-full md:w-5/6 xl:w-9/12"
             dangerouslySetInnerHTML={{ __html: article.body_markdown }}
           />
         </section>
       </Layout>
+      <Social />
       <Footer />
     </>
   )

@@ -5,6 +5,7 @@ import moment from 'moment'
 import { motion } from 'framer-motion'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import Layout from '@/components/Layout'
+import { GitHub, Twitter, Facebook, LinkedIn } from '@/components/Icons'
 import Footer from '@/components/Footer'
 
 export default function Blog({
@@ -26,13 +27,91 @@ export default function Blog({
           <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#00ace9]">
             Blog
           </h1>
-          <p className="text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
+          <p className="pb-4 text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
             I share anything that may help others, technologies I&apos;m using
             and cool things I&apos;ve made.
           </p>
+          <div className="flex flex-row gap-1">
+            <motion.div whileTap={{ scale: 1.5 }}>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: [0, 1, 1.5, 1] }}
+                transition={{
+                  type: 'spring',
+                  duration: 1,
+                  delay: 0.2,
+                }}
+              >
+                <a
+                  href="https://github.com/wildanazz"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <GitHub width={36} height={36} />
+                </a>
+              </motion.div>
+            </motion.div>
+            <motion.div whileTap={{ scale: 1.5 }}>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: [0, 1, 1.5, 1] }}
+                transition={{
+                  type: 'spring',
+                  duration: 1,
+                  delay: 0.4,
+                }}
+              >
+                <a
+                  href="https://twitter.com/wildanazz"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Twitter width={36} height={36} />
+                </a>
+              </motion.div>
+            </motion.div>
+            <motion.div whileTap={{ scale: 1.5 }}>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: [0, 1, 1.5, 1] }}
+                transition={{
+                  type: 'spring',
+                  duration: 1,
+                  delay: 0.6,
+                }}
+              >
+                <a
+                  href="https://www.facebook.com/wildanazzwa/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Facebook width={36} height={36} />
+                </a>
+              </motion.div>
+            </motion.div>
+            <motion.div whileTap={{ scale: 1.5 }}>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: [0, 1, 1.5, 1] }}
+                transition={{
+                  type: 'spring',
+                  duration: 1,
+                  delay: 0.8,
+                }}
+              >
+                <a
+                  href="https://www.linkedin.com/in/wildanazz/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <LinkedIn width={36} height={36} />
+                </a>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
 
-        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-24">
+        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-12">
           {articles.map((article) => (
             <motion.div key={article.id}>
               <motion.div className="mb-14 flex flex-col sm:flex-row w-full">

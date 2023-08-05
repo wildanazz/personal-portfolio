@@ -8,7 +8,7 @@ const variants = {
   open: {
     height: '100vh',
     opacity: 0.9,
-    backgroundColor: '#00020d',
+    backgroundColor: '#000000',
   },
   closed: {
     height: 0,
