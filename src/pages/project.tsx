@@ -37,9 +37,6 @@ export default function Project({
             <p className="text-2xl sm:text-3xl lg:text-4xl">
               Collections of projects I&apos;ve been working and worked on.
             </p>
-            <div className="hidden xl:block fixed bottom-0 w-auto xl:w-1/5">
-              <Footer />
-            </div>
           </div>
           {/* Contents */}
           <div className="text-base sm:text-lg font-light leading-relaxed text-gray-600 mt-24 right-0 static xl:absolute w-auto xl:w-3/5">
@@ -70,9 +67,6 @@ export default function Project({
           </div>
         </main>
       </motion.div>
-      <div className="block xl:hidden">
-        <Footer />
-      </div>
     </>
   )
 }
