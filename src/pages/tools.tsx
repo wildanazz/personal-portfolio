@@ -146,11 +146,7 @@ export default function Tools() {
                 className="m-4 flex flex-col justify-center"
                 variants={variantItem}
               >
-                <motion.div
-                  whileTap={{ scale: 1.1 }}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                >
+                <motion.div whileTap={{ scale: 1.1 }}>
                   <Image
                     src={tool.path}
                     alt={tool.title}
