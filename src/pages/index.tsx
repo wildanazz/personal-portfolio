@@ -6,7 +6,7 @@ import Link from 'next/link'
 import moment from 'moment'
 import { motion } from 'framer-motion'
 import Layout from '@/components/Layout'
-import Social from '@/components/Social'
+import { GitHub, Twitter, Facebook, LinkedIn } from '@/components/Icons'
 import Footer from '@/components/Footer'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import { getLanguagesFromFork, getProjectsFromApi } from '@/lib/load-projects'
@@ -44,13 +44,91 @@ export default function Home({
               alt="helmet"
             />
           </div>
-          <p className="text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
+          <p className="pb-4 text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
             I&apos;m a Software Engineer and currently living in Brisbane, AU.
           </p>
+          <div className="flex flex-row gap-1">
+            <motion.div whileTap={{ scale: 1.5 }}>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: [0, 1, 1.5, 1] }}
+                transition={{
+                  type: 'spring',
+                  duration: 1,
+                  delay: 0.2,
+                }}
+              >
+                <a
+                  href="https://github.com/wildanazz"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <GitHub width={36} height={36} />
+                </a>
+              </motion.div>
+            </motion.div>
+            <motion.div whileTap={{ scale: 1.5 }}>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: [0, 1, 1.5, 1] }}
+                transition={{
+                  type: 'spring',
+                  duration: 1,
+                  delay: 0.4,
+                }}
+              >
+                <a
+                  href="https://twitter.com/wildanazz"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Twitter width={36} height={36} />
+                </a>
+              </motion.div>
+            </motion.div>
+            <motion.div whileTap={{ scale: 1.5 }}>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: [0, 1, 1.5, 1] }}
+                transition={{
+                  type: 'spring',
+                  duration: 1,
+                  delay: 0.6,
+                }}
+              >
+                <a
+                  href="https://www.facebook.com/wildanazzwa/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Facebook width={36} height={36} />
+                </a>
+              </motion.div>
+            </motion.div>
+            <motion.div whileTap={{ scale: 1.5 }}>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: [0, 1, 1.5, 1] }}
+                transition={{
+                  type: 'spring',
+                  duration: 1,
+                  delay: 0.8,
+                }}
+              >
+                <a
+                  href="https://www.linkedin.com/in/wildanazz/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <LinkedIn width={36} height={36} />
+                </a>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
 
         {/* About */}
-        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 dark:text-gray-300 mt-24">
+        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 dark:text-gray-300 mt-12">
           <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
             About
           </h2>
@@ -149,7 +227,7 @@ export default function Home({
               </div>
             </>
           )}
-          <h2 className="text-3xl md:text-4xl mb-5 text-black dark:text-white">
+          <h2 className="text-3xl md:text-4xl mb-6 text-black dark:text-white">
             Featured projects
           </h2>
           <div className="w-auto xl:w-full">
@@ -193,7 +271,6 @@ export default function Home({
         </div>
       </Layout>
       <Footer />
-      <Social />
     </>
   )
 }
