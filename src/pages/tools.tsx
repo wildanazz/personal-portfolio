@@ -134,7 +134,7 @@ export default function Tools() {
 
         {/* Images */}
         <motion.div
-          className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed mt-12 w-full gap-x-5"
+          className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed mt-12 w-full"
           variants={variant}
           initial="hidden"
           animate="show"
