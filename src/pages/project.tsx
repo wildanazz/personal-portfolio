@@ -23,9 +23,9 @@ export default function Project({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        initial={{ x: -200, y: 0, opacity: 0 }}
+        animate={{ x: 0, y: 0, opacity: 1 }}
+        exit={{ x: 0, y: -100, opacity: 0 }}
         transition={{ type: 'linear' }}
       >
         <main className="relative flex flex-col mt-24 mx-8 sm:mx-16 md:mx-36 lg:mx-52 xl:mx-80 2xl:mx-96">
