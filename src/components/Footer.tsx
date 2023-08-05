@@ -9,7 +9,9 @@ export default function Footer() {
         className="flex flex-col justify-center items-center gap-2.5"
       >
         <p>© 2023 MWA.</p>
-        <p>wildanazzwa@gmail.com</p>
+        <a href="mailto:wildanazzwa@gmail.com?Subject=Hello">
+          wildanazzwa@gmail.com
+        </a>
       </motion.div>
     </footer>
   )
