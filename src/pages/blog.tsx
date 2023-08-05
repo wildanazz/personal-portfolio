@@ -117,7 +117,7 @@ export default function Blog({
               <motion.div className="mb-14 flex flex-col sm:flex-row w-full">
                 <Link href={`/blog/${article.slug}`} legacyBehavior>
                   <a className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300">
-                    <h3 className="text-2xl text-gray-600 dark:text-gray-100">
+                    <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#00ace9]">
                       {article.title}
                     </h3>
                     <p className="text-sm my-1">
