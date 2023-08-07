@@ -137,7 +137,7 @@ export default function Home({
             Node.js, Python, and Java. I also make use of Cloud Computing
             technologies such as Docker and Kubernetes for my projects many
             times. I&apos;m now currently experimenting with Serverless
-            technologies on AWS.
+            technologies on Azure.
           </p>
           <p className="my-2">
             In my spare time I create content for my blog where I discuss other
