@@ -129,7 +129,11 @@ export default function Project({
                   className="bg-[#00020d] bg-opacity-10 rounded-md"
                 >
                   <Link href={project.html_url} legacyBehavior>
-                    <a className="w-full text-gray-500 dark:text-gray-300 block p-[40px] break-words">
+                    <a
+                      className="w-full text-gray-500 dark:text-gray-300 block p-[40px] break-words"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <p className="text-xs uppercase tracking-[2.5px]">
                         {project.language}
                       </p>

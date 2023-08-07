@@ -242,7 +242,11 @@ export default function Home({
                   className="bg-[#00020d] bg-opacity-10 rounded-md"
                 >
                   <Link href={project.data.html_url} legacyBehavior>
-                    <a className="w-full text-gray-500 dark:text-gray-300 block p-[40px] break-words">
+                    <a
+                      className="w-full text-gray-500 dark:text-gray-300 block p-[40px] break-words"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       {project.fork ? (
                         <p className="text-xs uppercase tracking-[2.5px]">
                           <span>
