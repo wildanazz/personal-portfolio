@@ -37,7 +37,22 @@ export default function Navbar() {
     >
       <Curtain isOpen={isOpen} />
       <div className="flex flex-row justify-center items-center absolute top-[30px] left-[24px] rounded-[50px] text-3xl text-yellow-400 dark:text-yellow-300 focus:outline-none gap-5">
-        <Profile />
+        <Link href="/">
+          <div className="flex flex-row justify-center items-center gap-2.5">
+            <Profile />
+            <motion.h2
+              initial={{ y: -20, opacity: 0 }}
+              animate={{
+                y: 0,
+                opacity: 1,
+              }}
+              transition={{ duration: 0.2 }}
+              className="text-black dark:text-white font-extrabold text-2xl"
+            >
+              Wildan
+            </motion.h2>
+          </div>
+        </Link>
         <DarkModeToggle />
       </div>
       <nav className="text-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
