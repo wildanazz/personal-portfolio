@@ -77,12 +77,12 @@ export default function Navbar() {
       <Curtain isOpen={isOpen} />
       <div className="flex flex-row justify-center items-center absolute top-[30px] left-[24px] rounded-[50px] text-3xl text-yellow-400 dark:text-yellow-300 focus:outline-none gap-5">
         <Link href="/">
-          <div className="flex flex-row justify-center items-center gap-2.5">
+          <div className="flex flex-row justify-center items-center gap-2.5 pr-2.5 rounded-full bg-[#101414] dark:bg-white bg-opacity-90 dark:bg-opacity-10">
             <Profile />
             <motion.h2 className="text-[2rem] font-semibold">
               {text.split('').map((word, index) => (
                 <motion.span
-                  className="text-black dark:text-white whitespace-nowrap"
+                  className="text-white whitespace-nowrap"
                   ref={ref}
                   aria-hidden="true"
                   key={index}
