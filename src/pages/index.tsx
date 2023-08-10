@@ -151,14 +151,14 @@ export default function Home({
             manner.
           </p>
           <p className="my-2">
-            Check out my resume{' '}
+            Check out my{' '}
             <Link
               href="/Resume.pdf"
               className="text-[#d23669] dark:text-[#00ace9] font-bold hover:text-gray-600"
               target="_blank"
               aria-label="resume"
             >
-              here
+              resume
             </Link>
             .
           </p>
