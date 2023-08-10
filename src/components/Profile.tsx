@@ -11,6 +11,7 @@ export default function Profile() {
         height={48}
         sizes="(max-width: 48px) 100vw, (max-width: 48px) 50vw, 100vw"
         className="rounded-full"
+        loading="eager"
       />
     </Link>
   )
