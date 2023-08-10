@@ -52,6 +52,7 @@ export default function Project({
                     href="https://github.com/wildanazz"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="Github"
                   >
                     <GitHub width={36} height={36} />
                   </a>
@@ -71,6 +72,7 @@ export default function Project({
                     href="https://twitter.com/wildanazz"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="Twitter"
                   >
                     <Twitter width={36} height={36} />
                   </a>
@@ -90,6 +92,7 @@ export default function Project({
                     href="https://www.facebook.com/wildanazzwa/"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="Facebook"
                   >
                     <Facebook width={36} height={36} />
                   </a>
@@ -109,6 +112,7 @@ export default function Project({
                     href="https://www.linkedin.com/in/wildanazz/"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="Linkedin"
                   >
                     <LinkedIn width={36} height={36} />
                   </a>
