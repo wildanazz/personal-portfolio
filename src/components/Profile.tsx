@@ -9,7 +9,6 @@ export default function Profile() {
         src="https://wildanazz.azureedge.net/profile/Me.webp"
         width={48}
         height={48}
-        sizes="(max-width: 48px) 100vw, (max-width: 48px) 50vw, 100vw"
         className="rounded-full"
         loading="eager"
       />
