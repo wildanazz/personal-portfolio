@@ -152,6 +152,7 @@ export default function Home({
               href="/Resume.pdf"
               className="text-[#d23669] dark:text-[#00ace9] font-bold hover:text-gray-600"
               target="_blank"
+              aria-label="resume"
             >
               here
             </Link>
