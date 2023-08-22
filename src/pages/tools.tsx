@@ -45,7 +45,7 @@ export default function Tools() {
       <Layout>
         {/* Header */}
         <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#00ace9]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#d4433b]">
             Tools
           </h1>
           <p className="pb-4 text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
@@ -138,7 +138,7 @@ export default function Tools() {
 
         {/* Images */}
         <motion.div
-          className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed mt-12 w-full"
+          className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed my-12 w-full"
           variants={variant}
           initial="hidden"
           animate="show"

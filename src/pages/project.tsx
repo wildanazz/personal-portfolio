@@ -31,7 +31,7 @@ export default function Project({
         <main className="relative flex flex-col mt-24 mx-8 sm:mx-16 md:mx-36 lg:mx-52 xl:mx-80 2xl:mx-96">
           {/* Header */}
           <div className="mt-14 lg:mt-32 font-light text-black dark:text-white static xl:fixed w-auto xl:w-1/5">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#00ace9]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#d4433b]">
               Projects
             </h1>
             <p className="pb-4 text-2xl sm:text-3xl lg:text-4xl">
@@ -130,18 +130,18 @@ export default function Project({
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.025 }}
                   key={project.id}
-                  className="bg-[#00020d] bg-opacity-10 rounded-md"
+                  className="bg-[#00020d] dark:bg-[#d4433b] dark:bg-opacity-50 rounded-md"
                 >
                   <Link href={project.html_url} legacyBehavior>
                     <a
-                      className="w-full text-gray-500 dark:text-gray-300 block p-[40px] break-words"
+                      className="w-full text-gray-300 block p-[40px] break-words"
                       target="_blank"
                       rel="noreferrer"
                     >
                       <p className="text-xs uppercase tracking-[2.5px]">
                         {project.language}
                       </p>
-                      <h3 className="text-2xl text-gray-600 dark:text-gray-100 mt-2">
+                      <h3 className="text-2xl text-gray-100 mt-2">
                         {project.full_name}
                       </h3>
                       <p className="text-base mt-2">{project.description}</p>

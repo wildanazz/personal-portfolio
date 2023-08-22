@@ -24,7 +24,7 @@ export default function Blog({
       </Head>
       <Layout>
         <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#00ace9]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#d4433b]">
             Blog
           </h1>
           <p className="pb-4 text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
@@ -121,7 +121,7 @@ export default function Blog({
               <motion.div className="mb-14 flex flex-col sm:flex-row w-full">
                 <Link href={`/blog/${article.slug}`} legacyBehavior>
                   <a className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300">
-                    <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#00ace9]">
+                    <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b]">
                       {article.title}
                     </h3>
                     <p className="text-sm my-1">

@@ -32,9 +32,9 @@ export default function Home({
       </Head>
       <Layout>
         {/* Header */}
-        <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
+        <div className="mt-14 lg:mt-32 font-light w-full text-[#00020d] dark:text-white">
           <div className="flex flex-row gap-4 flex-wrap pb-4 items-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#00ace9]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#d4433b]">
               Hi, I&apos;m Wildan
             </h1>
             <Image
@@ -133,7 +133,7 @@ export default function Home({
 
         {/* About */}
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 dark:text-gray-300 mt-12">
-          <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
+          <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white">
             About
           </h2>
           <p className="my-2">
@@ -154,7 +154,7 @@ export default function Home({
             Check out my{' '}
             <Link
               href="/Resume.pdf"
-              className="text-[#d23669] dark:text-[#00ace9] font-bold hover:text-gray-600"
+              className="text-[#d23669] dark:text-[#d4433b] font-bold"
               target="_blank"
               aria-label="resume"
             >
@@ -166,14 +166,14 @@ export default function Home({
 
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-12">
           {/* Latest Article */}
-          <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
+          <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white">
             Latest article
           </h2>
           <div className="mb-14 flex flex-col sm:flex-row w-full">
             <Link href={`/blog/${latestArticle.slug}`} legacyBehavior>
               <a className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300">
                 <div key={latestArticle.id}>
-                  <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#00ace9]">
+                  <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b]">
                     {latestArticle.title}
                   </h3>
                   <p className="text-sm my-1">
@@ -199,14 +199,14 @@ export default function Home({
           {/* Featured Article */}
           {featuredArticle && (
             <>
-              <h2 className="text-3xl md:text-4xl mb-4 text-black dark:text-white">
+              <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white">
                 Featured article
               </h2>
               <div className="mb-14 flex flex-col sm:flex-row w-full">
                 <Link href={`/blog/${featuredArticle.slug}`} legacyBehavior>
                   <a className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300">
                     <div key={featuredArticle.id}>
-                      <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#00ace9]">
+                      <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b]">
                         {featuredArticle.title}
                       </h3>
                       <p className="text-sm my-1">
@@ -232,7 +232,7 @@ export default function Home({
               </div>
             </>
           )}
-          <h2 className="text-3xl md:text-4xl mb-6 text-black dark:text-white">
+          <h2 className="text-3xl md:text-4xl mb-6 text-[#00020d] dark:text-white">
             Featured projects
           </h2>
           <div className="w-auto xl:w-full">
@@ -244,11 +244,11 @@ export default function Home({
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.025 }}
                   key={project.data.id}
-                  className="bg-[#00020d] bg-opacity-10 rounded-md"
+                  className="bg-[#00020d] dark:bg-[#d4433b] dark:bg-opacity-50 rounded-md"
                 >
                   <Link href={project.data.html_url} legacyBehavior>
                     <a
-                      className="w-full text-gray-500 dark:text-gray-300 block p-[40px] break-words"
+                      className="w-full text-gray-300 block p-[40px] break-words"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -265,7 +265,7 @@ export default function Home({
                           {project.data.language}
                         </p>
                       )}
-                      <h3 className="text-2xl text-gray-600 dark:text-gray-100 mt-2">
+                      <h3 className="text-2xl text-gray-100 mt-2">
                         {project.data.full_name}
                       </h3>
                       <p className="text-base mt-2">
