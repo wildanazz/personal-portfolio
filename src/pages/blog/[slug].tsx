@@ -4,7 +4,6 @@ import { motion, useScroll, useSpring } from 'framer-motion'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import Layout from '@/components/Layout'
 import { GitHub, Twitter, Facebook, LinkedIn } from '@/components/Icons'
-import Footer from '@/components/Footer'
 
 export default function ArticlePage({ article }: any) {
   const { scrollYProgress } = useScroll()
@@ -135,7 +134,7 @@ export default function ArticlePage({ article }: any) {
                 duration: 1,
                 delay: 0.2,
               }}
-              className="text-[#d23669] dark:text-[#d4433b] font-bold"
+              className="text-[#d23669] dark:text-[#d4433b] text-sm"
             >
               Powered by the Dev.to API
             </motion.p>
