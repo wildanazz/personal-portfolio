@@ -16,9 +16,15 @@ export default function Toggle({ isOpen, handleToggle }: ToggleProps) {
       onClick={handleToggle}
     >
       {isOpen ? (
-        <IoClose className="text-white text-5xl rounded-[50px] dark:text-gray-300" />
+        <IoClose
+          role="none"
+          className="text-white text-5xl rounded-[50px] dark:text-gray-300"
+        />
       ) : (
-        <IoMenu className="text-black text-5xl rounded-[50px] dark:text-gray-300" />
+        <IoMenu
+          role="none"
+          className="text-black text-5xl rounded-[50px] dark:text-gray-300"
+        />
       )}
     </motion.div>
   )
