@@ -11,6 +11,7 @@ export default function Toggle({ isOpen, handleToggle }: ToggleProps) {
     <motion.div
       className="flex justify-center items-center absolute top-[30px] right-[24px] rounded-[50px] cursor-pointer active:scale-90"
       role="menuitem"
+      aria-label="hamburger"
       tabIndex={0}
       onClick={handleToggle}
     >
