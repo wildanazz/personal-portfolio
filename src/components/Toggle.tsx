@@ -10,19 +10,19 @@ export default function Toggle({ isOpen, handleToggle }: ToggleProps) {
   return (
     <motion.div
       className="flex justify-center items-center absolute top-[30px] right-[24px] rounded-[50px] cursor-pointer active:scale-90"
-      role="menuitem"
+      role="menu"
       aria-label="hamburger"
       tabIndex={0}
       onClick={handleToggle}
     >
       {isOpen ? (
         <IoClose
-          role="none"
+          role="menuitem"
           className="text-white text-5xl rounded-[50px] dark:text-gray-300"
         />
       ) : (
         <IoMenu
-          role="none"
+          role="menuitem"
           className="text-black text-5xl rounded-[50px] dark:text-gray-300"
         />
       )}
