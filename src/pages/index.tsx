@@ -18,6 +18,8 @@ export default function Home({
   featuredProjects,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [isHovered, setHovered] = useState(false)
+  const [isLatestHovered, setLatestHovered] = useState(false)
+  const [isFeaturedHovered, setFeaturedHovered] = useState(false)
 
   return (
     <>
@@ -171,9 +173,19 @@ export default function Home({
           </h2>
           <div className="mb-14 flex flex-col sm:flex-row w-full">
             <Link href={`/blog/${latestArticle.slug}`} legacyBehavior>
-              <a className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300">
+              <a
+                className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300"
+                onMouseEnter={() => setLatestHovered(true)}
+                onMouseLeave={() => setLatestHovered(false)}
+              >
                 <div key={latestArticle.id}>
-                  <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b]">
+                  <h3
+                    className={`text-2xl transition-colors + ${
+                      isLatestHovered
+                        ? 'text-[#d23669] dark:text-[#d4433b]'
+                        : 'text-gray-600 dark:text-gray-100'
+                    }`}
+                  >
                     {latestArticle.title}
                   </h3>
                   <p className="text-sm my-1">
@@ -204,9 +216,19 @@ export default function Home({
               </h2>
               <div className="mb-14 flex flex-col sm:flex-row w-full">
                 <Link href={`/blog/${featuredArticle.slug}`} legacyBehavior>
-                  <a className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300">
+                  <a
+                    className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300"
+                    onMouseEnter={() => setFeaturedHovered(true)}
+                    onMouseLeave={() => setFeaturedHovered(false)}
+                  >
                     <div key={featuredArticle.id}>
-                      <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b]">
+                      <h3
+                        className={`text-2xl transition-colors + ${
+                          isFeaturedHovered
+                            ? 'text-[#d23669] dark:text-[#d4433b]'
+                            : 'text-gray-600 dark:text-gray-100'
+                        }`}
+                      >
                         {featuredArticle.title}
                       </h3>
                       <p className="text-sm my-1">

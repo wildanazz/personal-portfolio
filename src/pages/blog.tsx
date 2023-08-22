@@ -120,19 +120,19 @@ export default function Blog({
             <motion.div key={article.id}>
               <motion.div className="mb-14 flex flex-col sm:flex-row w-full">
                 <Link href={`/blog/${article.slug}`} legacyBehavior>
-                  <a className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300">
-                    <h3 className="text-2xl text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b]">
-                      {article.title}
-                    </h3>
-                    <p className="text-sm my-1">
+                  <a className="w-full text-gray-600 sm:w-4/5 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b] transition-colors">
+                    <h3 className="text-2xl">{article.title}</h3>
+                    <p className="text-sm my-1 text-gray-500 dark:text-gray-300">
                       <span>
                         {moment(article.published_at).format('Do MMMM YYYY')}
                       </span>
                       <span className="px-1">-</span>
                       <span>{article.tag_list.map((tag) => `#${tag} `)}</span>
                     </p>
-                    <p className="text-base mt-2">{article.description}</p>
-                    <p className="text-base mt-2 underline hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
+                    <p className="text-base mt-2 text-gray-500 dark:text-gray-300">
+                      {article.description}
+                    </p>
+                    <p className="text-base mt-2 underline text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
                       Read more
                     </p>
                   </a>

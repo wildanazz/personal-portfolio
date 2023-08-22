@@ -4,7 +4,6 @@ import { motion, useScroll, useSpring } from 'framer-motion'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import Layout from '@/components/Layout'
 import { GitHub, Twitter, Facebook, LinkedIn } from '@/components/Icons'
-import Footer from '@/components/Footer'
 
 export default function ArticlePage({ article }: any) {
   const { scrollYProgress } = useScroll()
@@ -44,7 +43,7 @@ export default function ArticlePage({ article }: any) {
             className="prose dark:prose-dark lg:prose-lg w-full md:w-5/6 xl:w-9/12"
             dangerouslySetInnerHTML={{ __html: article.body_markdown }}
           />
-          <div className="flex flex-col h-[90px] items-center justify-center mt-12 mb-12 gap-y-1">
+          <div className="flex flex-col h-[120px] items-center justify-center mt-6 mb-6 gap-y-1">
             <div className="flex flex-row gap-x-1">
               <motion.div whileTap={{ scale: 1.5 }}>
                 <motion.div
@@ -135,7 +134,7 @@ export default function ArticlePage({ article }: any) {
                 duration: 1,
                 delay: 0.2,
               }}
-              className="text-[#d23669] dark:text-[#d4433b] font-bold"
+              className="text-[#d23669] dark:text-[#d4433b] text-sm"
             >
               Powered by the Dev.to API
             </motion.p>

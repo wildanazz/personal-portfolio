@@ -8,8 +8,11 @@ export default function Footer() {
         whileInView={{ y: 0, opacity: 1 }}
         className="flex flex-col justify-center items-center gap-y-1"
       >
-        <p>© 2023 MWA.</p>
-        <a href="mailto:wildanazzwa@gmail.com?Subject=Hello">
+        <p className="text-sm">© 2023 MWA.</p>
+        <a
+          className="text-sm"
+          href="mailto:wildanazzwa@gmail.com?Subject=Hello"
+        >
           wildanazzwa@gmail.com
         </a>
       </motion.div>
