@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { GitHub, Twitter, Facebook, LinkedIn } from './Icons'
 
@@ -82,7 +81,7 @@ export default function Social() {
         </motion.div>
       </motion.div>
       <motion.span
-        className="w-[2px] bg-[#d23669] dark:bg-[#00ace9] mt-[8px]"
+        className="w-[2px] bg-[#d23669] dark:bg-[#d4433b] mt-[8px]"
         initial={{
           height: 0,
         }}
