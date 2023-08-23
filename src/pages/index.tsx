@@ -237,8 +237,8 @@ export default function Home({
             <div className="mb-14 flex flex-col w-full gap-4">
               {featuredProjects.map((project: any) => (
                 <motion.article
-                  onMouseEnter={() => setHovered(true)}
-                  onMouseLeave={() => setHovered(false)}
+                  onHoverStart={() => setHovered(true)}
+                  onHoverEnd={() => setHovered(false)}
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.025 }}
                   key={project.data.id}
