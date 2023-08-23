@@ -142,6 +142,7 @@ export default function Blog({
           ))}
         </div>
       </Layout>
+      <hr className="h-px my-8 bg-[#d23669] border-0 dark:bg-[#d4433b]" />
       <Footer />
     </>
   )

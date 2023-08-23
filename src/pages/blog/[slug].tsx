@@ -4,6 +4,7 @@ import { motion, useScroll, useSpring } from 'framer-motion'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import Layout from '@/components/Layout'
 import { GitHub, Twitter, Facebook, LinkedIn } from '@/components/Icons'
+import Footer from '@/components/Footer'
 
 export default function ArticlePage({ article }: any) {
   const { scrollYProgress } = useScroll()
@@ -38,109 +39,14 @@ export default function ArticlePage({ article }: any) {
         </p>
 
         {/* Content */}
-        <section className="mt-6 font-light leading-relaxed w-full flex flex-col items-center">
+        <section className="mt-6 mb-12 font-light leading-relaxed w-full flex flex-col items-center">
           <article
             className="prose dark:prose-dark lg:prose-lg w-full md:w-5/6 xl:w-9/12"
             dangerouslySetInnerHTML={{ __html: article.body_markdown }}
           />
-          <div className="flex flex-col h-[120px] items-center justify-center mt-6 mb-6 gap-y-1">
-            <div className="flex flex-row gap-x-1">
-              <motion.div whileTap={{ scale: 1.5 }}>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: [0, 1, 1.5, 1] }}
-                  transition={{
-                    type: 'spring',
-                    duration: 1,
-                    delay: 0.2,
-                  }}
-                >
-                  <a
-                    href="https://github.com/wildanazz"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Github"
-                  >
-                    <GitHub width={36} height={36} />
-                  </a>
-                </motion.div>
-              </motion.div>
-              <motion.div whileTap={{ scale: 1.5 }}>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: [0, 1, 1.5, 1] }}
-                  transition={{
-                    type: 'spring',
-                    duration: 1,
-                    delay: 0.4,
-                  }}
-                >
-                  <a
-                    href="https://twitter.com/wildanazz"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Twitter"
-                  >
-                    <Twitter width={36} height={36} />
-                  </a>
-                </motion.div>
-              </motion.div>
-              <motion.div whileTap={{ scale: 1.5 }}>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: [0, 1, 1.5, 1] }}
-                  transition={{
-                    type: 'spring',
-                    duration: 1,
-                    delay: 0.6,
-                  }}
-                >
-                  <a
-                    href="https://www.facebook.com/wildanazzwa/"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Facebook"
-                  >
-                    <Facebook width={36} height={36} />
-                  </a>
-                </motion.div>
-              </motion.div>
-              <motion.div whileTap={{ scale: 1.5 }}>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: [0, 1, 1.5, 1] }}
-                  transition={{
-                    type: 'spring',
-                    duration: 1,
-                    delay: 0.8,
-                  }}
-                >
-                  <a
-                    href="https://www.linkedin.com/in/wildanazz/"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Linkedin"
-                  >
-                    <LinkedIn width={36} height={36} />
-                  </a>
-                </motion.div>
-              </motion.div>
-            </div>
-            <motion.p
-              initial={{ scale: 0 }}
-              animate={{ scale: [0, 1, 1.5, 1] }}
-              transition={{
-                type: 'spring',
-                duration: 1,
-                delay: 0.2,
-              }}
-              className="text-[#d23669] dark:text-[#d4433b] text-sm"
-            >
-              Powered by the Dev.to API
-            </motion.p>
-          </div>
         </section>
       </Layout>
+      <Footer />
     </>
   )
 }
