@@ -18,8 +18,6 @@ export default function Home({
   featuredProjects,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [isHovered, setHovered] = useState(false)
-  const [isLatestHovered, setLatestHovered] = useState(false)
-  const [isFeaturedHovered, setFeaturedHovered] = useState(false)
 
   return (
     <>
@@ -173,22 +171,10 @@ export default function Home({
           </h2>
           <div className="mb-14 flex flex-col sm:flex-row w-full">
             <Link href={`/blog/${latestArticle.slug}`} legacyBehavior>
-              <a
-                className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300"
-                onMouseEnter={() => setLatestHovered(true)}
-                onMouseLeave={() => setLatestHovered(false)}
-              >
+              <a className="w-full text-gray-600 sm:w-4/5 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b] transition-colors">
                 <div key={latestArticle.id}>
-                  <h3
-                    className={`text-2xl transition-colors + ${
-                      isLatestHovered
-                        ? 'text-[#d23669] dark:text-[#d4433b]'
-                        : 'text-gray-600 dark:text-gray-100'
-                    }`}
-                  >
-                    {latestArticle.title}
-                  </h3>
-                  <p className="text-sm my-1">
+                  <h3 className="text-2xl">{latestArticle.title}</h3>
+                  <p className="text-sm my-1 text-gray-500 dark:text-gray-300">
                     <span>
                       {moment(latestArticle.published_at).format(
                         'Do MMMM YYYY'
@@ -199,8 +185,10 @@ export default function Home({
                       {latestArticle.tag_list.map((tag) => `#${tag} `)}
                     </span>
                   </p>
-                  <p className="text-base mt-2">{latestArticle.description}</p>
-                  <p className="text-base mt-2 underline hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
+                  <p className="text-base mt-2 text-gray-500 dark:text-gray-300">
+                    {latestArticle.description}
+                  </p>
+                  <p className="text-base mt-2 underline text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
                     Read more
                   </p>
                 </div>
@@ -216,22 +204,10 @@ export default function Home({
               </h2>
               <div className="mb-14 flex flex-col sm:flex-row w-full">
                 <Link href={`/blog/${featuredArticle.slug}`} legacyBehavior>
-                  <a
-                    className="w-full text-gray-500 sm:w-4/5 dark:text-gray-300"
-                    onMouseEnter={() => setFeaturedHovered(true)}
-                    onMouseLeave={() => setFeaturedHovered(false)}
-                  >
+                  <a className="w-full text-gray-600 sm:w-4/5 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b] transition-colors">
                     <div key={featuredArticle.id}>
-                      <h3
-                        className={`text-2xl transition-colors + ${
-                          isFeaturedHovered
-                            ? 'text-[#d23669] dark:text-[#d4433b]'
-                            : 'text-gray-600 dark:text-gray-100'
-                        }`}
-                      >
-                        {featuredArticle.title}
-                      </h3>
-                      <p className="text-sm my-1">
+                      <h3 className="text-2xl">{featuredArticle.title}</h3>
+                      <p className="text-sm my-1 text-gray-500 dark:text-gray-300">
                         <span>
                           {moment(featuredArticle.published_at).format(
                             'Do MMMM YYYY'
@@ -242,10 +218,10 @@ export default function Home({
                           {featuredArticle.tag_list.map((tag) => `#${tag} `)}
                         </span>
                       </p>
-                      <p className="text-base mt-2">
+                      <p className="text-base mt-2 text-gray-500 dark:text-gray-300">
                         {featuredArticle.description}
                       </p>
-                      <p className="text-base mt-2 underline hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
+                      <p className="text-base mt-2 underline text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
                         Read more
                       </p>
                     </div>
@@ -261,8 +237,8 @@ export default function Home({
             <div className="mb-14 flex flex-col w-full gap-4">
               {featuredProjects.map((project: any) => (
                 <motion.article
-                  onMouseEnter={() => setHovered(true)}
-                  onMouseLeave={() => setHovered(false)}
+                  onHoverStart={() => setHovered(true)}
+                  onHoverEnd={() => setHovered(false)}
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.025 }}
                   key={project.data.id}
