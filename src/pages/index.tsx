@@ -192,11 +192,8 @@ export default function Home({
           <p className="my-2 text-gray-600 dark:text-gray-300">
             My Spotify playlist.
           </p>
-          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-            <ul
-              x-ref="logos"
-              className="flex items-center justify-center md:justify-start [&_li]:mx-1 [&_img]:max-w-none animate-infinite-scroll"
-            >
+          <div className="mx-auto max-w-sm md:max-w-2xl inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_25px,_black_calc(100%-25px),transparent_100%)]">
+            <ul className="flex items-center justify-center md:justify-start [&_li]:mx-1 [&_img]:max-w-none animate-infinite-scroll">
               {playlists.items.map((playlist: any) => (
                 <li key={playlist.id}>
                   <Link
@@ -205,6 +202,7 @@ export default function Home({
                     aria-label="resume"
                   >
                     <Image
+                      className="rounded-xl"
                       alt="playlist"
                       src={playlist.images[1].url}
                       width={playlist.images[1].width}
@@ -221,6 +219,7 @@ export default function Home({
               {playlists.items.map((playlist: any) => (
                 <li key={playlist.id}>
                   <Image
+                    className="rounded-xl"
                     alt="playlist"
                     src={playlist.images[1].url}
                     width={playlist.images[1].width}
