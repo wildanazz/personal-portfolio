@@ -301,7 +301,7 @@ export const getStaticProps = async () => {
     articles.find(
       (article) =>
         article.slug ===
-        'deploy-docker-application-to-droplet-using-github-actions-cicd-o8a'
+        'deploy-docker-application-to-virtual-machine-using-github-actions-cicd-3p4d'
     ) || null
 
   // Get featured projects
