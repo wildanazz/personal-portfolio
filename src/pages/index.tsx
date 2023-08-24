@@ -6,13 +6,21 @@ import Link from 'next/link'
 import moment from 'moment'
 import { motion } from 'framer-motion'
 import Layout from '@/components/Layout'
-import { GitHub, Twitter, Facebook, LinkedIn } from '@/components/Icons'
+import {
+  GitHub,
+  Twitter,
+  Facebook,
+  LinkedIn,
+  Spotify,
+} from '@/components/Icons'
 import Footer from '@/components/Footer'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import { getLanguagesFromFork, getProjectsFromApi } from '@/lib/load-projects'
 import { writeArticlesToCache, writeProjectsToCache } from '@/lib/utils'
+import { getPlaylistFromAPI } from '@/lib/load-playlist'
 
 export default function Home({
+  playlists,
   latestArticle,
   featuredArticle,
   featuredProjects,
@@ -165,6 +173,62 @@ export default function Home({
         </div>
 
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-12">
+          <div className="flex flex-row gap-4 flex-wrap mb-4 items-center">
+            {/* <h2 className="text-3xl md:text-4xl text-[#00020d] dark:text-white">
+              Playlist
+            </h2> */}
+            <Link
+              href="https://open.spotify.com/user/31gv36hn5nnojr335xoy327cixs4"
+              target="_blank"
+              aria-label="resume"
+            >
+              <Spotify width={96} height={32} />
+            </Link>
+          </div>
+          <p className="my-2 text-gray-600 dark:text-gray-300">
+            My Spotify playlist.
+          </p>
+          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+            <ul
+              x-ref="logos"
+              className="flex items-center justify-center md:justify-start [&_li]:mx-1 [&_img]:max-w-none animate-infinite-scroll"
+            >
+              {playlists.items.map((playlist: any) => (
+                <li key={playlist.id}>
+                  <Link
+                    href={playlist.external_urls.spotify}
+                    target="_blank"
+                    aria-label="resume"
+                  >
+                    <Image
+                      alt="playlist"
+                      src={playlist.images[1].url}
+                      width={playlist.images[1].width}
+                      height={playlist.images[1].height}
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <ul
+              className="flex items-center justify-center md:justify-start [&_li]:mx-1 [&_img]:max-w-none animate-infinite-scroll"
+              aria-hidden="true"
+            >
+              {playlists.items.map((playlist: any) => (
+                <li key={playlist.id}>
+                  <Image
+                    alt="playlist"
+                    src={playlist.images[1].url}
+                    width={playlist.images[1].width}
+                    height={playlist.images[1].height}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-12">
           {/* Latest Article */}
           <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white">
             Latest article
@@ -286,6 +350,7 @@ export default function Home({
 export const getStaticProps = async () => {
   const articles = await getArticlesFromAPI()
   const projects = await getProjectsFromApi()
+  const playlists = await getPlaylistFromAPI()
 
   // Write articles to cache
   writeArticlesToCache(articles)
@@ -333,7 +398,7 @@ export const getStaticProps = async () => {
   })
 
   return {
-    props: { latestArticle, featuredArticle, featuredProjects },
+    props: { playlists, latestArticle, featuredArticle, featuredProjects },
     revalidate: 10,
   }
 }
