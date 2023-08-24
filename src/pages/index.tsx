@@ -207,6 +207,7 @@ export default function Home({
                       src={playlist.images[1].url}
                       width={playlist.images[1].width}
                       height={playlist.images[1].height}
+                      loading="eager"
                     />
                   </Link>
                 </li>
@@ -224,6 +225,7 @@ export default function Home({
                     src={playlist.images[1].url}
                     width={playlist.images[1].width}
                     height={playlist.images[1].height}
+                    loading="eager"
                   />
                 </li>
               ))}
