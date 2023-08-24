@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
   images: {
-    domains: ['wildanazz.azureedge.net'],
+    domains: ['wildanazz.azureedge.net', 'mosaic.scdn.co'],
   },
 }
 
