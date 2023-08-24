@@ -16,7 +16,11 @@ import {
 import Footer from '@/components/Footer'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import { getLanguagesFromFork, getProjectsFromApi } from '@/lib/load-projects'
-import { writeArticlesToCache, writeProjectsToCache } from '@/lib/utils'
+import {
+  writeArticlesToCache,
+  writePlaylistsToCache,
+  writeProjectsToCache,
+} from '@/lib/utils'
 import { getPlaylistFromAPI } from '@/lib/load-playlist'
 
 export default function Home({
@@ -357,6 +361,9 @@ export const getStaticProps = async () => {
 
   // Write projects to cache
   writeProjectsToCache(projects)
+
+  // Write projects to cache
+  writePlaylistsToCache(playlists)
 
   // Get latest article
   const latestArticle = articles[0]

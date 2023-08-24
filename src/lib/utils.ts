@@ -43,3 +43,19 @@ export function getLanguagesFromCache(): Promise<any> {
 
   return JSON.parse(cacheContents)
 }
+
+export function writePlaylistsToCache(playlists: any[]) {
+  fs.writeFileSync(
+    path.join(process.cwd(), 'playlists-cache.json'),
+    JSON.stringify(playlists)
+  )
+}
+
+export function getPlaylistsFromCache(): any[] {
+  const cacheContents = fs.readFileSync(
+    path.join(process.cwd(), 'playlists-cache.json'),
+    'utf-8'
+  )
+
+  return JSON.parse(cacheContents)
+}
