@@ -373,7 +373,7 @@ export const getStaticProps = async () => {
     articles.find(
       (article) =>
         article.slug ===
-        'deploy-docker-application-to-virtual-machine-using-github-actions-cicd-3p4d'
+        'configure-nginx-reverse-proxy-on-ubuntu-vms-ssl-encryption-o4m'
     ) || null
 
   // Get featured projects
