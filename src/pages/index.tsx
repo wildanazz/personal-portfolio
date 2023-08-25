@@ -171,8 +171,8 @@ export default function Home({
               aria-label="resume"
             >
               resume
-            </Link>
-            .
+            </Link>{' '}
+            and cool playlist.
           </p>
 
           {/* Spotify playlist */}
@@ -180,7 +180,7 @@ export default function Home({
             <Link
               href="https://open.spotify.com/user/31gv36hn5nnojr335xoy327cixs4"
               target="_blank"
-              aria-label="resume"
+              aria-label="spotify account"
             >
               <Spotify width={96} height={32} />
             </Link>
