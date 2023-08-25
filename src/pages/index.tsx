@@ -174,13 +174,9 @@ export default function Home({
             </Link>
             .
           </p>
-        </div>
 
-        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-12">
-          <div className="flex flex-row gap-4 flex-wrap mb-4 items-center">
-            {/* <h2 className="text-3xl md:text-4xl text-[#00020d] dark:text-white">
-              Playlist
-            </h2> */}
+          {/* Spotify playlist */}
+          <div className="flex flex-row gap-4 flex-wrap my-4 items-center">
             <Link
               href="https://open.spotify.com/user/31gv36hn5nnojr335xoy327cixs4"
               target="_blank"
@@ -189,11 +185,8 @@ export default function Home({
               <Spotify width={96} height={32} />
             </Link>
           </div>
-          <p className="my-2 text-gray-600 dark:text-gray-300">
-            My Spotify playlist.
-          </p>
-          <div className="mx-auto max-w-sm md:max-w-2xl inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_25px,_black_calc(100%-25px),transparent_100%)]">
-            <ul className="flex items-center justify-center md:justify-start [&_li]:mx-1 [&_img]:max-w-none animate-infinite-scroll">
+          <div className="mx-auto max-w-sm md:max-w-2xl inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+            <ul className="flex items-center justify-center md:justify-start [&_li]:mx-0.5 [&_img]:max-w-none animate-infinite-scroll">
               {playlists.items.map((playlist: any) => (
                 <li key={playlist.id}>
                   <Link
@@ -204,9 +197,9 @@ export default function Home({
                     <Image
                       className="rounded-xl"
                       alt="playlist"
-                      src={playlist.images[1].url}
-                      width={playlist.images[1].width}
-                      height={playlist.images[1].height}
+                      src={playlist.images[0].url}
+                      width={128}
+                      height={128}
                       loading="eager"
                     />
                   </Link>
@@ -214,7 +207,7 @@ export default function Home({
               ))}
             </ul>
             <ul
-              className="flex items-center justify-center md:justify-start [&_li]:mx-1 [&_img]:max-w-none animate-infinite-scroll"
+              className="flex items-center justify-center md:justify-start [&_li]:mx-0.5 [&_img]:max-w-none animate-infinite-scroll"
               aria-hidden="true"
             >
               {playlists.items.map((playlist: any) => (
@@ -222,9 +215,9 @@ export default function Home({
                   <Image
                     className="rounded-xl"
                     alt="playlist"
-                    src={playlist.images[1].url}
-                    width={playlist.images[1].width}
-                    height={playlist.images[1].height}
+                    src={playlist.images[0].url}
+                    width={128}
+                    height={128}
                     loading="eager"
                   />
                 </li>
