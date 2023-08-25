@@ -192,7 +192,7 @@ export default function Home({
                   <Link
                     href={playlist.external_urls.spotify}
                     target="_blank"
-                    aria-label="resume"
+                    aria-label="external url 1"
                   >
                     <Image
                       className="rounded-xl"
@@ -215,7 +215,7 @@ export default function Home({
                   <Link
                     href={playlist.external_urls.spotify}
                     target="_blank"
-                    aria-label="resume"
+                    aria-label="external url 2"
                   >
                     <Image
                       className="rounded-xl"
