@@ -212,14 +212,20 @@ export default function Home({
             >
               {playlists.items.map((playlist: any) => (
                 <li key={playlist.id}>
-                  <Image
-                    className="rounded-xl"
-                    alt="playlist"
-                    src={playlist.images[0].url}
-                    width={128}
-                    height={128}
-                    loading="eager"
-                  />
+                  <Link
+                    href={playlist.external_urls.spotify}
+                    target="_blank"
+                    aria-label="resume"
+                  >
+                    <Image
+                      className="rounded-xl"
+                      alt="playlist"
+                      src={playlist.images[0].url}
+                      width={128}
+                      height={128}
+                      loading="eager"
+                    />
+                  </Link>
                 </li>
               ))}
             </ul>
