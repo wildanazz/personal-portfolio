@@ -36,7 +36,6 @@ const DarkModeToggle = (): JSX.Element => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 20, opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className="drop-shadow-lg"
       >
         {darkModeActive ? '🌙' : '🌤️'}
       </motion.button>
