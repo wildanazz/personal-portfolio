@@ -20,10 +20,12 @@ const variants = {
 const variants2 = {
   open: {
     opacity: 1,
+    top: '55vh',
     display: 'block',
   },
   closed: {
     opacity: 0,
+    top: 35,
     transitionEnd: {
       display: 'none',
     },
@@ -76,7 +78,7 @@ export default function Navbar() {
       {/* Astronaut */}
       {isOpen && (
         <motion.img
-          className="absolute top-[50vh] left-[50vw] translate-x-[-50%] translate-y-[-50%] rotate-[135deg] z-[-100]"
+          className="absolute left-[50vw] translate-x-[-50%] translate-y-[-50%] rotate-[135deg] z-[-100]"
           initial="closed"
           animate={isOpen ? 'open' : 'closed'}
           exit={{ opacity: 0 }}
@@ -84,7 +86,7 @@ export default function Navbar() {
           alt="dead astronaut"
           width={500}
           height={250}
-          transition={{ duration: 4.8, delay: 3.5, ease: 'easeInOut' }}
+          transition={{ duration: 1.2, delay: 0.2, ease: 'easeInOut' }}
           variants={variants2}
         />
       )}
