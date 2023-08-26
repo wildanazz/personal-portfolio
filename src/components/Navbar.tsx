@@ -17,6 +17,21 @@ const variants = {
   },
 }
 
+const variants2 = {
+  open: {
+    opacity: 1,
+    top: '55vh',
+    display: 'block',
+  },
+  closed: {
+    opacity: 0,
+    top: 35,
+    transitionEnd: {
+      display: 'none',
+    },
+  },
+}
+
 export default function Navbar() {
   const text = 'Wildan'
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -59,6 +74,23 @@ export default function Navbar() {
         <Profile />
         <DarkModeToggle />
       </div>
+
+      {/* Astronaut */}
+      {isOpen && (
+        <motion.img
+          className="absolute left-[50vw] translate-x-[-50%] translate-y-[-50%] rotate-[135deg] z-[-100]"
+          initial="closed"
+          animate={isOpen ? 'open' : 'closed'}
+          exit={{ opacity: 0 }}
+          src={'/images/dead_astronaut.svg'}
+          alt="dead astronaut"
+          width={500}
+          height={250}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          variants={variants2}
+        />
+      )}
+
       <nav className="text-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
         {isOpen &&
           navigations.map((item) => {
