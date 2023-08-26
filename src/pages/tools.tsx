@@ -34,7 +34,7 @@ export default function Tools() {
   return (
     <>
       <Head>
-        <title>WA | Tools 🔧</title>
+        <title>WA | Tools</title>
         <meta
           name="description"
           content="Tools - Various technologies that I use in my projects, each project requires different toolset"

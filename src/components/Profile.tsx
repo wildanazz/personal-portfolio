@@ -9,7 +9,7 @@ export default function Profile() {
         src="https://wildanazz.azureedge.net/profile/Me.webp"
         width={48}
         height={48}
-        className="rounded-full"
+        className="rounded-full drop-shadow-lg"
         loading="eager"
       />
     </Link>

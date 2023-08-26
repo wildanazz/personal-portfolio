@@ -14,7 +14,7 @@ export default function Blog({
   return (
     <>
       <Head>
-        <title>WA | Blog 🗞️</title>
+        <title>WA | Blog</title>
         <meta
           name="description"
           content="Blog - I share anything that may help others, technologies I'm using and cool things I've made."
