@@ -25,6 +25,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Github"
+                className="drop-shadow-lg"
               >
                 <GitHub width={36} height={36} />
               </a>
@@ -45,6 +46,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Twitter"
+                className="drop-shadow-lg"
               >
                 <Twitter width={36} height={36} />
               </a>
@@ -65,6 +67,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
+                className="drop-shadow-lg"
               >
                 <Facebook width={36} height={36} />
               </a>
@@ -85,6 +88,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Linkedin"
+                className="drop-shadow-lg"
               >
                 <LinkedIn width={36} height={36} />
               </a>
