@@ -14,7 +14,7 @@ export default function Project({
   return (
     <>
       <Head>
-        <title>WA | Projects 💻</title>
+        <title>WA | Projects</title>
         <meta
           name="description"
           content="Projects - Collections of projects I've been working and worked on."
@@ -130,7 +130,7 @@ export default function Project({
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.025 }}
                   key={project.id}
-                  className="bg-[#00020d] dark:bg-[#d4433b] dark:bg-opacity-50 rounded-md"
+                  className="bg-[#00020d] dark:bg-[#d4433b] dark:bg-opacity-50 rounded-md drop-shadow-lg"
                 >
                   <Link href={project.html_url} legacyBehavior>
                     <a

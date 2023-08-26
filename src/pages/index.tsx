@@ -34,7 +34,7 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>WA | Home 👨‍🚀</title>
+        <title>WA | Home</title>
         <meta
           name="description"
           content="Hi, I'm Wildan - I'm a Software Engineer and currently living in Brisbane, AU."
@@ -50,6 +50,7 @@ export default function Home({
               Hi, I&apos;m Wildan
             </h1>
             <Image
+              className="drop-shadow-lg"
               src={'/images/helmet.svg'}
               width={80}
               height={80}
@@ -176,7 +177,7 @@ export default function Home({
           </p>
 
           {/* Spotify playlist */}
-          <div className="flex flex-row gap-4 flex-wrap my-4 items-center">
+          <div className="flex flex-row gap-4 flex-wrap my-4 items-center drop-shadow-lg">
             <Link
               href="https://open.spotify.com/user/31gv36hn5nnojr335xoy327cixs4"
               target="_blank"
@@ -195,7 +196,7 @@ export default function Home({
                     aria-label="external url 1"
                   >
                     <Image
-                      className="rounded-xl"
+                      className="rounded-xl drop-shadow-lg"
                       alt="playlist"
                       src={playlist.images[0].url}
                       width={128}
@@ -218,7 +219,7 @@ export default function Home({
                     aria-label="external url 2"
                   >
                     <Image
-                      className="rounded-xl"
+                      className="rounded-xl drop-shadow-lg"
                       alt="playlist"
                       src={playlist.images[0].url}
                       width={128}
@@ -310,7 +311,7 @@ export default function Home({
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.025 }}
                   key={project.data.id}
-                  className="bg-[#00020d] dark:bg-[#d4433b] dark:bg-opacity-50 rounded-md"
+                  className="bg-[#00020d] dark:bg-[#d4433b] dark:bg-opacity-50 rounded-md drop-shadow-lg"
                 >
                   <Link href={project.data.html_url} legacyBehavior>
                     <a
