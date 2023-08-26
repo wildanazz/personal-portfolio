@@ -15,20 +15,20 @@ const variants = {
   },
 }
 
-const variants2 = {
-  open: {
-    opacity: 0.9,
-    top: '100vh',
-    display: 'block',
-  },
-  closed: {
-    opacity: 0,
-    top: 35,
-    transitionEnd: {
-      display: 'none',
-    },
-  },
-}
+// const variants2 = {
+//   open: {
+//     opacity: 0.9,
+//     top: '100vh',
+//     display: 'block',
+//   },
+//   closed: {
+//     opacity: 0,
+//     top: 35,
+//     transitionEnd: {
+//       display: 'none',
+//     },
+//   },
+// }
 
 export default function Curtain({ isOpen }: CurtainProps) {
   return (
@@ -40,7 +40,7 @@ export default function Curtain({ isOpen }: CurtainProps) {
         transition={{ duration: 0.5 }}
         variants={variants}
       />
-      <motion.img
+      {/* <motion.img
         className="block absolute top-1/2 left-1/2 translate-x-[-50%] rotate-[135deg] z-[-100]"
         initial="closed"
         animate={isOpen ? 'open' : 'closed'}
@@ -51,7 +51,7 @@ export default function Curtain({ isOpen }: CurtainProps) {
         height={225}
         transition={{ duration: 0.5 }}
         variants={variants2}
-      />
+      /> */}
     </>
   )
 }
