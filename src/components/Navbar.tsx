@@ -84,7 +84,7 @@ export default function Navbar() {
           alt="dead astronaut"
           width={500}
           height={250}
-          transition={{ duration: 2.4, delay: 1.2, ease: 'linear' }}
+          transition={{ duration: 4.8, delay: 3.5, ease: 'easeInOut' }}
           variants={variants2}
         />
       )}
