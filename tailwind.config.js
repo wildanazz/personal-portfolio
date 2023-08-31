@@ -6,11 +6,16 @@ module.exports = {
     extend: {
       animation: {
         'infinite-scroll': 'infinite-scroll 25s linear infinite',
+        stripes: 'stripes 5s infinite alternate',
       },
       keyframes: {
         'infinite-scroll': {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-100%)' },
+        },
+        stripes: {
+          '0%': { 'background-position': '0 0' },
+          '100%': { 'background-position': '100px 0' },
         },
       },
       typography: (theme) => ({
