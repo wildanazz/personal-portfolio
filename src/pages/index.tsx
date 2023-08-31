@@ -187,7 +187,7 @@ export default function Home({
             </Link>
           </div>
           <div className="mx-auto max-w-sm md:max-w-2xl inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-            <ul className="flex items-center justify-center md:justify-start [&_li]:mx-0.5 [&_img]:max-w-none animate-infinite-scroll">
+            <ul className="flex items-center justify-center md:justify-start [&_li]:mx-0.5 [&_img]:max-w-none animate-infinite-scroll transform-gpu">
               {playlists.items.map((playlist: any) => (
                 <li key={playlist.id}>
                   <Link
@@ -208,7 +208,7 @@ export default function Home({
               ))}
             </ul>
             <ul
-              className="flex items-center justify-center md:justify-start [&_li]:mx-0.5 [&_img]:max-w-none animate-infinite-scroll"
+              className="flex items-center justify-center md:justify-start [&_li]:mx-0.5 [&_img]:max-w-none animate-infinite-scroll transform-gpu"
               aria-hidden="true"
             >
               {playlists.items.map((playlist: any) => (
