@@ -46,7 +46,7 @@ export default function Home({
         {/* Header */}
         <div className="mt-14 lg:mt-32 font-light w-full text-[#00020d] dark:text-white">
           <div className="flex flex-row gap-4 flex-wrap pb-4 items-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#d4433b]">
+            <h1 className="drop-shadow-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-contain bg-clip-text bg-[url('/vibrant_flower.png')] animate-stripes">
               Hi, I&apos;m Wildan
             </h1>
             <Image
