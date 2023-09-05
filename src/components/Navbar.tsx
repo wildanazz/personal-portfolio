@@ -20,12 +20,10 @@ const variants = {
 const variants2 = {
   open: {
     opacity: 1,
-    top: '55vh',
     display: 'block',
   },
   closed: {
     opacity: 0,
-    top: 35,
     transitionEnd: {
       display: 'none',
     },
@@ -78,7 +76,7 @@ export default function Navbar() {
       {/* Astronaut */}
       {isOpen && (
         <motion.img
-          className="absolute left-[50vw] translate-x-[-50%] translate-y-[-50%] rotate-[135deg] z-[-100]"
+          className="absolute left-[50vw] translate-x-[-50%] translate-y-[-50%] rotate-[135deg] z-[-100] top-[55vh]"
           initial="closed"
           animate={isOpen ? 'open' : 'closed'}
           exit={{ opacity: 0 }}
