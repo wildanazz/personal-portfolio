@@ -5,6 +5,7 @@ import { InferGetStaticPropsType } from 'next'
 import { motion } from 'framer-motion'
 import { getProjectsFromApi } from '@/lib/load-projects'
 import { GitHub, Twitter, Facebook, LinkedIn } from '@/components/Icons'
+import Background from '@/components/Background'
 
 export default function Project({
   projects,
@@ -22,6 +23,9 @@ export default function Project({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className="hidden dark:block">
+        <Background />
+      </div>
       <motion.div
         initial={{ x: -200, y: 0, opacity: 0 }}
         animate={{ x: 0, y: 0, opacity: 1 }}
