@@ -7,6 +7,7 @@ import { navigations } from '@/components/Navigations'
 import Toggle from '@/components/Toggle'
 import DarkModeToggle from './DarkModeToggle'
 import Profile from './Profile'
+import { DeadAstronaut } from './Icons'
 
 const variants = {
   visible: {
@@ -75,18 +76,16 @@ export default function Navbar() {
 
       {/* Astronaut */}
       {isOpen && (
-        <motion.img
+        <motion.div
           className="absolute left-[50vw] translate-x-[-50%] translate-y-[-50%] rotate-[135deg] z-[-100] top-[55vh]"
           initial="closed"
           animate={isOpen ? 'open' : 'closed'}
           exit={{ opacity: 0 }}
-          src={'/images/dead_astronaut.svg'}
-          alt="dead astronaut"
-          width={500}
-          height={250}
           transition={{ duration: 1.2, delay: 0.2, ease: 'easeInOut' }}
           variants={variants2}
-        />
+        >
+          <DeadAstronaut width={500} height={500} />
+        </motion.div>
       )}
 
       <nav className="text-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
