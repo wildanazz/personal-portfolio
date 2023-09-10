@@ -5,7 +5,7 @@ export default function Background() {
     <Particles
       options={{
         background: {
-          image: '-webkit-radial-gradient(bottom, #0c0c0c, #000000)',
+          image: '-webkit-radial-gradient(bottom, #090e12, #000000)',
         },
         fullScreen: {
           zIndex: -1,

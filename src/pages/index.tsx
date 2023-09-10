@@ -177,7 +177,7 @@ export default function Home({
           </p>
 
           {/* Spotify playlist */}
-          <div className="flex flex-row gap-4 flex-wrap my-4 items-center drop-shadow-lg">
+          <div className="flex flex-row gap-4 flex-wrap my-6 items-center drop-shadow-lg">
             <Link
               href="https://open.spotify.com/user/31gv36hn5nnojr335xoy327cixs4"
               target="_blank"
