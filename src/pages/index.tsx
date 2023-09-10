@@ -311,7 +311,7 @@ export default function Home({
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.025 }}
                   key={project.data.id}
-                  className="bg-[#00020d] dark:bg-[#d4433b] dark:bg-opacity-50 rounded-md drop-shadow-lg"
+                  className="bg-[#d23669] dark:bg-[#d4433b] dark:bg-opacity-50 rounded-md drop-shadow-lg"
                 >
                   <Link href={project.data.html_url} legacyBehavior>
                     <a
