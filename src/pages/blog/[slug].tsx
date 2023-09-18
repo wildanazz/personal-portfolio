@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import moment from 'moment'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { getArticlesFromAPI } from '@/lib/load-articles'
@@ -26,6 +27,15 @@ export default function ArticlePage({ article }: any) {
         style={{ scaleX }}
       />
       <Layout>
+        {/* Cover Image */}
+        {article.cover_image && (
+          <img
+            src={article.cover_image}
+            alt={article.title}
+            className="md:mt-6 lg:mt-10 xl:mt-14 h-40 sm:h-48 md:h-52 lg:h-64 xl:h-68 2xl:h-80 mx-auto"
+          />
+        )}
+
         {/* Header */}
         <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl mb-2 md:text-center">
