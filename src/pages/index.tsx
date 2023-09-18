@@ -288,7 +288,13 @@ export default function Home({
               </h2>
               <div className="mb-14 flex flex-col sm:flex-row w-full">
                 <Link href={`/blog/${featuredArticle.slug}`} legacyBehavior>
-                  <a className="w-full text-gray-600 sm:w-4/5 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b] transition-colors">
+                  <a
+                    className={`w-full text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b] transition-colors ${
+                      latestArticle.cover_image
+                        ? 'sm:w-1/2 lg:w-1/2 xl:w-3/5'
+                        : 'sm:w-4/5'
+                    }`}
+                  >
                     <div key={featuredArticle.id}>
                       <h3 className="text-2xl">{featuredArticle.title}</h3>
                       <p className="text-sm my-1 text-gray-500 dark:text-gray-300">
@@ -311,6 +317,15 @@ export default function Home({
                     </div>
                   </a>
                 </Link>
+                {featuredArticle.cover_image && (
+                  <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-2/5 mt-4 sm:mt-0 sm:ml-4 flex items-center justify-center">
+                    <img
+                      src={featuredArticle.cover_image}
+                      className="w-full rounded-sm"
+                      alt={featuredArticle.title}
+                    />
+                  </div>
+                )}
               </div>
             </>
           )}

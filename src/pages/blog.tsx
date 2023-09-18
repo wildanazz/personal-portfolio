@@ -120,7 +120,13 @@ export default function Blog({
             <motion.div key={article.id}>
               <motion.div className="mb-14 flex flex-col sm:flex-row w-full">
                 <Link href={`/blog/${article.slug}`} legacyBehavior>
-                  <a className="w-full text-gray-600 sm:w-4/5 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b] transition-colors">
+                  <a
+                    className={`w-full text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b] transition-colors ${
+                      article.cover_image
+                        ? 'sm:w-1/2 lg:w-1/2 xl:w-3/5'
+                        : 'sm:w-4/5'
+                    }`}
+                  >
                     <h3 className="text-2xl">{article.title}</h3>
                     <p className="text-sm my-1 text-gray-500 dark:text-gray-300">
                       <span>
@@ -137,6 +143,15 @@ export default function Blog({
                     </p>
                   </a>
                 </Link>
+                {article.cover_image && (
+                  <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-2/5 mt-4 sm:mt-0 sm:ml-4 flex items-center justify-center">
+                    <img
+                      src={article.cover_image}
+                      className="w-full rounded-sm"
+                      alt={article.title}
+                    />
+                  </div>
+                )}
               </motion.div>
             </motion.div>
           ))}
