@@ -51,7 +51,7 @@ export default function ArticlePage({ article }: any) {
         {/* Content */}
         <section className="mt-6 mb-24 font-light leading-relaxed w-full flex flex-col items-center">
           <article
-            className="prose dark:prose-dark lg:prose-lg w-full md:w-5/6 xl:w-9/12"
+            className="prose dark:prose-dark lg:prose-lg max-w-2xl w-full md:w-5/6 xl:w-9/12"
             dangerouslySetInnerHTML={{ __html: article.body_markdown }}
           />
         </section>
