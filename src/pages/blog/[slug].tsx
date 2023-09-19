@@ -38,7 +38,7 @@ export default function ArticlePage({ article }: any) {
 
         {/* Header */}
         <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl mb-2 md:text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl mb-2 text-center">
             {article.title}
           </h1>
         </div>
@@ -51,7 +51,7 @@ export default function ArticlePage({ article }: any) {
         {/* Content */}
         <section className="mt-6 mb-24 font-light leading-relaxed w-full flex flex-col items-center">
           <article
-            className="prose dark:prose-dark lg:prose-lg w-full md:w-5/6 xl:w-9/12"
+            className="prose dark:prose-dark lg:prose-lg max-w-2xl w-full md:w-5/6 xl:w-9/12"
             dangerouslySetInnerHTML={{ __html: article.body_markdown }}
           />
         </section>
