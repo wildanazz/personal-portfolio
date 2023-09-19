@@ -1,10 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import moment from 'moment'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import Layout from '@/components/Layout'
-import { GitHub, Twitter, Facebook, LinkedIn } from '@/components/Icons'
 import Footer from '@/components/Footer'
 
 export default function ArticlePage({ article }: any) {
