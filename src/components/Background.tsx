@@ -52,7 +52,7 @@ export default function Background() {
             },
             animation: {
               enable: true,
-              speed: 4,
+              speed: 1,
               minimumValue: 0,
               startValue: 'min',
             },
