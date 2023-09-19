@@ -38,7 +38,7 @@ export default function ArticlePage({ article }: any) {
 
         {/* Header */}
         <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl mb-2 md:text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl mb-2 text-center">
             {article.title}
           </h1>
         </div>
