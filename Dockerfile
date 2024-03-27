@@ -5,7 +5,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN \
-    if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+    if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
     else echo "Lockfile not found." && exit 1; \
     fi
 
