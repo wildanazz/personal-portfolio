@@ -20,7 +20,7 @@ jobs:
         run: |
           touch .env
           echo DEV_API_KEY=${{ secrets.DEV_API_KEY }} >> .env
-          echo GITHUB_API_KEY=${{ secrets.GITHUB_API_KEY }} >> .env
+          echo GITHUB_API_KEY=${{ secrets.GB_API_KEY }} >> .env
       - name: Build a container image
         run: docker build -t ${{ secrets.REGISTRY_NAME }}/wildanazz.com-docker:$(echo $GITHUB_SHA | head -c7) .
       - name: Log in to DigitalOcean Container Registry with short-lived credentials
