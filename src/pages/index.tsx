@@ -169,7 +169,7 @@ export default function Home({
             various technologies for the first time or in a more efficient
             manner.
           </p>
-          <p className="my-2">
+{/*           <p className="my-2">
             Check out my{' '}
             <Link
               href="/Resume.pdf"
@@ -180,7 +180,7 @@ export default function Home({
               resume
             </Link>{' '}
             and cool playlist.
-          </p>
+          </p> */}
 
           {/* Spotify playlist */}
           <div className="flex flex-row gap-4 flex-wrap my-6 items-center drop-shadow-lg">
