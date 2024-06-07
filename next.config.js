@@ -10,6 +10,15 @@ const nextConfig = {
       'res.cloudinary.com',
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/comments',
+        destination:
+          'https://wildanazz-comment-api-ccs6o.ondigitalocean.app/api/comments',
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
