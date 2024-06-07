@@ -3,7 +3,6 @@ import Head from 'next/head'
 import { InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import moment from 'moment'
 import { motion } from 'framer-motion'
 import Layout from '@/components/Layout'
@@ -30,7 +29,6 @@ export default function Home({
   featuredArticle,
   featuredProjects,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const router = useRouter()
   const [isHovered, setHovered] = useState(false)
   const [data, setData] = useState<any>()
   const [isLoading, setLoading] = useState(true)
@@ -38,6 +36,7 @@ export default function Home({
     name: '',
     comment: '',
   })
+  const [postDataSuccess, setPostDataSuccess] = useState(false)
 
   useEffect(() => {
     fetch('/comments')
@@ -46,7 +45,8 @@ export default function Home({
         setData(data)
         setLoading(false)
       })
-  }, [])
+    setPostDataSuccess(false)
+  }, [postDataSuccess])
 
   const handleChange = (e: any) => {
     setFormData({
@@ -65,7 +65,11 @@ export default function Home({
       },
       body: JSON.stringify(formData),
     }).then(() => {
-      router.reload()
+      setPostDataSuccess(true)
+      setFormData({
+        name: '',
+        comment: '',
+      })
     })
   }
 
