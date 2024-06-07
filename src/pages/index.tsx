@@ -422,6 +422,7 @@ export default function Home({
               ))}
             </div>
           </div>
+          {/* Comments */}
           <div className="w-auto xl:w-full mb-6">
             <h1 className="my-4 text-gray-600 dark:text-gray-300 leading-relaxed">
               Please feel free to leave a comment below or send me an e-mail :)
@@ -495,29 +496,6 @@ export default function Home({
                     </div>
                   </footer>
                   <p className="text-gray-300">{comment.Comment}</p>
-                  <div className="flex items-center mt-4 space-x-4">
-                    <button
-                      type="button"
-                      className="flex items-center text-sm hover:underline text-gray-300 font-medium"
-                    >
-                      <svg
-                        className="mr-1.5 w-3.5 h-3.5"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 20 18"
-                      >
-                        <path
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"
-                        />
-                      </svg>
-                      Reply
-                    </button>
-                  </div>
                 </article>
               ))
             )}
