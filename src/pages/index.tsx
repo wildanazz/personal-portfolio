@@ -79,7 +79,7 @@ export default function Home({
         <title>WA | Home</title>
         <meta
           name="description"
-          content="Hi, I'm Wildan - I'm a Software Engineer and currently living in Brisbane, AU."
+          content="Hi, I'm Naz - I'm a Software Engineer and currently living in Brisbane, AU."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -95,7 +95,7 @@ export default function Home({
               Hi, I&apos;m Wildan
             </h1> */}
             <h1 className="drop-shadow-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#d4433b]">
-              Hi, I&apos;m Wildan
+              Hi, I&apos;m Naz
             </h1>
             <Image
               className="drop-shadow-lg"
