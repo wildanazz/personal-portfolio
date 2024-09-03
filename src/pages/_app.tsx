@@ -17,7 +17,7 @@ type AppPropsWithLayout = AppProps & {
 }
 
 const myFont = localFont({
-  src: [{ path: './font/iosevka-term-light.woff2', weight: '300' }],
+  src: [{ path: './font/IosevkaTerm-Medium.woff2', weight: '300' }],
   adjustFontFallback: false,
   fallback: ['monospace'],
 })
