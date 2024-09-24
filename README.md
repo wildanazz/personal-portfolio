@@ -1,6 +1,6 @@
-# Wildanazz.com
+# wildanazz.com
 
-Welcome to the Wildanazz.com repository! This project is a personal website showcasing the portfolio, projects, and achievements of Wildan Azz. The site is designed to provide visitors with information about Wildan's skills, experience, and professional journey.
+Welcome to the wildanazz.com repository! This is a personal website that showcases my skills, experience, and professional journey.
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ Welcome to the Wildanazz.com repository! This project is a personal website show
 
 ## Features
 
-- Personal portfolio showcasing projects and skills.
+- Personal portfolio showcasing skills, experience, and professional journey.
 - Responsive design for optimal viewing on all devices.
 - Interactive elements to engage visitors.
 - Easy navigation for a seamless user experience.
@@ -24,7 +24,6 @@ Welcome to the Wildanazz.com repository! This project is a personal website show
 - HTML
 - CSS
 - JavaScript
-- [Your preferred framework/library, e.g., Bootstrap, jQuery, etc.]
 
 ## Installation
 
