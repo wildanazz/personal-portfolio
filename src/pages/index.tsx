@@ -540,7 +540,7 @@ export const getStaticProps = async () => {
     fork: false,
     data:
       projects.find(
-        (Project) => Project.full_name === 'wildanazz/wildanazz.com'
+        (Project) => Project.full_name === 'wildanazz/personal-portfolio'
       ) || null,
   })
 
