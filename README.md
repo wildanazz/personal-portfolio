@@ -1,6 +1,6 @@
 ---
 
-# wildanazz.com
+# Personal Portfolio
 
 A portfolio website designed with performance and scalability in mind. It utilizes modern web technologies to ensure responsiveness, speed, and a smooth user experience. The website serves as both a portfolio and a learning ground for implementing and experimenting with various web development practices.
 
@@ -22,12 +22,12 @@ A portfolio website designed with performance and scalability in mind. It utiliz
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/wildanazz/wildanazz.com.git
+   git clone https://github.com/wildanazz/personal-portfolio.git
    ```
 
 2. **Navigate to the directory**:
    ```bash
-   cd wildanazz.com
+   cd personal-portfolio
    ```
 
 3. **Install dependencies**:
@@ -55,7 +55,7 @@ A portfolio website designed with performance and scalability in mind. It utiliz
 - **Docker Configuration**:
   A `Dockerfile` is included for building Docker images, and a `docker-compose.yml` for managing local environments. To build the Docker image:
    ```bash
-   docker build -t wildanazz.com .
+   docker build -t personal-portfolio .
    ```
 
 ## Deployment
