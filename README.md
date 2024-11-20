@@ -62,8 +62,4 @@ A portfolio website designed with performance and scalability in mind. It utiliz
 
 To deploy the project to Azure, Docker images are pushed to an Azure Container Registry, and an Azure VM is configured to pull and run these containers using Nginx as the reverse proxy. Continuous integration and delivery are managed using GitHub Actions, which automate deployment on each push to the main branch.
 
-## License
-
-This project is licensed under the MIT License. You are free to use, modify, and distribute this software as per the license terms.
-  
 ---
