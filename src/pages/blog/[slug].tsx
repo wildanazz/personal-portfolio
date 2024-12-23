@@ -35,7 +35,7 @@ export default function ArticlePage({ article }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <motion.div
-        className="fixed top-[0] right-[0] left-[0] h-[10px] bg-[#d23669] dark:bg-[#d4433b] origin-[0%]"
+        className="fixed top-[0] right-[0] left-[0] h-[10px] bg-indigo-400 dark:bg-indigo-400 origin-[0%]"
         style={{ scaleX }}
       />
       <Layout>

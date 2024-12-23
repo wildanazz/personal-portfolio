@@ -18,6 +18,9 @@ module.exports = {
           '100%': { 'background-position': '100px 0' },
         },
       },
+      fontFamily: {
+        custom: ['IosevkaTerm', 'monospace'],
+      },
       typography: (theme) => ({
         dark: {
           css: {

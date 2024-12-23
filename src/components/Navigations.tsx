@@ -7,7 +7,7 @@ export const navigations = [
   },
   {
     id: 1,
-    title: 'Blog',
+    title: 'Blogs',
     path: '/blog',
     delay: 2,
   },

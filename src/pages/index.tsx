@@ -94,7 +94,7 @@ export default function Home({
             {/* <h1 className="drop-shadow-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#00020d] dark:bg-white">
               Hi, I&apos;m Wildan
             </h1> */}
-            <h1 className="drop-shadow-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#d4433b]">
+            <h1 className="drop-shadow-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#00020d] dark:text-white">
               Hi, I&apos;m Naz
             </h1>
             <Image
@@ -105,10 +105,10 @@ export default function Home({
               alt="helmet"
             />
           </div>
-          <p className="pb-4 text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
+          <p className="font-medium pb-4 text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
             I&apos;m a Software Engineer and currently living in Brisbane, AU.
           </p>
-          <div className="flex flex-row gap-1">
+          {/* <div className="flex flex-row gap-1">
             <motion.div whileTap={{ scale: 1.5 }}>
               <motion.div
                 initial={{ scale: 0 }}
@@ -189,12 +189,12 @@ export default function Home({
                 </a>
               </motion.div>
             </motion.div>
-          </div>
+          </div> */}
         </div>
 
         {/* About */}
-        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 dark:text-gray-300 mt-12">
-          <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white">
+        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 dark:text-gray-300 mt-4">
+          <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white font-normal">
             About
           </h2>
           <p className="my-2">
@@ -281,15 +281,15 @@ export default function Home({
           </div>
         </div>
 
-        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-12">
+        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-800 mt-12">
           {/* Latest Article */}
-          <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white">
+          <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white font-normal">
             Latest article
           </h2>
           <div className="mb-14 flex flex-col sm:flex-row w-full">
             <Link href={`/blog/${latestArticle.slug}`} legacyBehavior>
               <a
-                className={`w-full text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b] transition-colors ${
+                className={`w-full text-gray-800 dark:text-gray-100 hover:text-orange-400 hover:dark:text-orange-400 transition-colors ${
                   latestArticle.cover_image
                     ? 'sm:w-1/2 lg:w-1/2 xl:w-3/5'
                     : 'sm:w-4/5'
@@ -297,7 +297,7 @@ export default function Home({
               >
                 <div key={latestArticle.id}>
                   <h3 className="text-2xl">{latestArticle.title}</h3>
-                  <p className="text-sm my-1 text-gray-500 dark:text-gray-300">
+                  <p className="text-sm my-1 text-gray-600 dark:text-gray-300">
                     <span>
                       {moment(latestArticle.published_at).format(
                         'Do MMMM YYYY'
@@ -308,10 +308,10 @@ export default function Home({
                       {latestArticle.tag_list.map((tag) => `#${tag} `)}
                     </span>
                   </p>
-                  <p className="text-base mt-2 text-gray-500 dark:text-gray-300">
+                  <p className="text-base mt-2 text-gray-600 dark:text-gray-300">
                     {latestArticle.description}
                   </p>
-                  <p className="text-base mt-2 underline text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
+                  <p className="text-base mt-2 underline text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-100 transition-colors">
                     Read more
                   </p>
                 </div>
@@ -331,13 +331,13 @@ export default function Home({
           {/* Featured Article */}
           {featuredArticle && (
             <>
-              <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white">
+              <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white font-normal">
                 Featured article
               </h2>
               <div className="mb-14 flex flex-col sm:flex-row w-full">
                 <Link href={`/blog/${featuredArticle.slug}`} legacyBehavior>
                   <a
-                    className={`w-full text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b] transition-colors ${
+                    className={`w-full text-gray-800 dark:text-gray-100 hover:text-blue-400 hover:dark:text-blue-400 transition-colors ${
                       latestArticle.cover_image
                         ? 'sm:w-1/2 lg:w-1/2 xl:w-3/5'
                         : 'sm:w-4/5'
@@ -345,7 +345,7 @@ export default function Home({
                   >
                     <div key={featuredArticle.id}>
                       <h3 className="text-2xl">{featuredArticle.title}</h3>
-                      <p className="text-sm my-1 text-gray-500 dark:text-gray-300">
+                      <p className="text-sm my-1 text-gray-600 dark:text-gray-300">
                         <span>
                           {moment(featuredArticle.published_at).format(
                             'Do MMMM YYYY'
@@ -356,10 +356,10 @@ export default function Home({
                           {featuredArticle.tag_list.map((tag) => `#${tag} `)}
                         </span>
                       </p>
-                      <p className="text-base mt-2 text-gray-500 dark:text-gray-300">
+                      <p className="text-base mt-2 text-gray-600 dark:text-gray-300">
                         {featuredArticle.description}
                       </p>
-                      <p className="text-base mt-2 underline text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
+                      <p className="text-base mt-2 underline text-gray-500 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-100 transition-colors">
                         Read more
                       </p>
                     </div>
@@ -377,7 +377,7 @@ export default function Home({
               </div>
             </>
           )}
-          <h2 className="text-3xl md:text-4xl mb-6 text-[#00020d] dark:text-white">
+          <h2 className="text-3xl md:text-4xl mb-6 text-[#00020d] dark:text-white font-normal">
             Featured projects
           </h2>
           <div className="w-auto xl:w-full">
@@ -389,33 +389,63 @@ export default function Home({
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.025 }}
                   key={project.data.id}
-                  className="bg-[#d23669] dark:bg-[#d4433b] dark:bg-opacity-50 rounded-md drop-shadow-lg"
+                  className="bg-[#000000] dark:bg-opacity-50 rounded-md drop-shadow-lg"
                 >
-                  <Link href={project.data.html_url} legacyBehavior>
+                  <Link href={project.data.homepage || project.data.html_url} legacyBehavior>
                     <a
-                      className="w-full text-gray-300 block p-[40px] break-words"
+                      className="w-full text-white block p-[40px] break-words shadow-md"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      {project.fork ? (
-                        <p className="text-xs uppercase tracking-[2.5px]">
-                          <span>
-                            {project.languages.map(
-                              (language: String) => `${language} `
-                            )}
-                          </span>
-                        </p>
-                      ) : (
-                        <p className="text-xs uppercase tracking-[2.5px]">
-                          {project.data.language}
-                        </p>
-                      )}
+                      <div className="flex justify-between items-center text-xs uppercase tracking-[2.5px] mb-3">
+                        <div className="flex items-center">
+                          {project.fork ? (
+                            <span className="text-yellow-400">Forked</span>
+                          ) : (
+                            <span className="text-green-400">Main Project</span>
+                          )}
+                        </div>
+                        <div className="flex flex-wrap gap-1">
+                          {
+                            project.fork
+                              ? project.languages.map((language: any, index: any) => (
+                                  <span
+                                    key={index}
+                                    className="text-xs text-gray-200 mr-2"
+                                  >
+                                    {language}
+                                  </span>
+                                ))
+                              : project.data.language && (
+                                  <span className="text-xs text-gray-200">
+                                    {project.data.language}
+                                  </span>
+                                )
+                          }
+                        </div>
+                      </div>
                       <h3 className="text-2xl text-gray-100 mt-2">
-                        {project.data.full_name}
+                        {project.data.name}
                       </h3>
-                      <p className="text-base mt-2">
+                      <p className="text-base mt-2 text-gray-200">
                         {project.data.description}
                       </p>
+
+                      {/* Project Stats */}
+                      <div className="mt-4 flex justify-between text-sm text-gray-300">
+                        <div className="flex items-center">
+                          <span className="mr-1">⭐</span> {project.data.stars || "0"} Stars
+                        </div>
+                        <div className="flex items-center">
+                          <span className="mr-1">🍴</span> {project.data.forks || "0"} Forks
+                        </div>
+                        <div className="flex items-center">
+                          <span className="mr-1">📅</span> Last Updated: {project.data.updated_at ? new Date(project.data.updated_at).toLocaleDateString() : "N/A"}
+                        </div>
+                      </div>
+
+                      {/* Divider Line */}
+                      <div className="mt-4 border-t border-gray-500"></div>
                     </a>
                   </Link>
                 </motion.article>
@@ -424,7 +454,7 @@ export default function Home({
           </div>
           {/* Comments */}
           <div className="w-auto xl:w-full mb-6">
-            <h1 className="my-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+            <h1 className="text-base sm:text-lg my-4 font-light text-gray-600 dark:text-gray-300 leading-relaxed">
               Please feel free to leave a comment below or send me an e-mail :)
             </h1>
             <form className="mb-6" onSubmit={handleSubmit}>
@@ -467,7 +497,7 @@ export default function Home({
               <div className="flex flex-col w-full items-center" role="status">
                 <svg
                   aria-hidden="true"
-                  className="w-8 h-8 mr-2 animate-spin text-gray-300 fill-[#d23669] dark:fill-[#d4433b]"
+                  className="w-8 h-8 mr-2 animate-spin text-gray-300 fill-purple-400"
                   viewBox="0 0 100 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -502,7 +532,7 @@ export default function Home({
           </div>
         </div>
       </Layout>
-      <hr className="h-px my-8 bg-[#d23669] border-0 dark:bg-[#d4433b]" />
+      <hr className="h-px my-8 bg-[#00020d] border-0 dark:bg-white" />
       <Footer />
     </>
   )
@@ -540,7 +570,7 @@ export const getStaticProps = async () => {
     fork: false,
     data:
       projects.find(
-        (Project) => Project.full_name === 'wildanazz/wildanazz.com'
+        (Project) => Project.full_name === 'wildanazz/d3-spotify-genres'
       ) || null,
   })
 

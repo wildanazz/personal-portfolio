@@ -11,6 +11,16 @@ import Footer from '@/components/Footer'
 export default function Blog({
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const hoverColors = [
+    "hover:text-red-400 dark:hover:text-red-400",
+    "hover:text-orange-400 dark:hover:text-orange-400",
+    "hover:text-yellow-400 dark:hover:text-yellow-400",
+    "hover:text-green-400 dark:hover:text-green-400",
+    "hover:text-blue-400 dark:hover:text-blue-400",
+    "hover:text-indigo-400 dark:hover:text-indigo-400",
+    "hover:text-purple-400 dark:hover:text-purple-400"
+  ];
+  
   return (
     <>
       <Head>
@@ -24,14 +34,14 @@ export default function Blog({
       </Head>
       <Layout>
         <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#d4433b]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#00020d] dark:bg-white">
             Blog
           </h1>
-          <p className="pb-4 text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
+          <p className="font-medium pb-4 text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
             I share anything that may help others, technologies I&apos;m using
             and cool things I&apos;ve made.
           </p>
-          <div className="flex flex-row gap-1">
+          {/* <div className="flex flex-row gap-1">
             <motion.div whileTap={{ scale: 1.5 }}>
               <motion.div
                 initial={{ scale: 0 }}
@@ -112,33 +122,33 @@ export default function Blog({
                 </a>
               </motion.div>
             </motion.div>
-          </div>
+          </div> */}
         </div>
 
-        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 mt-12">
-          {articles.map((article) => (
+        <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 mt-4">
+          {articles.map((article,index) => (
             <motion.div key={article.id}>
               <motion.div className="mb-14 flex flex-col sm:flex-row w-full">
                 <Link href={`/blog/${article.slug}`} legacyBehavior>
                   <a
-                    className={`w-full text-gray-600 dark:text-gray-100 hover:text-[#d23669] hover:dark:text-[#d4433b] transition-colors ${
+                    className={`w-full text-gray-800 dark:text-gray-100 ${hoverColors[index % hoverColors.length]} transition-colors ${
                       article.cover_image
                         ? 'sm:w-1/2 lg:w-1/2 xl:w-3/5'
                         : 'sm:w-4/5'
                     }`}
                   >
                     <h3 className="text-2xl">{article.title}</h3>
-                    <p className="text-sm my-1 text-gray-500 dark:text-gray-300">
+                    <p className="text-sm my-1 text-gray-600 dark:text-gray-300">
                       <span>
                         {moment(article.published_at).format('Do MMMM YYYY')}
                       </span>
                       <span className="px-1">-</span>
                       <span>{article.tag_list.map((tag) => `#${tag} `)}</span>
                     </p>
-                    <p className="text-base mt-2 text-gray-500 dark:text-gray-300">
+                    <p className="text-base mt-2 text-gray-600 dark:text-gray-300">
                       {article.description}
                     </p>
-                    <p className="text-base mt-2 underline text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors">
+                    <p className="text-base mt-2 underline text-gray-500 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-100 transition-colors">
                       Read more
                     </p>
                   </a>
@@ -157,7 +167,7 @@ export default function Blog({
           ))}
         </div>
       </Layout>
-      <hr className="h-px my-8 bg-[#d23669] border-0 dark:bg-[#d4433b]" />
+      <hr className="h-px my-8 bg-[#00020d] border-0 dark:bg-white" />
       <Footer />
     </>
   )

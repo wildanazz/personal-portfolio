@@ -17,9 +17,14 @@ type AppPropsWithLayout = AppProps & {
 }
 
 const myFont = localFont({
-  src: [{ path: './font/IosevkaTerm-Medium.woff2', weight: '300' }],
+  src: [
+    { path: './font/IosevkaFixed-Light.woff2', weight: '300' },
+    { path: './font/IosevkaFixed-Medium.woff2', weight: '500' },
+    { path: './font/IosevkaFixed-Regular.woff2', weight: '400' },
+    { path: './font/IosevkaFixed-Bold.woff2', weight: '700' },
+  ],
   adjustFontFallback: false,
-  fallback: ['monospace'],
+  fallback: ['monospace', 'Arial', 'sans-serif'],
 })
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {

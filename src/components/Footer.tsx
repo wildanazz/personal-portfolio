@@ -91,16 +91,16 @@ export default function Footer() {
             </motion.div>
           </motion.div>
         </div>
-        <p className="text-[#d23669] dark:text-[#d4433b] text-sm">
+        <p className="text-[#00020d] dark:text-white text-sm">
           © 2024 MWA.
         </p>
         <a
-          className="text-[#d23669] dark:text-[#d4433b] text-sm"
+          className="text-[#00020d] dark:text-white text-sm"
           href="mailto:wildanazzwa@gmail.com?Subject=Hello"
         >
           wildanazzwa@gmail.com
         </a>
-        <p className="text-[#d23669] dark:text-[#d4433b] text-sm">
+        <p className="text-[#00020d] dark:text-white text-sm">
           Powered by the Dev.to API
         </p>
       </motion.div>

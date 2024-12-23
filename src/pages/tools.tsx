@@ -45,14 +45,14 @@ export default function Tools() {
       <Layout>
         {/* Header */}
         <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#d23669] dark:bg-[#d4433b]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#00020d] dark:bg-white">
             Tools
           </h1>
-          <p className="pb-4 text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
+          <p className="font-medium pb-4 text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
             Various technologies that I use in my projects, each project
             requires different toolset.
           </p>
-          <div className="flex flex-row gap-1">
+          {/* <div className="flex flex-row gap-1">
             <motion.div whileTap={{ scale: 1.5 }}>
               <motion.div
                 initial={{ scale: 0 }}
@@ -133,12 +133,12 @@ export default function Tools() {
                 </a>
               </motion.div>
             </motion.div>
-          </div>
+          </div> */}
         </div>
 
         {/* Images */}
         <motion.div
-          className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed my-12 w-full"
+          className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed my-4 w-full"
           variants={variant}
           initial="hidden"
           animate="show"
@@ -164,7 +164,7 @@ export default function Tools() {
           })}
         </motion.div>
       </Layout>
-      <hr className="h-px my-8 bg-[#d23669] border-0 dark:bg-[#d4433b]" />
+      <hr className="h-px my-8 bg-[#00020d] border-0 dark:bg-white" />
       <Footer />
     </>
   )
