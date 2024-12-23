@@ -457,42 +457,46 @@ export default function Home({
             <h1 className="text-base sm:text-lg my-4 font-light text-gray-600 dark:text-gray-300 leading-relaxed">
               Please feel free to leave a comment below or send me an e-mail :)
             </h1>
+            
+            {/* Comment Form */}
             <form className="mb-6" onSubmit={handleSubmit}>
-              <div className="py-2 px-4 mb-4  rounded-lg rounded-t-lg border bg-gray-800 border-gray-700">
-                <label htmlFor="name" className="sr-only">
-                  Your name
-                </label>
+              <div className="py-3 px-4 mb-4 rounded-lg border bg-white">
+                <label htmlFor="name" className="sr-only">Your name</label>
                 <input
                   id="name"
                   name="name"
-                  className="px-0 w-full text-sm border-0 focus:ring-0 focus:outline-none text-gray-300 placeholder-gray-400 bg-gray-800"
+                  className="px-3 py-2 w-full text-gray-600 text-sm border-0 focus:ring-0 focus:outline-none placeholder-gray-600 rounded-lg"
                   placeholder="Your name..."
                   required
                   value={formData.name}
                   onChange={handleChange}
+                  autoComplete="off"
                 />
               </div>
-              <div className="py-2 px-4 mb-4 rounded-lg rounded-t-lg border bg-gray-800 border-gray-700">
-                <label htmlFor="comment" className="sr-only">
-                  Your comment
-                </label>
+
+              <div className="py-3 px-4 mb-4 rounded-lg border bg-white">
+                <label htmlFor="comment" className="sr-only">Your comment</label>
                 <textarea
                   id="comment"
                   name="comment"
-                  className="px-0 w-full text-sm border-0 focus:ring-0 focus:outline-none text-gray-300 placeholder-gray-400 bg-gray-800"
+                  className="px-3 py-2 w-full text-sm border-0 focus:ring-0 focus:outline-none text-gray-600 placeholder-gray-600 rounded-lg"
                   placeholder="Write a comment..."
                   required
                   value={formData.comment}
                   onChange={handleChange}
+                  autoComplete="off"
                 />
               </div>
+
               <button
                 type="submit"
-                className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-gray-600 dark:text-gray-300 bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-900 hover:bg-primary-800"
+                className="inline-flex items-center justify-center py-3 px-6 text-sm font-semibold text-white bg-indigo-800 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300 ease-in-out"
               >
-                Post comment
+                Post Comment
               </button>
             </form>
+
+            {/* Loading Indicator */}
             {isLoading ? (
               <div className="flex flex-col w-full items-center" role="status">
                 <svg
@@ -516,20 +520,19 @@ export default function Home({
               data.map((comment: any) => (
                 <article
                   key={comment.Id}
-                  className="mt-2 p-6 text-base rounded-lg bg-gray-900"
+                  className="mt-4 p-6 dark:bg-[#000000] bg-white text-gray-600 dark:text-gray-300 rounded-lg shadow-lg transition-all"
                 >
                   <footer className="flex justify-between items-center mb-2">
                     <div className="flex items-center">
-                      <p className="inline-flex items-center mr-3 text-sm text-white font-semibold">
-                        {comment.Name}
-                      </p>
+                      <p className="text-sm text-gray-800 dark:text-gray-100 font-semibold">{comment.name}</p>
                     </div>
                   </footer>
-                  <p className="text-gray-300">{comment.Comment}</p>
+                  <p className="text-base">{comment.Comment}</p>
                 </article>
               ))
             )}
           </div>
+
         </div>
       </Layout>
       <hr className="h-px my-8 bg-[#00020d] border-0 dark:bg-white" />

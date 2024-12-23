@@ -73,7 +73,7 @@ export default function Blog({
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search articles..."
-              className="w-full sm:w-2/3 px-4 py-3 border border-gray-300 rounded-lg text-[#00020d] placeholder-[#00020d] focus:outline-none focus:ring-2 focus:ring-[#00020d] transition duration-300"
+              className="w-full sm:w-2/3 px-4 py-3 border border-gray-300 rounded-lg text-gray-600 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00020d] transition duration-300"
             />
           </div>
 
@@ -81,12 +81,12 @@ export default function Blog({
           <div className="flex gap-4 mt-4 mb-6 flex-wrap">
             {/* Tag Filter */}
             <div className="flex flex-col w-full sm:w-auto">
-              <label htmlFor="tag" className="font-medium text-lg text-gray-800 dark:text-gray-300">Filter by Tag</label>
+              <label htmlFor="tag" className="font-medium text-lg text-gray-600 dark:text-gray-300">Filter by Tag</label>
               <select
                 id="tag"
                 value={selectedTag}
                 onChange={(e) => setSelectedTag(e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-lg text-[#00020d] placeholder-[#00020d] focus:outline-none focus:ring-2 focus:ring-[#00020d] transition duration-300"
+                className="px-4 py-3 border border-gray-300 rounded-lg text-gray-600 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00020d] transition duration-300"
               >
                 <option value="">All Tags</option>
                 {tags.map((tag) => (
@@ -97,13 +97,13 @@ export default function Blog({
 
             {/* Date Filter */}
             <div className="flex flex-col w-full sm:w-auto">
-              <label htmlFor="date" className="font-medium text-lg text-gray-800 dark:text-gray-300">Filter by Date</label>
+              <label htmlFor="date" className="font-medium text-lg text-gray-600 dark:text-gray-300">Filter by Date</label>
               <input
                 type="date"
                 id="date"
                 value={selectedDate}
                 onChange={(e) => setSelectedDate(e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-lg text-[#00020d] placeholder-[#00020d] focus:outline-none focus:ring-2 focus:ring-[#00020d] transition duration-300"
+                className="px-4 py-3 border border-gray-300 rounded-lg text-gray-600 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00020d] transition duration-300"
               />
             </div>
           </div>
