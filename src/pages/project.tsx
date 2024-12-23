@@ -38,7 +38,7 @@ export default function Project({
             <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#00020d] dark:bg-white">
               Projects
             </h1>
-            <p className="font-medium pb-4 text-2xl sm:text-3xl lg:text-4xl">
+            <p className="font-medium pb-4 text-xl sm:text-2xl lg:text-3xl">
               Collections of projects I&apos;ve been working and worked on.
             </p>
             <div className="flex flex-row gap-1">

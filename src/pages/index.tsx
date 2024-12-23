@@ -105,7 +105,7 @@ export default function Home({
               alt="helmet"
             />
           </div>
-          <p className="font-medium pb-4 text-2xl sm:text-3xl lg:text-4xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
+          <p className="font-medium pb-4 text-xl sm:text-2xl lg:text-3xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
             I&apos;m a Software Engineer and currently living in Brisbane, AU.
           </p>
           {/* <div className="flex flex-row gap-1">
@@ -194,7 +194,7 @@ export default function Home({
 
         {/* About */}
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 dark:text-gray-300 mt-4">
-          <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white font-normal">
+          <h2 className="text-2xl md:text-3xl mb-4 text-[#00020d] dark:text-white font-normal">
             About
           </h2>
           <p className="my-2">
@@ -283,7 +283,7 @@ export default function Home({
 
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-800 mt-12">
           {/* Latest Article */}
-          <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white font-normal">
+          <h2 className="text-2xl md:text-3xl mb-4 text-[#00020d] dark:text-white font-normal">
             Latest article
           </h2>
           <div className="mb-14 flex flex-col sm:flex-row w-full">
@@ -331,7 +331,7 @@ export default function Home({
           {/* Featured Article */}
           {featuredArticle && (
             <>
-              <h2 className="text-3xl md:text-4xl mb-4 text-[#00020d] dark:text-white font-normal">
+              <h2 className="text-2xl md:text-3xl mb-4 text-[#00020d] dark:text-white font-normal">
                 Featured article
               </h2>
               <div className="mb-14 flex flex-col sm:flex-row w-full">
@@ -377,7 +377,7 @@ export default function Home({
               </div>
             </>
           )}
-          <h2 className="text-3xl md:text-4xl mb-6 text-[#00020d] dark:text-white font-normal">
+          <h2 className="text-2xl md:text-3xl mb-6 text-[#00020d] dark:text-white font-normal">
             Featured projects
           </h2>
           <div className="w-auto xl:w-full">
