@@ -136,6 +136,7 @@ export default function Navbar() {
           opacity: isAtTop ? 1 : 0, // Fade in and out based on scroll position
           paddingLeft: isAtTop ? '0.6em' : '0.3em', // Increase padding when at top
           letterSpacing: isAtTop ? '0.3em' : '0.15em', // Increase letter spacing when at top
+          display: isAtTop ? 'block' : 'none', // Hide element when not at top
         }}
       >
           {!isMobile && (
