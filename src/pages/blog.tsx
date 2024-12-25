@@ -54,6 +54,56 @@ export default function Blog({
           content="Blog - I share anything that may help others, technologies I'm using and cool things I've made."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Open Graph Meta Tags for Social Media */}
+        <meta
+          property="og:description"
+          content="Blog - I share anything that may help others, technologies I'm using and cool things I've made."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="WA | Blogs" />
+        <meta
+          property="og:image"
+          content="/images/helmet.svg"
+        />
+        <meta property="og:url" content="https://wildanazz.com/blog" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="WA | Blogs" />
+        <meta
+          name="twitter:description"
+          content="Blog - I share anything that may help others, technologies I'm using and cool things I've made."
+        />
+        <meta
+          name="twitter:image"
+          content="/images/helmet.svg" // Replace with your image URL
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "WA | Blogs",
+              "url": "https://wildanazz.com/blog",
+              "description": "I share anything that may help others, technologies I'm using and cool things I've made.",
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://wildanazz.com/blog",
+              },
+              "blogPost": filteredArticles.map((article) => ({
+                "@type": "BlogPosting",
+                "headline": article.title,
+                "url": `https://wildanazz.com/blog/${article.slug}`,
+                "description": article.description,
+                "datePublished": moment(article.published_at).toISOString(),
+                "author": {
+                  "@type": "Person",
+                  "name": "Naz",
+                },
+                "image": article.cover_image || "https://wildanazz.com/default-image.jpg",
+              })),
+            }),
+          }}
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
@@ -113,13 +163,13 @@ export default function Blog({
           {filteredArticles.length > 0 ? (
             filteredArticles.map((article, index) => (
               <motion.div key={article.id} className="mb-8">
-                <motion.div className="flex flex-col sm:flex-row w-full rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <motion.div className="flex flex-col sm:flex-row">
                   <Link href={`/blog/${article.slug}`} legacyBehavior>
                     <a
-                      className={`w-full text-gray-800 dark:text-gray-100 ${hoverColors[index % hoverColors.length]} transition-colors p-6 rounded-lg`}
+                      className={`w-full text-gray-800 dark:text-gray-100 ${hoverColors[index % hoverColors.length]} transition-colors rounded-lg`}
                     >
-                      <h3 className="text-2xl font-semibold">{article.title}</h3>
-                      <p className="text-sm my-2 text-gray-600 dark:text-gray-300">
+                      <h3 className="text-2xl">{article.title}</h3>
+                      <p className="text-sm my-1 text-gray-600 dark:text-gray-300">
                         <span>
                           {moment(article.published_at).format('Do MMMM YYYY')}
                         </span>
@@ -129,6 +179,14 @@ export default function Blog({
                       <p className="text-base mt-2 text-gray-600 dark:text-gray-300">
                         {article.description}
                       </p>
+                      {/* Add Positive and Public Reaction Counts */}
+                      <div className="mt-2 text-sm text-gray-600 dark:text-gray-300 flex flex-row space-x-4">
+                        {/* Display Reading Time */}
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          {article.reading_time_minutes} min read
+                        </p>
+                        <span>❤️ {article.public_reactions_count}</span>
+                      </div>
                       <p className="text-base mt-2 underline text-gray-500 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-100 transition-colors">
                         Read more
                       </p>

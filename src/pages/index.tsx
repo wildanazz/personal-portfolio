@@ -82,6 +82,28 @@ export default function Home({
           content="Hi, I'm Naz - I'm a Software Engineer and currently living in Brisbane, AU."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Open Graph Meta Tags for Social Media */}
+        <meta
+          property="og:description"
+          content="Hi, I'm Naz - I'm a Software Engineer from Brisbane, AU. I work with various technologies like Node.js, Python, and more."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="WA | Home" /> 
+        <meta
+          property="og:image"
+          content="/images/helmet.svg"
+        />
+        <meta property="og:url" content="https://wildanazz.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Naz | Software Engineer" />
+        <meta
+          name="twitter:description"
+          content="Hi, I'm Naz - I'm a Software Engineer from Brisbane, AU. I work with various technologies like Node.js, Python, and more."
+        />
+        <meta
+          name="twitter:image"
+          content="/images/helmet.svg" // Replace with your image URL
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
@@ -311,6 +333,14 @@ export default function Home({
                   <p className="text-base mt-2 text-gray-600 dark:text-gray-300">
                     {latestArticle.description}
                   </p>
+                  {/* Add Positive and Public Reaction Counts */}
+                  <div className="mt-2 text-sm text-gray-600 dark:text-gray-300 flex flex-row space-x-4">
+                    {/* Display Reading Time */}
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      {latestArticle.reading_time_minutes} min read
+                    </p>
+                    <span>❤️ {latestArticle.public_reactions_count}</span>
+                  </div>
                   <p className="text-base mt-2 underline text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-100 transition-colors">
                     Read more
                   </p>
@@ -359,6 +389,14 @@ export default function Home({
                       <p className="text-base mt-2 text-gray-600 dark:text-gray-300">
                         {featuredArticle.description}
                       </p>
+                      {/* Add Positive and Public Reaction Counts */}
+                      <div className="mt-2 text-sm text-gray-600 dark:text-gray-300 flex flex-row space-x-4">
+                        {/* Display Reading Time */}
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          {featuredArticle.reading_time_minutes} min read
+                        </p>
+                        <span>❤️ {featuredArticle.public_reactions_count}</span>
+                      </div>
                       <p className="text-base mt-2 underline text-gray-500 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-100 transition-colors">
                         Read more
                       </p>

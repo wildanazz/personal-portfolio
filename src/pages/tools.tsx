@@ -37,9 +37,31 @@ export default function Tools() {
         <title>WA | Tools</title>
         <meta
           name="description"
-          content="Tools - Various technologies that I use in my projects, each project requires different toolset"
+          content="Tools - Various technologies that I use in my projects, each project requires different toolset."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Open Graph Meta Tags for Social Media */}
+        <meta
+          property="og:description"
+          content="Tools - Various technologies that I use in my projects, each project requires different toolset."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="WA | Tools" />
+        <meta
+          property="og:image"
+          content="/images/helmet.svg"
+        />
+        <meta property="og:url" content="https://wildanazz.com/tools" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="WA | Tools" />
+        <meta
+          name="twitter:description"
+          content="Tools - Various technologies that I use in my projects, each project requires different toolset."
+        />
+        <meta
+          name="twitter:image"
+          content="/images/helmet.svg" // Replace with your image URL
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>

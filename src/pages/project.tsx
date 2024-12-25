@@ -21,6 +21,28 @@ export default function Project({
           content="Projects - Collections of projects I've been working and worked on."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Open Graph Meta Tags for Social Media */}
+        <meta
+          property="og:description"
+          content="Projects - Collections of projects I've been working and worked on."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="WA | Projects" />
+        <meta
+          property="og:image"
+          content="/images/helmet.svg"
+        />
+        <meta property="og:url" content="https://wildanazz.com/project" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="WA | Projects" />
+        <meta
+          name="twitter:description"
+          content="Projects - Collections of projects I've been working and worked on."
+        />
+        <meta
+          name="twitter:image"
+          content="/images/helmet.svg" // Replace with your image URL
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="hidden dark:block">
