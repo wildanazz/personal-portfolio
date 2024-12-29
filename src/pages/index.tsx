@@ -462,12 +462,29 @@ export default function Home({
                           }
                         </div>
                       </div>
-                      <h3 className="text-2xl text-gray-100 mt-2">
-                        {project.data.name}
-                      </h3>
-                      <p className="text-base mt-2 text-gray-200">
-                        {project.data.description}
-                      </p>
+
+                      <div className="flex flex-col sm:flex-row w-full">
+                      {/* Text Section */}
+                      <div className={`w-full transition-colors ${project.image ? 'sm:w-1/2 lg:w-1/2 xl:w-3/5' : ''}`}>
+                        <h3 className="text-2xl text-gray-100 mt-2">
+                          {project.data.name}
+                        </h3>
+                        <p className="text-base mt-2 text-gray-200">
+                          {project.data.description}
+                        </p>
+                      </div>
+
+                      {/* Image Section */}
+                      {project.image && (
+                        <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-2/5 mt-4 sm:mt-0 sm:ml-4 flex items-center justify-center">
+                          <img
+                            src={project.image}
+                            className="w-full h-auto rounded-lg shadow-lg"
+                            alt={project.data.name}
+                          />
+                        </div>
+                      )}
+                    </div>
 
                       {/* Project Stats */}
                       <div className="mt-4 flex justify-between text-sm text-gray-300">
@@ -613,6 +630,7 @@ export const getStaticProps = async () => {
       projects.find(
         (Project) => Project.full_name === 'wildanazz/d3-spotify-genres'
       ) || null,
+    image: 'https://wildanazz.github.io/d3-spotify-genres/data/image.png',
   })
 
   const languages = await getLanguagesFromFork()
