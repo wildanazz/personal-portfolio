@@ -477,10 +477,12 @@ export default function Home({
                       {/* Image Section */}
                       {project.image && (
                         <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-2/5 mt-4 sm:mt-0 sm:ml-4 flex items-center justify-center">
-                          <img
+                          <Image
                             src={project.image}
                             className="w-full h-auto rounded-lg shadow-lg"
                             alt={project.data.name}
+                            width={500}
+                            height={300}
                           />
                         </div>
                       )}
