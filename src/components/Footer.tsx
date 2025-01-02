@@ -92,7 +92,7 @@ export default function Footer() {
           </motion.div>
         </div>
         <p className="text-[#00020d] dark:text-white text-sm">
-          © 2024 MWA.
+          © 2025 MWA.
         </p>
         <a
           className="text-[#00020d] dark:text-white text-sm"
