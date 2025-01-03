@@ -577,16 +577,57 @@ export default function Home({
               data.map((comment: any) => (
                 <article
                   key={comment.Id}
-                  className="mt-4 p-6 dark:bg-[#000000] bg-white text-gray-600 dark:text-gray-300 rounded-lg shadow-lg transition-all"
+                  className="mt-6 p-6 dark:bg-[#1f1f1f] bg-white text-gray-600 dark:text-gray-300 rounded-lg shadow-lg transition-all hover:shadow-xl"
                 >
-                  <footer className="flex justify-between items-center mb-2">
+                  {/* Comment Header */}
+                  <footer className="flex justify-between items-center mb-4">
                     <div className="flex items-center">
-                      <p className="text-sm text-gray-800 dark:text-gray-100 font-semibold">{comment.name}</p>
+                      {/* Profile Image Placeholder */}
+                      <div className="w-12 h-12 rounded-full bg-gray-300 dark:bg-gray-600 mr-4">
+                        {/* You can replace this with comment.profilePicture if available */}
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-800 dark:text-gray-100 font-semibold">{comment.name}</p>
+                        {/* Timestamp */}
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          {new Date(comment.timestamp).toLocaleDateString()} at {new Date(comment.timestamp).toLocaleTimeString()}
+                        </p>
+                      </div>
                     </div>
                   </footer>
-                  <p className="text-base">{comment.Comment}</p>
+              
+                  {/* Comment Text */}
+                  <p className="text-base text-gray-700 dark:text-gray-300 mb-4">{comment.Comment}</p>
+              
+                  {/* Reply Button */}
+                  <div className="flex justify-start text-sm text-gray-500 dark:text-gray-400">
+                    <button className="hover:text-blue-500 focus:outline-none">Reply</button>
+                  </div>
+              
+                  {/* Replies Section */}
+                  {comment.replies && comment.replies.length > 0 && (
+                    <div className="mt-6 pl-4 border-l-2 border-gray-200 dark:border-gray-700">
+                      <h4 className="text-gray-700 dark:text-gray-300 font-semibold text-sm mb-4">Replies:</h4>
+                      {comment.replies.map((reply: any, index: number) => (
+                        <div key={index} className="mb-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all">
+                          <div className="flex items-center mb-3">
+                            <div className="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 mr-3">
+                              {/* You can replace this with reply.profilePicture if available */}
+                            </div>
+                            <div>
+                              <p className="text-sm text-gray-800 dark:text-gray-100 font-semibold">{reply.name}</p>
+                              <p className="text-xs text-gray-500 dark:text-gray-400">
+                                {new Date(reply.timestamp).toLocaleDateString()} at {new Date(reply.timestamp).toLocaleTimeString()}
+                              </p>
+                            </div>
+                          </div>
+                          <p className="text-base text-gray-700 dark:text-gray-300">{reply.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </article>
-              ))
+              ))              
             )}
           </div>
 
