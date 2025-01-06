@@ -577,7 +577,7 @@ export default function Home({
               data.map((comment: any) => (
                 <article
                   key={comment.Id}
-                  className="mt-6 p-6 dark:bg-[#1f1f1f] bg-white text-gray-600 dark:text-gray-300 rounded-lg shadow-lg transition-all hover:shadow-xl"
+                  className="mt-6 p-6 dark:bg-[#000000] bg-white text-gray-600 dark:text-gray-300 rounded-lg shadow-lg transition-all hover:shadow-xl bg-opacity-10 dark:bg-opacity-10"
                 >
                   {/* Comment Header */}
                   <footer className="flex justify-between items-center mb-4">
@@ -676,22 +676,22 @@ export const getStaticProps = async () => {
     image: 'https://wildanazz.github.io/d3-spotify-genres/data/image.png',
   })
 
-  const languages = await getLanguagesFromFork()
-  featuredProjects.push({
-    fork: true,
-    data:
-      projects.find(
-        (Project) => Project.full_name === 'wildanazz/PatternFlow'
-      ) || null,
-    languages: Object.keys(languages),
-  })
+  // const languages = await getLanguagesFromFork()
+  // featuredProjects.push({
+  //   fork: true,
+  //   data:
+  //     projects.find(
+  //       (Project) => Project.full_name === 'wildanazz/PatternFlow'
+  //     ) || null,
+  //   languages: Object.keys(languages),
+  // })
 
-  featuredProjects.push({
-    fork: false,
-    data:
-      projects.find((Project) => Project.full_name === 'wildanazz/minote') ||
-      null,
-  })
+  // featuredProjects.push({
+  //   fork: false,
+  //   data:
+  //     projects.find((Project) => Project.full_name === 'wildanazz/minote') ||
+  //     null,
+  // })
 
   return {
     props: { playlists, latestArticle, featuredArticle, featuredProjects },
