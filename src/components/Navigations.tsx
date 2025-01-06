@@ -11,16 +11,16 @@ export const navigations = [
     path: '/blog',
     delay: 2,
   },
+  // {
+  //   id: 2,
+  //   title: 'Tools',
+  //   path: '/tools',
+  //   delay: 2.5,
+  // },
   {
     id: 2,
-    title: 'Tools',
-    path: '/tools',
-    delay: 2.5,
-  },
-  {
-    id: 3,
     title: 'Projects',
     path: '/project',
-    delay: 3,
+    delay: 2.5,
   },
 ]
