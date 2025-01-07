@@ -12,6 +12,7 @@ export default function ArticlePage({ article }: any) {
   const [formData, setFormData] = useState({
     name: '',
     comment: '',
+    email: ''
   })
   const [postDataSuccess, setPostDataSuccess] = useState(false)
   const { scrollYProgress } = useScroll()
@@ -32,6 +33,14 @@ export default function ArticlePage({ article }: any) {
   const handleSubmit = (e: any) => {
     e.preventDefault()
 
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    // Check if the email matches the regex
+    if (!emailRegex.test(formData.email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
     fetch('/comments', {
       method: 'POST',
       headers: {
@@ -43,6 +52,7 @@ export default function ArticlePage({ article }: any) {
       setFormData({
         name: '',
         comment: '',
+        email: '',
       })
     })
   }
@@ -105,6 +115,21 @@ export default function ArticlePage({ article }: any) {
               
               {/* Comment Form */}
               <form className="mb-6" onSubmit={handleSubmit}>
+                <div className="py-3 px-4 mb-4 rounded-lg border bg-white">
+                  <label htmlFor="email" className="sr-only">Your email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"  // Set the input type to "email"
+                    className="px-3 py-2 w-full text-gray-600 text-sm border-0 focus:ring-0 focus:outline-none placeholder-gray-600 rounded-lg"
+                    placeholder="Your email..."
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div className="py-3 px-4 mb-4 rounded-lg border bg-white">
                   <label htmlFor="name" className="sr-only">Your name</label>
                   <input
