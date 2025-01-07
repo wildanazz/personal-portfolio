@@ -30,48 +30,48 @@ export default function Home({
   featuredProjects,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [isHovered, setHovered] = useState(false)
-  const [data, setData] = useState<any>()
-  const [isLoading, setLoading] = useState(true)
-  const [formData, setFormData] = useState({
-    name: '',
-    comment: '',
-  })
-  const [postDataSuccess, setPostDataSuccess] = useState(false)
+  // const [data, setData] = useState<any>()
+  // const [isLoading, setLoading] = useState(true)
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   comment: '',
+  // })
+  // const [postDataSuccess, setPostDataSuccess] = useState(false)
 
-  useEffect(() => {
-    fetch('/comments')
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data)
-        setLoading(false)
-      })
-    setPostDataSuccess(false)
-  }, [postDataSuccess])
+  // useEffect(() => {
+  //   fetch('/comments')
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setData(data)
+  //       setLoading(false)
+  //     })
+  //   setPostDataSuccess(false)
+  // }, [postDataSuccess])
 
-  const handleChange = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
+  // const handleChange = (e: any) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   })
+  // }
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault()
+  // const handleSubmit = (e: any) => {
+  //   e.preventDefault()
 
-    fetch('/comments', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    }).then(() => {
-      setPostDataSuccess(true)
-      setFormData({
-        name: '',
-        comment: '',
-      })
-    })
-  }
+  //   fetch('/comments', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(formData),
+  //   }).then(() => {
+  //     setPostDataSuccess(true)
+  //     setFormData({
+  //       name: '',
+  //       comment: '',
+  //     })
+  //   })
+  // }
 
   return (
     <>
@@ -102,7 +102,7 @@ export default function Home({
         />
         <meta
           name="twitter:image"
-          content="/images/helmet.svg" // Replace with your image URL
+          content="/images/helmet.svg"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -110,15 +110,18 @@ export default function Home({
         {/* Header */}
         <div className="mt-14 lg:mt-32 font-light w-full text-[#00020d] dark:text-white">
           <div className="flex flex-row gap-4 flex-wrap pb-4 items-center">
-            {/* <h1 className="drop-shadow-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-contain bg-clip-text bg-[url('/vibrant_flower.png')] animate-stripes">
-              Hi, I&apos;m Wildan
-            </h1> */}
+          <h1 className="drop-shadow-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#00020d] dark:text-white">
+              Hi, I&apos;m
+            </h1>
+            <h1 className="drop-shadow-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-contain bg-clip-text bg-[url('/vibrant_flower.png')] animate-stripes">
+              Naz
+            </h1>
             {/* <h1 className="drop-shadow-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#00020d] dark:bg-white">
               Hi, I&apos;m Wildan
             </h1> */}
-            <h1 className="drop-shadow-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#00020d] dark:text-white">
+            {/* <h1 className="drop-shadow-lg text-4xl sm:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-[#00020d] dark:text-white">
               Hi, I&apos;m Naz
-            </h1>
+            </h1> */}
             <Image
               className="drop-shadow-lg"
               src={'/images/helmet.svg'}
@@ -341,7 +344,7 @@ export default function Home({
                     </p>
                     <span>❤️ {latestArticle.public_reactions_count}</span>
                   </div>
-                  <p className="text-base mt-2 underline text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-100 transition-colors">
+                  <p className="text-base mt-2 underline text-gray-500 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-100 transition-colors">
                     Read more
                   </p>
                 </div>
@@ -510,13 +513,13 @@ export default function Home({
             </div>
           </div>
           {/* Comments */}
-          <div className="w-auto xl:w-full mb-6">
+          {/* <div className="w-auto xl:w-full mb-6">
             <h1 className="text-base sm:text-lg my-4 font-light text-gray-600 dark:text-gray-300 leading-relaxed">
               Please feel free to leave a comment below or send me an e-mail :)
-            </h1>
+            </h1> */}
             
             {/* Comment Form */}
-            <form className="mb-6" onSubmit={handleSubmit}>
+            {/* <form className="mb-6" onSubmit={handleSubmit}>
               <div className="py-3 px-4 mb-4 rounded-lg border bg-white">
                 <label htmlFor="name" className="sr-only">Your name</label>
                 <input
@@ -551,10 +554,10 @@ export default function Home({
               >
                 Post Comment
               </button>
-            </form>
+            </form> */}
 
             {/* Loading Indicator */}
-            {isLoading ? (
+            {/* {isLoading ? (
               <div className="flex flex-col w-full items-center" role="status">
                 <svg
                   aria-hidden="true"
@@ -578,42 +581,42 @@ export default function Home({
                 <article
                   key={comment.Id}
                   className="mt-6 p-6 dark:bg-[#000000] bg-white text-gray-600 dark:text-gray-300 rounded-lg shadow-lg transition-all hover:shadow-xl bg-opacity-10 dark:bg-opacity-10"
-                >
+                > */}
                   {/* Comment Header */}
-                  <footer className="flex justify-between items-center mb-4">
-                    <div className="flex items-center">
+                  {/* <footer className="flex justify-between items-center mb-4">
+                    <div className="flex items-center"> */}
                       {/* Profile Image Placeholder */}
-                      <div className="w-12 h-12 rounded-full bg-gray-300 dark:bg-gray-600 mr-4">
+                      {/* <div className="w-12 h-12 rounded-full bg-gray-300 dark:bg-gray-600 mr-4"> */}
                         {/* You can replace this with comment.profilePicture if available */}
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-800 dark:text-gray-100 font-semibold">{comment.name}</p>
+                      {/* </div>
+                      <div> */}
+                        {/* <p className="text-sm text-gray-800 dark:text-gray-100 font-semibold">{comment.name}</p> */}
                         {/* Timestamp */}
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                        {/* <p className="text-xs text-gray-500 dark:text-gray-400">
                           {new Date(comment.timestamp).toLocaleDateString()} at {new Date(comment.timestamp).toLocaleTimeString()}
                         </p>
                       </div>
                     </div>
-                  </footer>
+                  </footer> */}
               
                   {/* Comment Text */}
-                  <p className="text-base text-gray-700 dark:text-gray-300 mb-4">{comment.Comment}</p>
+                  {/* <p className="text-base text-gray-700 dark:text-gray-300 mb-4">{comment.Comment}</p> */}
               
                   {/* Reply Button */}
-                  <div className="flex justify-start text-sm text-gray-500 dark:text-gray-400">
+                  {/* <div className="flex justify-start text-sm text-gray-500 dark:text-gray-400">
                     <button className="hover:text-blue-500 focus:outline-none">Reply</button>
-                  </div>
+                  </div> */}
               
                   {/* Replies Section */}
-                  {comment.replies && comment.replies.length > 0 && (
+                  {/* {comment.replies && comment.replies.length > 0 && (
                     <div className="mt-6 pl-4 border-l-2 border-gray-200 dark:border-gray-700">
                       <h4 className="text-gray-700 dark:text-gray-300 font-semibold text-sm mb-4">Replies:</h4>
                       {comment.replies.map((reply: any, index: number) => (
                         <div key={index} className="mb-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all">
                           <div className="flex items-center mb-3">
-                            <div className="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 mr-3">
+                            <div className="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 mr-3"> */}
                               {/* You can replace this with reply.profilePicture if available */}
-                            </div>
+                            {/* </div>
                             <div>
                               <p className="text-sm text-gray-800 dark:text-gray-100 font-semibold">{reply.name}</p>
                               <p className="text-xs text-gray-500 dark:text-gray-400">
@@ -629,7 +632,7 @@ export default function Home({
                 </article>
               ))              
             )}
-          </div>
+          </div> */}
 
         </div>
       </Layout>
@@ -676,6 +679,20 @@ export const getStaticProps = async () => {
     image: 'https://wildanazz.github.io/d3-spotify-genres/data/image.png',
   })
 
+  featuredProjects.push({
+    fork: false,
+    data:
+      projects.find((Project) => Project.full_name === 'wildanazz/enao-spotify-genres') ||
+      null,
+  })
+
+  featuredProjects.push({
+    fork: false,
+    data:
+      projects.find((Project) => Project.full_name === 'wildanazz/gcn-http-server') ||
+      null,
+  })
+  
   // const languages = await getLanguagesFromFork()
   // featuredProjects.push({
   //   fork: true,
