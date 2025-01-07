@@ -3,6 +3,7 @@ import Head from 'next/head'
 import moment from 'moment'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import { getArticlesFromAPI } from '@/lib/load-articles'
+import ReCAPTCHA from 'react-google-recaptcha';
 import Layout from '@/components/Layout'
 import Footer from '@/components/Footer'
 
@@ -12,8 +13,10 @@ export default function ArticlePage({ article }: any) {
   const [formData, setFormData] = useState({
     name: '',
     comment: '',
-    email: ''
+    email: '',
+    captcha: '',
   })
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const [postDataSuccess, setPostDataSuccess] = useState(false)
   const { scrollYProgress } = useScroll()
 
@@ -22,6 +25,10 @@ export default function ArticlePage({ article }: any) {
     damping: 30,
     restDelta: 0.001,
   })
+
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
+  };
 
   const handleChange = (e: any) => {
     setFormData({
@@ -33,9 +40,13 @@ export default function ArticlePage({ article }: any) {
   const handleSubmit = (e: any) => {
     e.preventDefault()
 
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!captchaValue) {
+      alert('Please verify the CAPTCHA.');
+      return;
+    }
 
     // Check if the email matches the regex
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(formData.email)) {
       alert('Please enter a valid email address.');
       return;
@@ -53,6 +64,7 @@ export default function ArticlePage({ article }: any) {
         name: '',
         comment: '',
         email: '',
+        captcha: ''
       })
     })
   }
@@ -155,6 +167,14 @@ export default function ArticlePage({ article }: any) {
                     value={formData.comment}
                     onChange={handleChange}
                     autoComplete="off"
+                  />
+                </div>
+
+                {/* reCAPTCHA */}
+                <div className="mb-4">
+                  <ReCAPTCHA
+                    sitekey="YOUR_GOOGLE_RECAPTCHA_SITE_KEY" // Replace with your site key
+                    onChange={handleCaptchaChange}
                   />
                 </div>
 
