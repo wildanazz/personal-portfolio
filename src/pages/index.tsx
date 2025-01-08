@@ -679,12 +679,12 @@ export const getStaticProps = async () => {
     image: 'https://wildanazz.github.io/d3-spotify-genres/data/image.png',
   })
 
-  featuredProjects.push({
-    fork: false,
-    data:
-      projects.find((Project) => Project.full_name === 'wildanazz/gcn-http-server') ||
-      null,
-  })
+  // featuredProjects.push({
+  //   fork: false,
+  //   data:
+  //     projects.find((Project) => Project.full_name === 'wildanazz/gcn-http-server') ||
+  //     null,
+  // })
   
   // const languages = await getLanguagesFromFork()
   // featuredProjects.push({
