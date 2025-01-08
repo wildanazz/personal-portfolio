@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 DEV_API_KEY="${DEV_API_KEY}"
 GITHUB_API_KEY="${GITHUB_API_KEY}"
 REGISTRY_NAME="${REGISTRY_NAME}"
