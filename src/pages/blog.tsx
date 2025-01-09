@@ -116,21 +116,10 @@ export default function Blog({
             and cool things I&apos;ve made.
           </p>
 
-          {/* Search Bar */}
-          <div className="mt-6 mb-6 flex flex-col sm:flex-row gap-4">
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search articles..."
-              className="w-full sm:w-2/3 px-4 py-3 border border-gray-300 rounded-lg text-gray-600 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00020d] transition duration-300"
-            />
-          </div>
-
           {/* Filter Dropdowns */}
-          <div className="flex gap-4 mt-4 mb-6 flex-wrap">
+          {/* <div className="flex gap-4 mt-4 mb-6 flex-wrap"> */}
             {/* Tag Filter */}
-            <div className="flex flex-col w-full sm:w-auto">
+            {/* <div className="flex flex-col w-full sm:w-auto">
               <label htmlFor="tag" className="font-medium text-lg text-gray-600 dark:text-gray-300">Filter by Tag</label>
               <select
                 id="tag"
@@ -143,10 +132,10 @@ export default function Blog({
                   <option key={tag} value={tag}>{tag}</option>
                 ))}
               </select>
-            </div>
+            </div> */}
 
             {/* Date Filter */}
-            <div className="flex flex-col w-full sm:w-auto">
+            {/* <div className="flex flex-col w-full sm:w-auto">
               <label htmlFor="date" className="font-medium text-lg text-gray-600 dark:text-gray-300">Filter by Date</label>
               <input
                 type="date"
@@ -155,11 +144,38 @@ export default function Blog({
                 onChange={(e) => setSelectedDate(e.target.value)}
                 className="px-4 py-3 border border-gray-300 rounded-lg text-gray-600 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00020d] transition duration-300"
               />
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
         </div>
 
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 mt-4">
+        
+          {/* Filter Dropdowns */}
+          <div className="mt-6 mb-6 flex flex-col sm:flex-row gap-2">
+            {/* Search Bar */}
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search articles..."
+              className="w-full sm:w-[70%] px-4 py-3 border border-gray-300 rounded-lg text-gray-600 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00020d] transition duration-300"
+            />
+            <label htmlFor="tag" className="font-medium text-lg text-gray-600 dark:text-gray-300" />
+
+            {/* Tag Filter */}
+            <select
+              id="tag"
+              value={selectedTag}
+              onChange={(e) => setSelectedTag(e.target.value)}
+              className="px-4 py-3 sm:w-[30%] border border-gray-300 rounded-lg text-gray-600 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00020d] transition duration-300"
+            >
+              <option value="">All Tags</option>
+              {tags.map((tag) => (
+                <option key={tag} value={tag}>{tag}</option>
+              ))}
+            </select>
+          </div>
+          
           {filteredArticles.length > 0 ? (
             filteredArticles.map((article, index) => (
               <motion.div key={article.id} className="mb-8">
