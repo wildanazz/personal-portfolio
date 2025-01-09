@@ -151,7 +151,7 @@ export default function Blog({
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 mt-4">
         
           {/* Filter Dropdowns */}
-          <div className="mb-10 mt-2 flex flex-col sm:flex-row gap-2">
+          <div className="mb-6 mt-2 flex flex-col sm:flex-row gap-2">
             {/* Search Bar */}
             <input
               type="text"
