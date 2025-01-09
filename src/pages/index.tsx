@@ -269,7 +269,7 @@ export default function Home({
                     aria-label="external url 1"
                   >
                     <Image
-                      className="rounded-xl"
+                      className="rounded-sm"
                       alt="playlist"
                       src={playlist.images[0].url}
                       width={128}
@@ -292,7 +292,7 @@ export default function Home({
                     aria-label="external url 2"
                   >
                     <Image
-                      className="rounded-xl"
+                      className="rounded-sm"
                       alt="playlist"
                       src={playlist.images[0].url}
                       width={128}
@@ -634,10 +634,10 @@ export default function Home({
             )}
           </div> */}
 
+        <hr className="h-px bg-[#00020d] border-0 dark:bg-white" />
+        <Footer />
         </div>
       </Layout>
-      <hr className="h-px my-8 bg-[#00020d] border-0 dark:bg-white" />
-      <Footer />
     </>
   )
 }
@@ -679,12 +679,12 @@ export const getStaticProps = async () => {
     image: 'https://wildanazz.github.io/d3-spotify-genres/data/image.png',
   })
 
-  // featuredProjects.push({
-  //   fork: false,
-  //   data:
-  //     projects.find((Project) => Project.full_name === 'wildanazz/gcn-http-server') ||
-  //     null,
-  // })
+  featuredProjects.push({
+    fork: false,
+    data:
+      projects.find((Project) => Project.full_name === 'wildanazz/gcn-http-server') ||
+      null,
+  })
   
   // const languages = await getLanguagesFromFork()
   // featuredProjects.push({

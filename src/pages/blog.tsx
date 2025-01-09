@@ -223,10 +223,10 @@ export default function Blog({
           ) : (
             <p>No articles found matching your filters</p>
           )}
+        <hr className="h-px bg-[#00020d] border-0 dark:bg-white" />
+        <Footer />
         </div>
       </Layout>
-      <hr className="h-px my-8 bg-[#00020d] border-0 dark:bg-white" />
-      <Footer />
     </>
   );
 }

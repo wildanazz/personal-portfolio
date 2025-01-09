@@ -114,7 +114,7 @@ export default function ArticlePage({ article }: any) {
         </p>
 
         {/* Content */}
-        <section className="mt-6 mb-24 font-light leading-relaxed w-full flex flex-col items-center">
+        <section className="mt-6 font-light leading-relaxed w-full flex flex-col items-center">
           <article
             className="prose dark:prose-dark lg:prose-lg max-w-2xl w-full md:w-5/6 xl:w-9/12"
             dangerouslySetInnerHTML={{ __html: article.body_markdown }}
@@ -263,9 +263,9 @@ export default function ArticlePage({ article }: any) {
                 ))              
               )}
             </div>
+            <Footer />
         </section>
       </Layout>
-      <Footer />
     </>
   )
 }
