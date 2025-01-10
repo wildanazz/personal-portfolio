@@ -59,3 +59,19 @@ export function getPlaylistsFromCache(): any[] {
 
   return JSON.parse(cacheContents)
 }
+
+export function writeFilmsToCache(films: any[]) {
+  fs.writeFileSync(
+    path.join(process.cwd(), 'films-cache.json'),
+    JSON.stringify(films)
+  )
+}
+
+export function getFilmsFromCache(): any[] {
+  const cacheContents = fs.readFileSync(
+    path.join(process.cwd(), 'films-cache.json'),
+    'utf-8'
+  )
+
+  return JSON.parse(cacheContents)
+}

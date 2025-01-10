@@ -12,12 +12,15 @@ import {
   Facebook,
   LinkedIn,
   Spotify,
+  LetterBoxd
 } from '@/components/Icons'
 import Footer from '@/components/Footer'
+import { getFilmsFromAPI } from '@/lib/load-films'
 import { getArticlesFromAPI } from '@/lib/load-articles'
 import { getLanguagesFromFork, getProjectsFromApi } from '@/lib/load-projects'
 import {
   writeArticlesToCache,
+  writeFilmsToCache,
   writePlaylistsToCache,
   writeProjectsToCache,
 } from '@/lib/utils'
@@ -28,6 +31,7 @@ export default function Home({
   latestArticle,
   featuredArticle,
   featuredProjects,
+  films
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [isHovered, setHovered] = useState(false)
   // const [data, setData] = useState<any>()
@@ -72,6 +76,12 @@ export default function Home({
   //     })
   //   })
   // }
+
+  function renderStars(rating: number) {
+    const filledStars = '★'.repeat(Math.round(rating)); // Rounded filled stars
+    const emptyStars = '☆'.repeat(5 - Math.round(rating)); // Empty stars to make total of 5
+    return filledStars + emptyStars; // Combine filled and empty stars
+  }
 
   return (
     <>
@@ -250,7 +260,7 @@ export default function Home({
           </p> */}
 
           {/* Spotify playlist */}
-          <div className="flex flex-row gap-4 flex-wrap my-6 items-center drop-shadow-lg">
+          <div className="flex flex-row gap-2 flex-wrap my-6 items-center drop-shadow-lg">
             <Link
               href="https://open.spotify.com/user/31gv36hn5nnojr335xoy327cixs4"
               target="_blank"
@@ -258,8 +268,15 @@ export default function Home({
             >
               <Spotify width={96} height={32} />
             </Link>
+            <Link
+              href="https://letterboxd.com/wildanazz/films/"
+              target="_blank"
+              aria-label="letterboxd"
+            >
+              <LetterBoxd width={256} height={32} />
+            </Link>    
           </div>
-          <div className="mx-auto max-w-sm md:max-w-2xl inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+          <div className="mx-auto max-w-sm md:max-w-2xl inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_16px,_black_calc(100%-25px),transparent_100%)]">
             <ul className="flex items-center justify-center md:justify-start [&_li]:mx-0.5 [&_img]:max-w-none animate-infinite-scroll transform-gpu">
               {playlists.items.map((playlist: any) => (
                 <li key={playlist.id}>
@@ -300,6 +317,40 @@ export default function Home({
                       loading="eager"
                     />
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mx-auto max-w-sm md:max-w-2xl inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_16px,_black_calc(100%-25px),transparent_100%)]">
+            <ul className="flex items-center justify-start md:justify-start [&_li]:mx-2 [&_img]:max-w-none animate-infinite-scroll-reversed transform-gpu border-t border-b border-gray-500 py-2">
+              {films.map((film: any) => (
+                <li key={film.Film_title} className="whitespace-nowrap flex flex-row items-center justify-center gap-4 hover:text-gray-700 dark:hover:text-gray-400">
+                  <Link href={film.Film_URL} target="_blank" aria-label={film.Film_title}>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm">{film.Film_title}, {film.Release_year}</span>
+                      <span className="text-2xl text-gray-600">
+                        {renderStars(film.Average_rating)}
+                      </span>
+                    </div>
+                  </Link>
+                  <span className="text-2xl text-gray-500">•</span>
+                </li>
+              ))}
+            </ul>
+            <ul className="flex items-center justify-start md:justify-start [&_li]:mx-2 [&_img]:max-w-none animate-infinite-scroll-reversed transform-gpu border-t border-b border-gray-500 py-2"
+                aria-hidden="true"
+            >
+              {films.map((film: any) => (
+                <li key={film.Film_title} className="whitespace-nowrap flex flex-row items-center justify-center gap-4 hover:text-gray-700 dark:hover:text-gray-400">
+                  <Link href={film.Film_URL} target="_blank" aria-label={film.Film_title}>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm">{film.Film_title}, {film.Release_year}</span>
+                      <span className="text-2xl text-gray-600">
+                        {renderStars(film.Average_rating)}
+                      </span>
+                    </div>
+                  </Link>
+                  <span className="text-2xl text-gray-500">•</span>
                 </li>
               ))}
             </ul>
@@ -494,7 +545,7 @@ export default function Home({
                       {/* Project Stats */}
                       <div className="mt-4 flex justify-between text-sm text-gray-300">
                         <div className="flex items-center">
-                          <span className="mr-1">⭐</span> {project.data.stars || "0"} Stars
+                          <span className="mr-1 text-4xl">⭐</span> {project.data.stars || "0"} Stars
                         </div>
                         <div className="flex items-center">
                           <span className="mr-1">🍴</span> {project.data.forks || "0"} Forks
@@ -646,6 +697,7 @@ export const getStaticProps = async () => {
   const articles = await getArticlesFromAPI()
   const projects = await getProjectsFromApi()
   const playlists = await getPlaylistFromAPI()
+  const films = await getFilmsFromAPI()
 
   // Write articles to cache
   writeArticlesToCache(articles)
@@ -655,6 +707,9 @@ export const getStaticProps = async () => {
 
   // Write projects to cache
   writePlaylistsToCache(playlists)
+
+  // Write films to cache
+  writeFilmsToCache(films)
 
   // Get latest article
   const latestArticle = articles[0]
@@ -704,7 +759,7 @@ export const getStaticProps = async () => {
   // })
 
   return {
-    props: { playlists, latestArticle, featuredArticle, featuredProjects },
+    props: { playlists, latestArticle, featuredArticle, featuredProjects, films },
     revalidate: 10,
   }
 }
