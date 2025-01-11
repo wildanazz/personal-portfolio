@@ -533,7 +533,7 @@ export default function Home({
                         <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-2/5 mt-4 sm:mt-0 sm:ml-4 flex items-center justify-center">
                           <Image
                             src={project.image}
-                            className="w-auto h-[128px] rounded-sm"
+                            className="w-full rounded-sm"
                             alt={project.data.name}
                             width={500}
                             height={300}
@@ -738,8 +738,7 @@ export const getStaticProps = async () => {
     fork: false,
     data:
       projects.find((Project) => Project.full_name === 'wildanazz/gcn-http-server') ||
-      null,
-    image: 'https://raw.githubusercontent.com/wildanazz/gcn-http-server/refs/heads/main/data/Embedding.jpg'
+      null
   })
   
   // const languages = await getLanguagesFromFork()
