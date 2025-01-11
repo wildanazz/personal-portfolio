@@ -8,7 +8,8 @@ const nextConfig = {
       'mosaic.scdn.co',
       'i.scdn.co',
       'res.cloudinary.com',
-      'wildanazz.github.io'
+      'wildanazz.github.io',
+      'raw.githubusercontent.com'
     ],
   },
   async rewrites() {

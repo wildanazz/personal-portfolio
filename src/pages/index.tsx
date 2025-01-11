@@ -481,7 +481,7 @@ export default function Home({
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.025 }}
                   key={project.data.id}
-                  className="bg-[#000000] dark:bg-opacity-50 rounded-md drop-shadow-lg"
+                  className="bg-[#000000] dark:bg-opacity-50 rounded-xl drop-shadow-xl"
                 >
                   <Link href={project.data.homepage || project.data.html_url} legacyBehavior>
                     <a
@@ -533,7 +533,7 @@ export default function Home({
                         <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-2/5 mt-4 sm:mt-0 sm:ml-4 flex items-center justify-center">
                           <Image
                             src={project.image}
-                            className="w-full h-auto rounded-lg shadow-lg"
+                            className="w-auto h-[128px] rounded-sm"
                             alt={project.data.name}
                             width={500}
                             height={300}
@@ -739,6 +739,7 @@ export const getStaticProps = async () => {
     data:
       projects.find((Project) => Project.full_name === 'wildanazz/gcn-http-server') ||
       null,
+    image: 'https://raw.githubusercontent.com/wildanazz/gcn-http-server/refs/heads/main/data/Embedding.jpg'
   })
   
   // const languages = await getLanguagesFromFork()
