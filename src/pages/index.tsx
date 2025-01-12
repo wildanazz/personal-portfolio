@@ -25,6 +25,7 @@ import {
   writeProjectsToCache,
 } from '@/lib/utils'
 import { getPlaylistFromAPI } from '@/lib/load-playlist'
+import UMAPChart from '@/components/LetterboxdUMAP'
 
 export default function Home({
   playlists,
@@ -474,6 +475,20 @@ export default function Home({
           </h2>
           <div className="w-auto xl:w-full">
             <div className="mb-14 flex flex-col w-full gap-4">
+              
+              <div>
+                  <Link href={'https://github.com/wildanazz/letterboxd-umap/tree/main'} legacyBehavior>
+                    <a
+                      className="text-2xl mb-6 text-[#00020d] dark:text-white font-normal flex flex-col justify-center items-center"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Every Films at Once
+                    </a>
+                  </Link>
+                <UMAPChart />
+              </div>
+
               {featuredProjects.map((project: any) => (
                 <motion.article
                   onHoverStart={() => setHovered(true)}
