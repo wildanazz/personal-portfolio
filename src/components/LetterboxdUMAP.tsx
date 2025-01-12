@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 
-const LetterboxdUMAP = () => {
+export default function LetterboxdUMAP() {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const [data, setData] = useState<any[]>([]);
-  const [svgDimensions, setSvgDimensions] = useState({ width: 800, height: 600 });
+  const [svgDimensions, setSvgDimensions] = useState({ width: 640, height: 480 });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +17,7 @@ const LetterboxdUMAP = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const maxWidth = 800;
+      const maxWidth = 640;
       const width = Math.min(window.innerWidth * 0.9, maxWidth);
       const height = width * 0.75;
 
@@ -114,6 +114,9 @@ const LetterboxdUMAP = () => {
       .on('mouseout', function () {
         d3.select(this).attr('opacity', 0.7);
         svg.selectAll('.tooltip').remove();
+      })
+      .on('click', (event: any, d) => {
+        window.open(d.Film_URL, '_blank');
       });
 
     const zoom = d3.zoom()
@@ -135,5 +138,3 @@ const LetterboxdUMAP = () => {
     </div>
   );
 };
-
-export default LetterboxdUMAP;
