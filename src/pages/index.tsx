@@ -476,16 +476,16 @@ export default function Home({
           <div className="w-auto xl:w-full">
             <div className="mb-14 flex flex-col w-full gap-4">
               
-              <div className='my-3'>
-                  <Link href={'https://wildanazz.github.io/letterboxd-umap/'} legacyBehavior>
-                    <a
-                      className="text-2xl mb-6 text-[#00020d] dark:text-white font-normal flex flex-col justify-center items-center hover:text-indigo-400"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Every Films at Once
-                    </a>
-                  </Link>
+              <div className='my-3 flex flex-col justify-center items-center'>
+                <Link href={'https://wildanazz.github.io/letterboxd-umap/'} legacyBehavior>
+                  <a
+                    className="text-2xl mb-6 text-[#00020d] dark:text-white font-normal dark:hover:text-indigo-400 hover:text-indigo-400 inline-block"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Every Films at Once
+                  </a>
+                </Link>
                   <Suspense fallback={
                     <div className="flex flex-col w-full items-center" role="status">
                       <svg
