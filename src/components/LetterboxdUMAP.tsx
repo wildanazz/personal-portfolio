@@ -1,21 +1,23 @@
-// components/LetterboxdUMAP.tsx
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 
 const LetterboxdUMAP = () => {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const [data, setData] = useState<any[]>([]);
-  const [svgDimensions, setSvgDimensions] = useState({ width: 640, height: 480 });
+  const [svgDimensions, setSvgDimensions] = useState({ width: 800, height: 600 });
 
   useEffect(() => {
-    d3.csv('/data/umap_data.csv').then((data) => {
+    const fetchData = async () => {
+      const data = await d3.csv('/data/umap_data.csv');
       setData(data);
-    });
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {
     const handleResize = () => {
-      const maxWidth = 640;
+      const maxWidth = 800;
       const width = Math.min(window.innerWidth * 0.9, maxWidth);
       const height = width * 0.75;
 
@@ -42,29 +44,21 @@ const LetterboxdUMAP = () => {
       .attr('width', width)
       .attr('height', height);
 
-      const xScale = d3.scaleLinear()
-      .domain([
-          d3.min(data, d => parseFloat(d.x)) || 0,
-          d3.max(data, d => parseFloat(d.x)) || 0
-      ])
+    const xScale = d3.scaleLinear()
+      .domain([d3.min(data, d => parseFloat(d.x)) || 0, d3.max(data, d => parseFloat(d.x)) || 0])
       .range([0, width]);
 
     const yScale = d3.scaleLinear()
-      .domain([
-          d3.min(data, d => parseFloat(d.y)) || 0,
-          d3.max(data, d => parseFloat(d.y)) || 0
-      ])
+      .domain([d3.min(data, d => parseFloat(d.y)) || 0, d3.max(data, d => parseFloat(d.y)) || 0])
       .range([height, 0]);
 
     const colorScale = d3.scaleSequential(d3.interpolateViridis)
-      .domain([
-          d3.min(data, d => parseFloat(d.Average_rating)) || 0,
-          d3.max(data, d => parseFloat(d.Average_rating)) || 0
-      ]);
+      .domain([d3.min(data, d => parseFloat(d.Average_rating)) || 0, d3.max(data, d => parseFloat(d.Average_rating)) || 0]);
 
     svg.selectAll('circle').remove();
-
     svg.selectAll('.grid line').remove(); // Clear previous grid lines
+
+    // Add grid lines
     svg.append('g')
       .attr('class', 'grid')
       .selectAll('line')
@@ -91,7 +85,7 @@ const LetterboxdUMAP = () => {
       .style('stroke-width', 1)
       .style('stroke-dasharray', '2,2');
 
-    svg.selectAll('circle')
+    const circles = svg.selectAll('circle')
       .data(data)
       .enter()
       .append('circle')
@@ -105,7 +99,7 @@ const LetterboxdUMAP = () => {
           .attr('x', xScale(d.x) + 10)
           .attr('y', yScale(d.y) - 10)
           .text(d.Film_title)
-          .attr('class', 'tooltip text-lg bg-black p-1 rounded dark:text-white text-blue');
+          .attr('class', 'tooltip text-lg bg-black p-1 rounded dark:text-white text-black');
         svg.append('text')
           .attr('x', xScale(d.x) + 10)
           .attr('y', yScale(d.y) + 10)
@@ -121,6 +115,18 @@ const LetterboxdUMAP = () => {
         d3.select(this).attr('opacity', 0.7);
         svg.selectAll('.tooltip').remove();
       });
+
+    const zoom = d3.zoom()
+      .scaleExtent([1, 3]) // Limit zoom scale between 0.5x and 3x
+      .translateExtent([[0, 0], [width, height]])
+      .on('zoom', (event: any) => {
+        svg.selectAll('.grid line').attr('transform', event.transform);
+        circles.attr('transform', event.transform);
+      });
+
+    if (svgRef.current) {
+      svg.call(zoom as any);
+    }
   }, [data, svgDimensions]);
 
   return (
