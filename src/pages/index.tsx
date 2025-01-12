@@ -476,10 +476,10 @@ export default function Home({
           <div className="w-auto xl:w-full">
             <div className="mb-14 flex flex-col w-full gap-4">
               
-              <div>
-                  <Link href={'https://github.com/wildanazz/letterboxd-umap/tree/main'} legacyBehavior>
+              <div className='my-3'>
+                  <Link href={'https://wildanazz.github.io/letterboxd-umap/'} legacyBehavior>
                     <a
-                      className="text-2xl mb-6 text-[#00020d] dark:text-white font-normal flex flex-col justify-center items-center"
+                      className="text-2xl mb-6 text-[#00020d] dark:text-white font-normal flex flex-col justify-center items-center hover:text-indigo-400"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -507,6 +507,22 @@ export default function Home({
                     </div>}
                   >
                     <LetterboxdUMAP />
+                    <p className="text-base mt-4 text-[#00020d] dark:text-gray-200 text-center">
+                      My attempt to apply UMAP (Uniform Manifold Approximation and Projection), a dimensionality reduction technique, to visualize and represent popular films scraped on Letterboxd in 2024. 
+                      See more on 
+                      <Link 
+                        href={'https://github.com/wildanazz/letterboxd-umap/tree/main'} 
+                        legacyBehavior
+                      >
+                        <a
+                          className='hover:text-blue-400'
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {' GitHub.'}
+                        </a>
+                      </Link>
+                    </p>
                   </Suspense>
               </div>
 
