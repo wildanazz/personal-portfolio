@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 
-export default function LetterboxdUMAP() {
+export default function LetterboxdPlot() {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const [data, setData] = useState<any[]>([]);
   const [svgDimensions, setSvgDimensions] = useState({ width: 640, height: 480 });
@@ -44,12 +44,24 @@ export default function LetterboxdUMAP() {
       .attr('width', width)
       .attr('height', height);
 
+    // Define padding factor for spreading the points
+    const xPadding = 0.15; // 15% padding for x-axis
+    const yPadding = 0.15; // 15% padding for y-axis
+
+    // Update the xScale with padding
     const xScale = d3.scaleLinear()
-      .domain([d3.min(data, d => parseFloat(d.x)) || 0, d3.max(data, d => parseFloat(d.x)) || 0])
+      .domain([
+        (d3.min(data, d => parseFloat(d.x)) || 0) - (xPadding * (d3.max(data, d => parseFloat(d.x)) || 0)),
+        (d3.max(data, d => parseFloat(d.x)) || 0) + (xPadding * (d3.max(data, d => parseFloat(d.x)) || 0)),
+      ])
       .range([0, width]);
 
+    // Update the yScale with padding
     const yScale = d3.scaleLinear()
-      .domain([d3.min(data, d => parseFloat(d.y)) || 0, d3.max(data, d => parseFloat(d.y)) || 0])
+      .domain([
+        (d3.min(data, d => parseFloat(d.y)) || 0) - (yPadding * (d3.max(data, d => parseFloat(d.y)) || 0)),
+        (d3.max(data, d => parseFloat(d.y)) || 0) + (yPadding * (d3.max(data, d => parseFloat(d.y)) || 0)),
+      ])
       .range([height, 0]);
 
     const colorScale = d3.scaleSequential(d3.interpolateViridis)
@@ -58,7 +70,7 @@ export default function LetterboxdUMAP() {
     svg.selectAll('circle').remove();
     svg.selectAll('.grid line').remove(); // Clear previous grid lines
 
-    // Add grid lines
+    // Add grid lines with padding
     svg.append('g')
       .attr('class', 'grid')
       .selectAll('line')
@@ -120,7 +132,7 @@ export default function LetterboxdUMAP() {
       });
 
     const zoom = d3.zoom()
-      .scaleExtent([1, 3]) // Limit zoom scale between 0.5x and 3x
+      .scaleExtent([1, 3]) // Limit zoom scale between 1x and 3x
       .translateExtent([[0, 0], [width, height]])
       .on('zoom', (event: any) => {
         svg.selectAll('.grid line').attr('transform', event.transform);
