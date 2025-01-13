@@ -104,7 +104,7 @@ export default function Project({
                   </a>
                 </motion.div>
               </motion.div>
-              <motion.div whileTap={{ scale: 1.5 }}>
+              {/* <motion.div whileTap={{ scale: 1.5 }}>
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: [0, 1, 1.5, 1] }}
@@ -143,7 +143,7 @@ export default function Project({
                     <LinkedIn width={36} height={36} />
                   </a>
                 </motion.div>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
           {/* Contents */}

@@ -51,7 +51,7 @@ export default function Footer() {
                 </a>
               </motion.div>
             </motion.div>
-            <motion.div whileTap={{ scale: 1.5 }} whileHover={{ scale: 1.2 }}>
+            {/* <motion.div whileTap={{ scale: 1.5 }} whileHover={{ scale: 1.2 }}>
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: [0, 1, 1.5, 1] }}
@@ -90,7 +90,7 @@ export default function Footer() {
                   <LinkedIn width={36} height={36} />
                 </a>
               </motion.div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </motion.div>
       <p className="text-[#00020d] dark:text-white text-sm">

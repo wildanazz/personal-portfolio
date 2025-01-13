@@ -472,7 +472,7 @@ export default function Home({
             </>
           )}
           <h2 className="text-2xl md:text-3xl mb-6 text-[#00020d] dark:text-gray-200 font-normal">
-            Featured projects
+            Recent projects
           </h2>
           <div className="w-auto xl:w-full">
             <div className="mb-14 flex flex-col w-full gap-4">
