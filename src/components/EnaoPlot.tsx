@@ -145,12 +145,16 @@ export default function EnaoPlot() {
 
     setAudio(new Audio());
 
+    svg.selectAll('.x-axis-label').remove();
+    svg.selectAll('.y-axis-label').remove();
+
     svg.append('text')
       .attr('x', width / 2)
       .attr('y', height - 10)
       .attr('text-anchor', 'middle')
       .attr('font-size', '14px')
       .attr('fill', '#000')
+      .attr('class', 'x-axis-label')
       .text('← Denser & Atmospheric, Spikier & Bouncier →');
 
     svg.append('text')
@@ -160,6 +164,7 @@ export default function EnaoPlot() {
       .attr('text-anchor', 'middle')
       .attr('font-size', '14px')
       .attr('fill', '#000')
+      .attr('class', 'y-axis-label')
       .text('← Organic, Mechanical & Electric →');
 
   }, [data, svgDimensions]);
