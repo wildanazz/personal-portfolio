@@ -483,7 +483,7 @@ export default function Home({
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Every Films at Once
+                    Every Film at Once
                   </a>
                 </Link>
                   <Suspense fallback={
@@ -507,7 +507,7 @@ export default function Home({
                     </div>}
                   >
                     <LetterboxdUMAP />
-                    <p className="text-base mt-4 text-[#00020d] dark:text-gray-200 text-center">
+                    <p className="text-base mt-4 text-[#00020d] dark:text-gray-200">
                       My attempt to apply UMAP (Uniform Manifold Approximation and Projection), a dimensionality reduction technique, to visualize and represent popular films scraped on Letterboxd in 2024. 
                       See more on 
                       <Link 
