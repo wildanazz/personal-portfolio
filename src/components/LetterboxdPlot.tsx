@@ -145,7 +145,7 @@ export default function LetterboxdPlot() {
   }, [data, svgDimensions]);
 
   return (
-    <div className="flex justify-center items-center border-2 border-gray-600 dark:border-gray-300 rounded-lg">
+    <div className="flex justify-center items-center">
       <svg ref={svgRef} className="scatter" />
     </div>
   );
