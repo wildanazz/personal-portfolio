@@ -156,7 +156,7 @@ export default function EnaoPlot() {
     svg.append('text')
       .attr('transform', `rotate(-90)`)
       .attr('x', -height / 2)
-      .attr('y', 15)
+      .attr('y', 20)
       .attr('text-anchor', 'middle')
       .attr('font-size', '14px')
       .attr('fill', '#000')
@@ -165,7 +165,7 @@ export default function EnaoPlot() {
   }, [data, svgDimensions]);
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center border-2 border-gray-600 dark:border-gray-300 rounded-lg">
       <svg ref={svgRef} className="scatter" />
     </div>
   );
