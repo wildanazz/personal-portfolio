@@ -480,7 +480,7 @@ export default function Home({
               <div className='my-3 flex flex-col justify-center items-center'>
                 <Link href={'https://wildanazz.github.io/letterboxd-umap/'} legacyBehavior>
                   <a
-                    className="text-2xl mb-6 text-[#00020d] dark:text-white font-normal dark:hover:text-indigo-400 hover:text-indigo-400 inline-block"
+                    className="text-2xl mb-6 text-gray-800 dark:text-white font-normal dark:hover:text-indigo-400 hover:text-indigo-400 inline-block"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -508,7 +508,7 @@ export default function Home({
                     </div>}
                   >
                     <LetterboxdPlot />
-                    <p className="text-base mt-4 text-[#00020d] dark:text-gray-200">
+                    <p className="text-base mt-4 text-gray-600 dark:text-gray-300">
                       My attempt to apply UMAP (Uniform Manifold Approximation and Projection), a dimensionality reduction technique, to visualize and represent popular films scraped from Letterboxd in 2024. 
                       See more on 
                       <Link 
@@ -530,7 +530,7 @@ export default function Home({
               <div className='my-3 flex flex-col justify-center items-center'>
                 <Link href={'https://wildanazz.github.io/d3-spotify-genres/'} legacyBehavior>
                   <a
-                    className="text-2xl mb-6 text-[#00020d] dark:text-gray-200 font-normal dark:hover:text-rose-400 hover:text-rose-400 inline-block"
+                    className="text-2xl mb-6 text-gray-800 dark:text-gray-200 font-normal dark:hover:text-rose-400 hover:text-rose-400 inline-block"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -558,7 +558,7 @@ export default function Home({
                     </div>}
                   >
                     <EnaoPlot />
-                    <p className="text-base mt-4 text-[#00020d] dark:text-gray-200">
+                    <p className="text-base mt-4 text-gray-600 dark:text-gray-300">
                       A data visualization of music genres scraped from ENAO (Every Noise at Once) website, showcasing a wide array of music samples from various genres simultaneously.
                       See more on 
                       <Link 
