@@ -484,7 +484,7 @@ export default function Home({
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Popular Films on Letterboxd in 2024
+                    Popular Films on Letterboxd (2024)
                   </a>
                 </Link>
                   <Suspense fallback={
