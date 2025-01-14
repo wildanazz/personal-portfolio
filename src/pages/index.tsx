@@ -664,7 +664,7 @@ export default function Home({
                   </Link>
                 </motion.article>
               ))}
-              <div className="text-xl text-[#00020d] dark:text-white flex items-center justify-start mt-4 mx-3 font-light">
+              <div className="text-xl text-[#00020d] dark:text-white flex items-center justify-start mt-4 mx-3 font-normal">
                 <Link href="/project" legacyBehavior>
                   <a className="transition duration-300 ease-in-out focus:outline-none dark:hover:text-purple-400 hover:text-purple-400">
                     More projects ››››
