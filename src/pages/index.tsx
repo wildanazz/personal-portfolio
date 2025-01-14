@@ -471,7 +471,7 @@ export default function Home({
               </div>
             </>
           )}
-          <h2 className="text-2xl md:text-3xl mb-6 text-[#00020d] dark:text-gray-200 font-normal">
+          <h2 className="text-2xl md:text-3xl mb-4 text-[#00020d] dark:text-white font-normal">
             Recent projects
           </h2>
           <div className="w-auto xl:w-full">
@@ -480,7 +480,7 @@ export default function Home({
               <div className='my-3 flex flex-col justify-center items-center'>
                 <Link href={'https://wildanazz.github.io/letterboxd-umap/'} legacyBehavior>
                   <a
-                    className="text-2xl mb-6 text-gray-800 dark:text-white font-normal dark:hover:text-indigo-400 hover:text-indigo-400 inline-block"
+                    className="text-2xl mb-6 text-gray-800 dark:text-white font-light dark:hover:text-indigo-400 hover:text-indigo-400 inline-block"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -527,7 +527,7 @@ export default function Home({
                   </Suspense>
               </div>
 
-              <div className='my-3 flex flex-col justify-center items-center'>
+              {/* <div className='my-3 flex flex-col justify-center items-center'>
                 <Link href={'https://wildanazz.github.io/d3-spotify-genres/'} legacyBehavior>
                   <a
                     className="text-2xl mb-6 text-gray-800 dark:text-gray-200 font-normal dark:hover:text-rose-400 hover:text-rose-400 inline-block"
@@ -575,7 +575,7 @@ export default function Home({
                       </Link>
                     </p>
                   </Suspense>
-              </div>
+              </div> */}
 
               {featuredProjects.map((project: any) => (
                 <motion.article
@@ -664,6 +664,13 @@ export default function Home({
                   </Link>
                 </motion.article>
               ))}
+              <div className="text-xl text-[#00020d] dark:text-white flex items-center justify-start mt-4 mx-3 font-light">
+                <Link href="/project" legacyBehavior>
+                  <a className="transition duration-300 ease-in-out focus:outline-none dark:hover:text-purple-400 hover:text-purple-400">
+                    More projects ››››
+                  </a>
+                </Link>
+              </div>
             </div>
           </div>
           {/* Comments */}

@@ -1,15 +1,43 @@
-import { useState } from 'react'
-import Head from 'next/head'
+import { useState, Suspense, lazy } from 'react'
 import Link from 'next/link'
-import { InferGetStaticPropsType } from 'next'
+import Head from 'next/head'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { getProjectsFromApi } from '@/lib/load-projects'
+import { toollist } from '@/components/Toolslist'
+import Layout from '@/components/Layout'
 import { GitHub, Twitter, Facebook, LinkedIn } from '@/components/Icons'
-import Background from '@/components/Background'
+import Footer from '@/components/Footer'
+import { getProjectsFromApi } from '@/lib/load-projects'
+import { InferGetStaticPropsType } from 'next'
 
-export default function Project({
-  projects,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+const LetterboxdPlot = lazy(() => import('@/components/LetterboxdPlot'));
+const EnaoPlot = lazy(() => import('@/components/EnaoPlot'));
+
+const variant = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+}
+
+const variantItem = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+    },
+  },
+}
+
+export default function Project({ projects} : InferGetStaticPropsType<typeof getStaticProps>) {
   const [isHovered, setHovered] = useState(false)
 
   return (
@@ -41,186 +69,200 @@ export default function Project({
         />
         <meta
           name="twitter:image"
-          content="/images/helmet.svg" // Replace with your image URL
+          content="/images/helmet.svg"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="hidden dark:block">
-        <Background />
-      </div>
-      <motion.div
-        initial={{ x: -200, y: 0, opacity: 0 }}
-        animate={{ x: 0, y: 0, opacity: 1 }}
-        exit={{ x: 0, y: -100, opacity: 0 }}
-        transition={{ type: 'linear' }}
-      >
-        <main className="relative flex flex-col mt-24 mx-8 sm:mx-16 md:mx-36 lg:mx-52 xl:mx-80 2xl:mx-96">
-          {/* Header */}
-          <div className="mt-14 lg:mt-32 font-light text-black dark:text-white static xl:fixed w-auto xl:w-1/5">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#00020d] dark:bg-white">
-              Projects
-            </h1>
-            <p className="font-medium pb-4 text-xl sm:text-2xl lg:text-3xl">
-              Collections of projects I&apos;ve been working and worked on.
-            </p>
-            <div className="flex flex-row gap-1">
-              <motion.div whileTap={{ scale: 1.5 }}>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: [0, 1, 1.5, 1] }}
-                  transition={{
-                    type: 'spring',
-                    duration: 1,
-                    delay: 0.2,
-                  }}
-                >
-                  <a
-                    href="https://github.com/wildanazz"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Github"
-                  >
-                    <GitHub width={36} height={36} />
-                  </a>
-                </motion.div>
-              </motion.div>
-              <motion.div whileTap={{ scale: 1.5 }}>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: [0, 1, 1.5, 1] }}
-                  transition={{
-                    type: 'spring',
-                    duration: 1,
-                    delay: 0.4,
-                  }}
-                >
-                  <a
-                    href="https://twitter.com/wildanazz"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Twitter"
-                  >
-                    <Twitter width={36} height={36} />
-                  </a>
-                </motion.div>
-              </motion.div>
-              {/* <motion.div whileTap={{ scale: 1.5 }}>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: [0, 1, 1.5, 1] }}
-                  transition={{
-                    type: 'spring',
-                    duration: 1,
-                    delay: 0.6,
-                  }}
-                >
-                  <a
-                    href="https://www.facebook.com/wildanazzwa/"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Facebook"
-                  >
-                    <Facebook width={36} height={36} />
-                  </a>
-                </motion.div>
-              </motion.div>
-              <motion.div whileTap={{ scale: 1.5 }}>
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: [0, 1, 1.5, 1] }}
-                  transition={{
-                    type: 'spring',
-                    duration: 1,
-                    delay: 0.8,
-                  }}
-                >
-                  <a
-                    href="https://www.linkedin.com/in/wildanazz/"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Linkedin"
-                  >
-                    <LinkedIn width={36} height={36} />
-                  </a>
-                </motion.div>
-              </motion.div> */}
-            </div>
-          </div>
-          {/* Contents */}
-          <div className="text-base sm:text-lg font-light leading-relaxed text-gray-600 mt-12 right-0 static xl:absolute w-auto xl:w-3/5">
-            <div className="mb-14 flex flex-col w-full gap-4">
-              {projects.map((project: any) => (
-                <motion.article
-                  onHoverStart={() => setHovered(true)}
-                  onHoverEnd={() => setHovered(false)}
-                  animate={{ opacity: isHovered ? 0.25 : 1 }}
-                  whileHover={{ opacity: 1, scale: 1.025 }}
-                  key={project.id}
-                  className="bg-[#000000] dark:bg-opacity-50 rounded-md drop-shadow-lg"
-                >
-                  <Link href={project.html_url} legacyBehavior>
-                    <a
-                      className="w-full text-white block p-[40px] break-words shadow-md"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <div className="flex justify-between items-center text-xs uppercase tracking-[2.5px] mb-3">
-                        <div className="flex items-center">
-                          {project.fork ? (
-                            <span className="text-yellow-400">Forked</span>
-                          ) : (
-                            <span className="text-green-400">Main Project</span>
-                          )}
-                        </div>
-                        <div className="flex flex-wrap gap-1">
-                          {
-                            project.fork
-                              ? project.languages?.map((language: any, index: any) => (
-                                  <span
-                                    key={index}
-                                    className="text-xs text-gray-200 mr-2"
-                                  >
-                                    {language}
-                                  </span>
-                                ))
-                              : project.language && (
-                                  <span className="text-xs text-gray-200">
-                                    {project.language}
-                                  </span>
-                                )
-                          }
-                        </div>
-                      </div>
-                      <h3 className="text-2xl text-gray-100 mt-2">
-                        {project.name}
-                      </h3>
-                      <p className="text-base mt-2 text-gray-200">
-                        {project.description}
-                      </p>
+      <Layout>
+        {/* Header */}
+        <div className="mt-14 lg:mt-32 font-light w-full text-black dark:text-white">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl pb-4 font-extrabold text-transparent bg-clip-text bg-[#00020d] dark:bg-white">
+            Projects
+          </h1>
+          <p className="font-medium pb-4 text-xl sm:text-2xl lg:text-3xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
+            Collections of projects I&apos;ve been working and worked on.
+          </p>
+        </div>
 
-                      {/* Project Stats */}
-                      <div className="mt-4 flex justify-between text-sm text-gray-300">
-                        <div className="flex items-center">
-                          <span className="mr-1">⭐</span> {project.stars || "0"} Stars
-                        </div>
-                        <div className="flex items-center">
-                          <span className="mr-1">🍴</span> {project.forks || "0"} Forks
-                        </div>
-                        <div className="flex items-center">
-                          <span className="mr-1">📅</span> Last Updated: {project.updated_at ? new Date(project.updated_at).toLocaleDateString() : "N/A"}
-                        </div>
-                      </div>
-
-                      {/* Divider Line */}
-                      <div className="mt-4 border-t border-gray-500"></div>
-                    </a>
-                  </Link>
-                </motion.article>
-              ))}
-            </div>
+        {/* Images */}
+        <h3 className='text-2xl md:text-3xl mb-4 text-[#00020d] dark:text-white font-normal'>Featured projects</h3>
+        <motion.div
+          className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed w-full"
+          variants={variant}
+          initial="hidden"
+          animate="show"
+        >
+          <div className='my-3 flex flex-col justify-center items-center'>
+            <Link href={'https://wildanazz.github.io/letterboxd-umap/'} legacyBehavior>
+              <a
+                className="text-2xl mb-6 text-gray-800 dark:text-white font-light dark:hover:text-indigo-400 hover:text-indigo-400 inline-block"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Popular Films on Letterboxd (2024)
+              </a>
+            </Link>
+            <Suspense fallback={
+              <div className="flex flex-col w-full items-center" role="status">
+                <svg
+                  aria-hidden="true"
+                  className="w-8 h-8 mr-2 animate-spin text-gray-300 fill-purple-400"
+                  viewBox="0 0 100 101"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentFill"
+                  />
+                </svg>
+              </div>
+            }>
+              <LetterboxdPlot />
+              <p className="text-base mt-4 text-gray-600 dark:text-gray-300 max-w-prose px-4 sm:px-6">
+                My attempt to apply UMAP (Uniform Manifold Approximation and Projection), a dimensionality reduction technique, to visualize and represent popular films scraped from Letterboxd in 2024. 
+                See more on 
+                <Link 
+                  href={'https://github.com/wildanazz/letterboxd-umap/tree/main'} 
+                  legacyBehavior
+                >
+                  <a
+                    className='text-blue-400'
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {' GitHub.'}
+                  </a>
+                </Link>
+              </p>
+            </Suspense>
           </div>
-        </main>
-      </motion.div>
+
+          <div className='my-3 flex flex-col justify-center items-center'>
+            <Link href={'https://wildanazz.github.io/d3-spotify-genres/'} legacyBehavior>
+              <a
+                className="text-2xl mb-6 text-gray-800 dark:text-gray-200 font-light dark:hover:text-rose-400 hover:text-rose-400 inline-block"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Every Noise at Once
+              </a>
+            </Link>
+            <Suspense fallback={
+              <div className="flex flex-col w-full items-center" role="status">
+                <svg
+                  aria-hidden="true"
+                  className="w-8 h-8 mr-2 animate-spin text-gray-300 fill-purple-400"
+                  viewBox="0 0 100 101"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentFill"
+                  />
+                </svg>
+              </div>
+            }>
+              <EnaoPlot />
+              <p className="text-base mt-4 text-gray-600 dark:text-gray-300 max-w-prose px-4 sm:px-6">
+                A data visualization of music genres scraped from ENAO (Every Noise at Once) website, showcasing a wide array of music samples from various genres simultaneously.
+                See more on 
+                <Link 
+                  href={'https://github.com/wildanazz/d3-spotify-genres'} 
+                  legacyBehavior
+                >
+                  <a
+                    className='text-red-400'
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {' GitHub.'}
+                  </a>
+                </Link>
+              </p>
+            </Suspense>
+          </div>
+        </motion.div>
+
+        {/* Contents */}
+        <h3 className='text-2xl md:text-3xl mb-4 text-[#00020d] dark:text-white font-normal'>Other projects</h3>
+        <div className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed w-full">
+          <div className="flex flex-wrap w-full gap-6 justify-center my-3">
+            {projects.map((project: any) => (
+              <motion.article
+                onHoverStart={() => setHovered(true)}
+                onHoverEnd={() => setHovered(false)}
+                animate={{ opacity: isHovered ? 0.25 : 1 }}
+                whileHover={{ opacity: 1, scale: 1.05 }}
+                key={project.id}
+                className="bg-[#000000] dark:bg-opacity-50 rounded-lg drop-shadow-lg w-full sm:w-64 md:w-72 flex flex-col"
+              >
+                <Link href={project.html_url} legacyBehavior>
+                  <a
+                    className="w-full text-white block p-4 break-words shadow-md flex flex-col justify-between sm:h-[285px] h-full"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <div className="flex justify-between items-center text-xs uppercase tracking-[2px] mb-2">
+                      <div className="flex items-center">
+                        {project.fork ? (
+                          <span className="text-yellow-400">Forked</span>
+                        ) : (
+                          <span className="text-green-400">Main Project</span>
+                        )}
+                      </div>
+                      <div className="flex flex-wrap gap-1">
+                        {project.fork
+                          ? project.languages?.map((language: any, index: any) => (
+                              <span key={index} className="text-xs text-gray-200 mr-2">
+                                {language}
+                              </span>
+                            ))
+                          : project.language && (
+                              <span className="text-xs text-gray-200">
+                                {project.language}
+                              </span>
+                            )}
+                      </div>
+                    </div>
+                    <h3 className="text-xl text-gray-100 mt-2">{project.name}</h3>
+                    <p className="text-sm mt-2 text-gray-200 line-clamp-2 flex-grow">
+                      {project.description}
+                    </p>
+
+                    {/* Project Stats */}
+                    <div className="mt-4 flex justify-between text-xs text-gray-300">
+                      <div className="flex items-center flex-1">
+                        <span className="mr-1 text-4xl">⭐</span> {project.stars || '0'} Stars
+                      </div>
+                      <div className="flex items-center flex-1">
+                        <span className="mr-1">🍴</span> {project.forks || '0'} Forks
+                      </div>
+                      <div className="flex items-center flex-1">
+                        <span className="mr-1">📅</span> Last Updated: {project.updated_at ? new Date(project.updated_at).toLocaleDateString() : 'N/A'}
+                      </div>
+                    </div>
+
+                    {/* Divider Line */}
+                    <div className="mt-4 border-t border-gray-500"></div>
+                  </a>
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+        <hr className="h-px bg-[#00020d] border-0 dark:bg-white" />
+        <Footer />
+      </Layout>
     </>
   )
 }

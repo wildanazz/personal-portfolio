@@ -4,7 +4,7 @@ import * as d3 from 'd3';
 export default function LetterboxdPlot() {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const [data, setData] = useState<any[]>([]);
-  const [svgDimensions, setSvgDimensions] = useState({ width: 640, height: 480 });
+  const [svgDimensions, setSvgDimensions] = useState({ width: 500, height: 500 });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +17,7 @@ export default function LetterboxdPlot() {
 
   useEffect(() => {
     const handleResize = () => {
-      const maxWidth = 640;
+      const maxWidth = 500;
       const width = Math.min(window.innerWidth * 0.9, maxWidth);
       const height = width * 0.75;
 
