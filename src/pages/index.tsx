@@ -516,7 +516,7 @@ export default function Home({
                         legacyBehavior
                       >
                         <a
-                          className='hover:text-blue-400'
+                          className='text-blue-400'
                           target="_blank"
                           rel="noreferrer"
                         >
