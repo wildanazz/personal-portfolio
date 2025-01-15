@@ -240,8 +240,9 @@ export default function Home({
             technologies such as Docker and Kubernetes for my projects many
             times. I&apos;m now currently experimenting with Serverless
             technologies on Azure. */}
-            I build and develop applications using tools such as Node.js, Python, and Java.
-            I&apos;m currently exploring ways to use data to create insightful stories.
+            I mainly build and develop applications using Node.js (with TypeScript), Python, and Java.
+            I&apos;m also passionate about cloud computing technologies and computational learning.
+            Currently exploring ways to use data to tell insightful stories.
           </p>
           <p className="my-2">
             In my spare time, I create content for my blog where I discuss other
