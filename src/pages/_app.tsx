@@ -48,7 +48,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       <AnimatePresence>
         <AnimatedCursor 
           innerSize={16}
-          color='138, 92, 246'
+          trailingSpeed={1}
+          color='192, 132, 252'
         />
         <Component {...pageProps} />
       </AnimatePresence>
