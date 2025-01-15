@@ -235,11 +235,14 @@ export default function Home({
             About
           </h2>
           <p className="my-2">
-            I build and develop web and mobile application. Sometimes I use
+            {/* I build and develop web and mobile application. Sometimes I use
             Node.js, Python, and Java. I also make use of Cloud Computing
             technologies such as Docker and Kubernetes for my projects many
             times. I&apos;m now currently experimenting with Serverless
-            technologies on Azure.
+            technologies on Azure. */}
+            I build and develop web and mobile apps, using tools like Node.js, Python, and Java. 
+            I often work with Cloud Computing technologies like Docker and Kubernetes in my projects. 
+            I&apos;m now currently diving into Serverless tech.
           </p>
           <p className="my-2">
             In my spare time I create content for my blog where I discuss other
