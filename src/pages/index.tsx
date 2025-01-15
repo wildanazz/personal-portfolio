@@ -241,13 +241,13 @@ export default function Home({
             times. I&apos;m now currently experimenting with Serverless
             technologies on Azure. */}
             I build and develop web and mobile apps, using tools like Node.js, Python, and Java. 
-            I often work with Cloud Computing technologies like Docker and Kubernetes in my projects. 
-            I&apos;m now currently diving into Serverless tech.
+            I often work with cloud computing technologies like Docker and Kubernetes in my projects. 
+            I&apos;m currently diving into serverless architecture and data visualization.
           </p>
           <p className="my-2">
-            In my spare time I create content for my blog where I discuss other
+            In my spare time, I create content for my blog where I discuss other
             projects I&apos;ve been working on, interesting problems I&apos;ve
-            had to solve and create tutorials to educate, and help others use
+            had to solve, and create tutorials to educate, and help others use
             various technologies for the first time or in a more efficient
             manner.
           </p>
