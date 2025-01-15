@@ -7,7 +7,7 @@ import { AnimatePresence } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { useEffect } from 'react'
-import AnimatedCursor from 'react-animated-cursor'
+// import AnimatedCursor from 'react-animated-cursor'
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -46,11 +46,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return getLayout(
     <main className={myFont.className}>
       <AnimatePresence>
-        <AnimatedCursor 
+        {/* <AnimatedCursor 
           innerSize={16}
           trailingSpeed={1}
           color='192, 132, 252'
-        />
+        /> */}
         <Component {...pageProps} />
       </AnimatePresence>
       <Navbar />
