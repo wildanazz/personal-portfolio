@@ -390,9 +390,10 @@ export default function Home({
           <h2 className="text-2xl md:text-3xl mb-4 text-[#00020d] dark:text-white font-normal">
             Recent projects
           </h2>
-          <div className="w-auto xl:w-full">
-            <div className="mb-14 flex flex-col w-full gap-4">
+          <div className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed w-full">
+            <div className="flex flex-wrap w-full gap-6 justify-center my-3">
               
+              {/* Letterboxd Plot */}
               <div className='my-3 flex flex-col justify-center items-center'>
                 <Link href={'https://wildanazz.github.io/letterboxd-umap/'} legacyBehavior>
                   <a
@@ -443,72 +444,22 @@ export default function Home({
                   </Suspense>
               </div>
 
-              {/* <div className='my-3 flex flex-col justify-center items-center'>
-                <Link href={'https://wildanazz.github.io/d3-spotify-genres/'} legacyBehavior>
-                  <a
-                    className="text-2xl mb-6 text-gray-800 dark:text-gray-200 font-normal dark:hover:text-rose-400 hover:text-rose-400 inline-block"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Every Noise at Once
-                  </a>
-                </Link>
-                  <Suspense fallback={
-                    <div className="flex flex-col w-full items-center" role="status">
-                      <svg
-                        aria-hidden="true"
-                        className="w-8 h-8 mr-2 animate-spin text-gray-300 fill-purple-400"
-                        viewBox="0 0 100 101"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                          fill="currentColor"
-                        />
-                        <path
-                          d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                          fill="currentFill"
-                        />
-                      </svg>
-                    </div>}
-                  >
-                    <EnaoPlot />
-                    <p className="text-base mt-4 text-gray-600 dark:text-gray-300">
-                      A data visualization of music genres scraped from ENAO (Every Noise at Once) website, showcasing a wide array of music samples from various genres simultaneously.
-                      See more on 
-                      <Link 
-                        href={'https://github.com/wildanazz/d3-spotify-genres'} 
-                        legacyBehavior
-                      >
-                        <a
-                          className='hover:text-red-400'
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {' GitHub.'}
-                        </a>
-                      </Link>
-                    </p>
-                  </Suspense>
-              </div> */}
-
               {featuredProjects.map((project: any) => (
                 <motion.article
                   onHoverStart={() => setHovered(true)}
                   onHoverEnd={() => setHovered(false)}
                   animate={{ opacity: isHovered ? 0.25 : 1 }}
-                  whileHover={{ opacity: 1, scale: 1.025 }}
-                  key={project.data.id}
-                  className="bg-[#000000] dark:bg-opacity-50 rounded-xl drop-shadow-xl"
+                  whileHover={{ opacity: 1, scale: 1.05 }}
+                  key={project.id}
+                  className="bg-[#000000] dark:bg-opacity-50 rounded-lg drop-shadow-lg w-full sm:w-64 md:w-72 flex flex-col"
                 >
-                  <Link href={project.data.homepage || project.data.html_url} legacyBehavior>
+                  <Link href={project.data.html_url} legacyBehavior>
                     <a
-                      className="w-full text-white block p-[40px] break-words shadow-md"
+                      className="w-full text-white block p-4 break-words shadow-md flex flex-col justify-between sm:h-[285px] h-full"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      <div className="flex justify-between items-center text-xs uppercase tracking-[2.5px] mb-3">
+                      <div className="flex justify-between items-center text-xs uppercase tracking-[2px] mb-2">
                         <div className="flex items-center">
                           {project.fork ? (
                             <span className="text-yellow-400">Forked</span>
@@ -535,42 +486,19 @@ export default function Home({
                           }
                         </div>
                       </div>
-
-                      <div className="flex flex-col sm:flex-row w-full">
-                      {/* Text Section */}
-                      <div className={`w-full transition-colors ${project.image ? 'sm:w-1/2 lg:w-1/2 xl:w-3/5' : ''}`}>
-                        <h3 className="text-2xl text-gray-100 mt-2">
-                          {project.data.name}
-                        </h3>
-                        <p className="text-base mt-2 text-gray-200">
-                          {project.data.description}
-                        </p>
-                      </div>
-
-                      {/* Image Section */}
-                      {project.image && (
-                        <div className="w-full sm:w-1/2 lg:w-1/2 xl:w-2/5 mt-4 sm:mt-0 sm:ml-4 flex items-center justify-center">
-                          <Image
-                            src={project.image}
-                            className="w-full rounded-sm"
-                            alt={project.data.name}
-                            width={500}
-                            height={300}
-                          />
-                        </div>
-                      )}
-                    </div>
-
+                      <h3 className="text-xl text-gray-100 mt-2">{project.data.name}</h3>
+                      <p className="text-sm mt-2 text-gray-200 line-clamp-2 flex-grow">{project.data.description}</p>
+                      
                       {/* Project Stats */}
-                      <div className="mt-4 flex justify-between text-sm text-gray-300">
-                        <div className="flex items-center">
-                          <span className="mr-1 text-4xl">⭐</span> {project.data.stars || "0"} Stars
+                      <div className="mt-4 flex justify-between text-xs text-gray-300">
+                        <div className="flex items-center flex-1">
+                          <span className="mr-1 text-4xl">⭐</span> {project.data.stars || '0'} Stars
                         </div>
-                        <div className="flex items-center">
-                          <span className="mr-1">🍴</span> {project.data.forks || "0"} Forks
+                        <div className="flex items-center flex-1">
+                          <span className="mr-1">🍴</span> {project.data.forks || '0'} Forks
                         </div>
-                        <div className="flex items-center">
-                          <span className="mr-1">📅</span> Last Updated: {project.data.updated_at ? new Date(project.data.updated_at).toLocaleDateString() : "N/A"}
+                        <div className="flex items-center flex-1">
+                          <span className="mr-1">📅</span> Last Updated: {project.data.updated_at ? new Date(project.data.updated_at).toLocaleDateString() : 'N/A'}
                         </div>
                       </div>
 
@@ -580,138 +508,17 @@ export default function Home({
                   </Link>
                 </motion.article>
               ))}
-              <div className="text-xl text-[#00020d] dark:text-white flex items-center justify-start mt-4 mx-3 font-normal">
+              
+            </div>
+              <div className="text-xl text-[#00020d] dark:text-white flex items-center justify-start mt-6 font-normal">
                 <Link href="/project" legacyBehavior>
                   <a className="transition duration-300 ease-in-out focus:outline-none dark:hover:text-purple-400 hover:text-purple-400">
                     More projects ››››
                   </a>
                 </Link>
               </div>
-            </div>
           </div>
-          {/* Comments */}
-          {/* <div className="w-auto xl:w-full mb-6">
-            <h1 className="text-base sm:text-lg my-4 font-light text-gray-600 dark:text-gray-300 leading-relaxed">
-              Please feel free to leave a comment below or send me an e-mail :)
-            </h1> */}
-            
-            {/* Comment Form */}
-            {/* <form className="mb-6" onSubmit={handleSubmit}>
-              <div className="py-3 px-4 mb-4 rounded-lg border bg-white">
-                <label htmlFor="name" className="sr-only">Your name</label>
-                <input
-                  id="name"
-                  name="name"
-                  className="px-3 py-2 w-full text-gray-600 text-sm border-0 focus:ring-0 focus:outline-none placeholder-gray-600 rounded-lg"
-                  placeholder="Your name..."
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  autoComplete="off"
-                />
-              </div>
-
-              <div className="py-3 px-4 mb-4 rounded-lg border bg-white">
-                <label htmlFor="comment" className="sr-only">Your comment</label>
-                <textarea
-                  id="comment"
-                  name="comment"
-                  className="px-3 py-2 w-full text-sm border-0 focus:ring-0 focus:outline-none text-gray-600 placeholder-gray-600 rounded-lg"
-                  placeholder="Write a comment..."
-                  required
-                  value={formData.comment}
-                  onChange={handleChange}
-                  autoComplete="off"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center py-3 px-6 text-sm font-semibold text-white bg-indigo-800 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300 ease-in-out"
-              >
-                Post Comment
-              </button>
-            </form> */}
-
-            {/* Loading Indicator */}
-            {/* {isLoading ? (
-              <div className="flex flex-col w-full items-center" role="status">
-                <svg
-                  aria-hidden="true"
-                  className="w-8 h-8 mr-2 animate-spin text-gray-300 fill-purple-400"
-                  viewBox="0 0 100 101"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-                    fill="currentFill"
-                  />
-                </svg>
-              </div>
-            ) : (
-              data.map((comment: any) => (
-                <article
-                  key={comment.Id}
-                  className="mt-6 p-6 dark:bg-[#000000] bg-white text-gray-600 dark:text-gray-300 rounded-lg shadow-lg transition-all hover:shadow-xl bg-opacity-10 dark:bg-opacity-10"
-                > */}
-                  {/* Comment Header */}
-                  {/* <footer className="flex justify-between items-center mb-4">
-                    <div className="flex items-center"> */}
-                      {/* Profile Image Placeholder */}
-                      {/* <div className="w-12 h-12 rounded-full bg-gray-300 dark:bg-gray-600 mr-4"> */}
-                        {/* You can replace this with comment.profilePicture if available */}
-                      {/* </div>
-                      <div> */}
-                        {/* <p className="text-sm text-gray-800 dark:text-gray-100 font-semibold">{comment.name}</p> */}
-                        {/* Timestamp */}
-                        {/* <p className="text-xs text-gray-500 dark:text-gray-400">
-                          {new Date(comment.timestamp).toLocaleDateString()} at {new Date(comment.timestamp).toLocaleTimeString()}
-                        </p>
-                      </div>
-                    </div>
-                  </footer> */}
-              
-                  {/* Comment Text */}
-                  {/* <p className="text-base text-gray-700 dark:text-gray-300 mb-4">{comment.Comment}</p> */}
-              
-                  {/* Reply Button */}
-                  {/* <div className="flex justify-start text-sm text-gray-500 dark:text-gray-400">
-                    <button className="hover:text-blue-500 focus:outline-none">Reply</button>
-                  </div> */}
-              
-                  {/* Replies Section */}
-                  {/* {comment.replies && comment.replies.length > 0 && (
-                    <div className="mt-6 pl-4 border-l-2 border-gray-200 dark:border-gray-700">
-                      <h4 className="text-gray-700 dark:text-gray-300 font-semibold text-sm mb-4">Replies:</h4>
-                      {comment.replies.map((reply: any, index: number) => (
-                        <div key={index} className="mb-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all">
-                          <div className="flex items-center mb-3">
-                            <div className="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 mr-3"> */}
-                              {/* You can replace this with reply.profilePicture if available */}
-                            {/* </div>
-                            <div>
-                              <p className="text-sm text-gray-800 dark:text-gray-100 font-semibold">{reply.name}</p>
-                              <p className="text-xs text-gray-500 dark:text-gray-400">
-                                {new Date(reply.timestamp).toLocaleDateString()} at {new Date(reply.timestamp).toLocaleTimeString()}
-                              </p>
-                            </div>
-                          </div>
-                          <p className="text-base text-gray-700 dark:text-gray-300">{reply.text}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </article>
-              ))              
-            )}
-          </div> */}
-
-        <hr className="h-px bg-[#00020d] border-0 dark:bg-white" />
+        <hr className="h-px bg-[#00020d] border-0 dark:bg-white mt-9" />
         <Footer />
         </div>
       </Layout>
@@ -751,20 +558,29 @@ export const getStaticProps = async () => {
   // Get featured projects
   const featuredProjects = []
 
-  // featuredProjects.push({
-  //   fork: false,
-  //   data:
-  //     projects.find(
-  //       (Project) => Project.full_name === 'wildanazz/d3-spotify-genres'
-  //     ) || null,
-  //   image: 'https://wildanazz.github.io/d3-spotify-genres/data/image.png',
-  // })
+  featuredProjects.push({
+    fork: false,
+    data:
+      projects.find(
+        (Project) => Project.full_name === 'wildanazz/d3-spotify-genres'
+      ) || null,
+    image: 'https://wildanazz.github.io/d3-spotify-genres/data/image.png',
+  })
 
   featuredProjects.push({
     fork: false,
     data:
       projects.find((Project) => Project.full_name === 'wildanazz/gcn-http-server') ||
       null
+  })
+
+  featuredProjects.push({
+    fork: true,
+    data:
+      projects.find(
+        (Project) => Project.full_name === 'wildanazz/Letterboxd-list-scraper'
+      ) || null,
+    languages: Object.keys({"python": 1000}),
   })
   
   // const languages = await getLanguagesFromFork()
