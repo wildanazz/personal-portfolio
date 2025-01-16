@@ -38,7 +38,7 @@ const variantItem = {
 }
 
 export default function Project({ projects} : InferGetStaticPropsType<typeof getStaticProps>) {
-  const [isHovered, setHovered] = useState(false)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <>
@@ -185,11 +185,11 @@ export default function Project({ projects} : InferGetStaticPropsType<typeof get
         <h3 className='text-2xl md:text-3xl mb-4 text-[#00020d] dark:text-white font-normal'>Other projects</h3>
         <div className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed w-full">
           <div className="flex flex-wrap w-full gap-6 justify-center my-3">
-            {projects.map((project: any) => (
+            {projects.map((project: any, index) => (
               <motion.article
-                onHoverStart={() => setHovered(true)}
-                onHoverEnd={() => setHovered(false)}
-                animate={{ opacity: isHovered ? 0.25 : 1 }}
+                onHoverStart={() => setHoveredIndex(index)}
+                onHoverEnd={() => setHoveredIndex(null)}
+                animate={{ opacity: hoveredIndex ? 0.25 : 1 }}
                 whileHover={{ opacity: 1, scale: 1.05 }}
                 key={project.id}
                 className="bg-[#000000] dark:bg-opacity-50 rounded-lg drop-shadow-lg w-full sm:w-64 md:w-72 flex flex-col"

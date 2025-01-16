@@ -35,7 +35,7 @@ export default function Home({
   featuredProjects,
   films
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [isHovered, setHovered] = useState(false)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   // const [data, setData] = useState<any>()
   // const [isLoading, setLoading] = useState(true)
   // const [formData, setFormData] = useState({
@@ -438,11 +438,11 @@ export default function Home({
                   </Suspense>
               </div>
 
-              {featuredProjects.map((project: any) => (
+              {featuredProjects.map((project: any, index) => (
                 <motion.article
-                  onHoverStart={() => setHovered(true)}
-                  onHoverEnd={() => setHovered(false)}
-                  animate={{ opacity: isHovered ? 0.25 : 1 }}
+                  onHoverStart={() => setHoveredIndex(index)}
+                  onHoverEnd={() => setHoveredIndex(null)}
+                  animate={{ opacity: hoveredIndex ? 0.25 : 1 }}
                   whileHover={{ opacity: 1, scale: 1.05 }}
                   key={project.id}
                   className="bg-[#000000] dark:bg-opacity-50 rounded-lg drop-shadow-lg w-full sm:w-64 md:w-72 flex flex-col"
