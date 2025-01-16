@@ -170,7 +170,7 @@ export default function EnaoPlot() {
   }, [data, svgDimensions]);
 
   return (
-    <div className="flex justify-center items-center border-2 border-white dark:border-[#eee] rounded-lg dark:bg-white dark:bg-opacity-25">
+    <div className="my-6 flex justify-center items-center border-2 border-white dark:border-[#eee] rounded-lg dark:bg-white dark:bg-opacity-25">
       <svg ref={svgRef} className="scatter" />
     </div>
   );

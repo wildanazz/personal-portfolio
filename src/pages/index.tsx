@@ -387,23 +387,17 @@ export default function Home({
               </div>
             </>
           )}
-          <h2 className="text-2xl md:text-3xl mb-4 text-[#00020d] dark:text-white font-normal">
+          <h2 className="text-2xl md:text-3xl mb-2 text-[#00020d] dark:text-white font-normal">
             Recent projects
           </h2>
           <div className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed w-full">
-            <div className="flex flex-wrap w-full gap-6 justify-center my-3">
+            <div className="flex flex-wrap w-full gap-6 justify-center">
               
               {/* Letterboxd Plot */}
               <div className='my-3 flex flex-col justify-center items-center'>
-                <Link href={'https://wildanazz.github.io/letterboxd-umap/'} legacyBehavior>
-                  <a
-                    className="text-2xl mb-6 text-gray-800 dark:text-white font-light dark:hover:text-indigo-400 hover:text-indigo-400 inline-block"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <h3 className="text-2xl text-gray-800 dark:text-white font-light inline-block">
                     Popular Films on Letterboxd (2024)
-                  </a>
-                </Link>
+                  </h3>
                   <Suspense fallback={
                     <div className="flex flex-col w-full items-center" role="status">
                       <svg
@@ -425,19 +419,19 @@ export default function Home({
                     </div>}
                   >
                     <LetterboxdPlot />
-                    <p className="text-base mt-4 text-gray-600 dark:text-gray-300">
+                    <p className="text-base text-gray-600 dark:text-gray-300">
                       My attempt to apply UMAP (Uniform Manifold Approximation and Projection), a dimensionality reduction technique, to visualize and represent popular films scraped from Letterboxd in 2024. 
-                      See more on 
+                      See more
                       <Link 
-                        href={'https://github.com/wildanazz/letterboxd-umap/tree/main'} 
+                        href={'https://wildanazz.github.io/letterboxd-umap/'} 
                         legacyBehavior
                       >
                         <a
-                          className='text-blue-400'
+                          className='text-indigo-400'
                           target="_blank"
                           rel="noreferrer"
                         >
-                          {' GitHub.'}
+                          {' here.'}
                         </a>
                       </Link>
                     </p>
@@ -510,7 +504,7 @@ export default function Home({
               ))}
               
             </div>
-              <div className="text-xl text-[#00020d] dark:text-white flex items-center justify-start mt-6 font-normal">
+              <div className="text-xl text-[#00020d] dark:text-white flex items-center justify-start mt-9 font-normal">
                 <Link href="/project" legacyBehavior>
                   <a className="transition duration-300 ease-in-out focus:outline-none dark:hover:text-purple-400 hover:text-purple-400">
                     More projects ››››

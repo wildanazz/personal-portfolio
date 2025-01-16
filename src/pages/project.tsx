@@ -93,15 +93,9 @@ export default function Project({ projects} : InferGetStaticPropsType<typeof get
           animate="show"
         >
           <div className='my-3 flex flex-col justify-center items-center'>
-            <Link href={'https://wildanazz.github.io/letterboxd-umap/'} legacyBehavior>
-              <a
-                className="text-2xl mb-6 text-gray-800 dark:text-white font-light dark:hover:text-indigo-400 hover:text-indigo-400 inline-block"
-                target="_blank"
-                rel="noreferrer"
-              >
+            <h3 className="text-2xl text-gray-800 dark:text-white font-light inline-block">
                 Popular Films on Letterboxd (2024)
-              </a>
-            </Link>
+            </h3>
             <Suspense fallback={
               <div className="flex flex-col w-full items-center" role="status">
                 <svg
@@ -123,19 +117,19 @@ export default function Project({ projects} : InferGetStaticPropsType<typeof get
               </div>
             }>
               <LetterboxdPlot />
-              <p className="text-base mt-4 text-gray-600 dark:text-gray-300 max-w-prose px-4 sm:px-6">
+              <p className="text-base text-gray-600 dark:text-gray-300 max-w-prose px-4 sm:px-6">
                 My attempt to apply UMAP (Uniform Manifold Approximation and Projection), a dimensionality reduction technique, to visualize and represent popular films scraped from Letterboxd in 2024. 
-                See more on 
+                See more 
                 <Link 
-                  href={'https://github.com/wildanazz/letterboxd-umap/tree/main'} 
+                  href={'https://wildanazz.github.io/letterboxd-umap/'} 
                   legacyBehavior
                 >
                   <a
-                    className='text-blue-400'
+                    className='text-indigo-400'
                     target="_blank"
                     rel="noreferrer"
                   >
-                    {' GitHub.'}
+                    {' here.'}
                   </a>
                 </Link>
               </p>
@@ -143,15 +137,9 @@ export default function Project({ projects} : InferGetStaticPropsType<typeof get
           </div>
 
           <div className='my-3 flex flex-col justify-center items-center'>
-            <Link href={'https://wildanazz.github.io/d3-spotify-genres/'} legacyBehavior>
-              <a
-                className="text-2xl mb-6 text-gray-800 dark:text-gray-200 font-light dark:hover:text-rose-400 hover:text-rose-400 inline-block"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Every Noise at Once
-              </a>
-            </Link>
+            <h3 className="text-2xl text-gray-800 dark:text-white font-light inline-block">
+              Every Noise at Once
+            </h3>
             <Suspense fallback={
               <div className="flex flex-col w-full items-center" role="status">
                 <svg
@@ -173,19 +161,19 @@ export default function Project({ projects} : InferGetStaticPropsType<typeof get
               </div>
             }>
               <EnaoPlot />
-              <p className="text-base mt-4 text-gray-600 dark:text-gray-300 max-w-prose px-4 sm:px-6">
+              <p className="text-base text-gray-600 dark:text-gray-300 max-w-prose px-4 sm:px-6">
                 A data visualization of music genres scraped from ENAO (Every Noise at Once) website, showcasing a wide array of music samples from various genres simultaneously.
-                See more on 
+                See more
                 <Link 
-                  href={'https://github.com/wildanazz/d3-spotify-genres'} 
+                  href={'https://wildanazz.github.io/d3-spotify-genres/'} 
                   legacyBehavior
                 >
                   <a
-                    className='text-red-400'
+                    className='text-rose-400'
                     target="_blank"
                     rel="noreferrer"
                   >
-                    {' GitHub.'}
+                    {' here.'}
                   </a>
                 </Link>
               </p>

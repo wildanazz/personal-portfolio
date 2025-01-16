@@ -115,12 +115,36 @@ export default function LetterboxdPlot() {
         svg.append('text')
           .attr('x', xScale(d.x) + 10)
           .attr('y', yScale(d.y) + 10)
-          .text(`Director: ${d.Director}`)
+          .text(`Watches: ${d.Watches}`)
           .attr('class', 'tooltip text-xs bg-black p-1 rounded dark:text-white text-black');
         svg.append('text')
           .attr('x', xScale(d.x) + 10)
           .attr('y', yScale(d.y) + 30)
+          .text(`Likes: ${d.Likes}`)
+          .attr('class', 'tooltip text-xs bg-black p-1 rounded dark:text-white text-black');
+        svg.append('text')
+          .attr('x', xScale(d.x) + 10)
+          .attr('y', yScale(d.y) + 50)
+          .text(`Total ratings: ${d.Total_ratings}`)
+          .attr('class', 'tooltip text-xs bg-black p-1 rounded dark:text-white text-black');
+        svg.append('text')
+          .attr('x', xScale(d.x) + 10)
+          .attr('y', yScale(d.y) + 70)
           .text(`Avg Rating: ${parseFloat(d.Average_rating).toFixed(2)}`)
+          .attr('class', 'tooltip text-xs bg-black p-1 rounded dark:text-white text-black');
+        svg.append('text')
+          .attr('x', xScale(d.x) + 10)
+          .attr('y', yScale(d.y) + 90)
+          .text(function() {
+            let genreText = "Genre: Unknown";
+            try {
+              const genresArray = JSON.parse(d.Genres.replace(/'/g, '"'));
+              genreText = `Genre: ${genresArray.join(', ').replace(/,([^ ])/g, ', $1')}`;
+            } catch (error) {
+              console.error("Error parsing genres:", error);
+            }
+            return genreText;
+          })
           .attr('class', 'tooltip text-xs bg-black p-1 rounded dark:text-white text-black');
       })
       .on('mouseout', function () {
@@ -145,7 +169,7 @@ export default function LetterboxdPlot() {
   }, [data, svgDimensions]);
 
   return (
-    <div className="flex justify-center items-center border-2 border-white dark:border-[#eee] rounded-lg dark:bg-white dark:bg-opacity-25">
+    <div className="my-6 flex justify-center items-center border-2 border-white dark:border-[#eee] rounded-lg dark:bg-white dark:bg-opacity-25">
       <svg ref={svgRef} className="scatter" />
     </div>
   );
