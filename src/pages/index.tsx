@@ -145,88 +145,6 @@ export default function Home({
           <p className="font-medium pb-4 text-xl sm:text-2xl lg:text-3xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
             I&apos;m a Software Engineer and currently living in Brisbane, AU.
           </p>
-          {/* <div className="flex flex-row gap-1">
-            <motion.div whileTap={{ scale: 1.5 }}>
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: [0, 1, 1.5, 1] }}
-                transition={{
-                  type: 'spring',
-                  duration: 1,
-                  delay: 0.2,
-                }}
-              >
-                <a
-                  href="https://github.com/wildanazz"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Github"
-                >
-                  <GitHub width={36} height={36} />
-                </a>
-              </motion.div>
-            </motion.div>
-            <motion.div whileTap={{ scale: 1.5 }}>
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: [0, 1, 1.5, 1] }}
-                transition={{
-                  type: 'spring',
-                  duration: 1,
-                  delay: 0.4,
-                }}
-              >
-                <a
-                  href="https://twitter.com/wildanazz"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Twitter"
-                >
-                  <Twitter width={36} height={36} />
-                </a>
-              </motion.div>
-            </motion.div>
-            <motion.div whileTap={{ scale: 1.5 }}>
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: [0, 1, 1.5, 1] }}
-                transition={{
-                  type: 'spring',
-                  duration: 1,
-                  delay: 0.6,
-                }}
-              >
-                <a
-                  href="https://www.facebook.com/wildanazzwa/"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Facebook"
-                >
-                  <Facebook width={36} height={36} />
-                </a>
-              </motion.div>
-            </motion.div>
-            <motion.div whileTap={{ scale: 1.5 }}>
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: [0, 1, 1.5, 1] }}
-                transition={{
-                  type: 'spring',
-                  duration: 1,
-                  delay: 0.8,
-                }}
-              >
-                <a
-                  href="https://www.linkedin.com/in/wildanazz/"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Linkedin"
-                >
-                  <LinkedIn width={36} height={36} />
-                </a>
-              </motion.div>
-            </motion.div>
-          </div> */}
         </div>
 
         {/* About */}
@@ -235,14 +153,9 @@ export default function Home({
             About
           </h2>
           <p className="my-2">
-            {/* I build and develop web and mobile application. Sometimes I use
-            Node.js, Python, and Java. I also make use of Cloud Computing
-            technologies such as Docker and Kubernetes for my projects many
-            times. I&apos;m now currently experimenting with Serverless
-            technologies on Azure. */}
             I mainly build and develop applications using Node.js (with TypeScript), Python, and Java.
             I&apos;m also passionate about cloud computing technologies and computational learning.
-            Currently exploring ways to use data to tell insightful stories.
+            Currently exploring ways to use data to tell engaging and insightful stories.
           </p>
           <p className="my-2">
             In my spare time, I create content for my blog where I discuss other
