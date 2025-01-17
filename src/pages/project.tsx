@@ -85,9 +85,8 @@ export default function Project({ projects} : InferGetStaticPropsType<typeof get
         </div>
 
         {/* Images */}
-        <h3 className='mt-4 text-2xl md:text-3xl mb-2 text-[#00020d] dark:text-white font-normal'>Featured projects</h3>
         <motion.div
-          className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light mb-2 leading-relaxed w-full"
+          className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light mb-2 leading-relaxed w-full gap-x-6"
           variants={variant}
           initial="hidden"
           animate="show"
@@ -182,8 +181,7 @@ export default function Project({ projects} : InferGetStaticPropsType<typeof get
         </motion.div>
 
         {/* Contents */}
-        <h3 className='text-2xl md:text-3xl mt-6 mb-4 text-[#00020d] dark:text-white font-normal'>Other projects</h3>
-        <div className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed w-full">
+        <div className="flex flex-wrap items-center justify-center text-base sm:text-lg font-light leading-relaxed w-full mt-2">
           <div className="flex flex-wrap w-full gap-6 justify-center my-3">
             {projects.map((project: any, index) => (
               <motion.article
