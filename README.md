@@ -3,7 +3,7 @@
 # Personal Portfolio
 
 A portfolio website designed with performance and scalability in mind. It utilizes modern web technologies to ensure responsiveness, speed, and a smooth user experience. The website serves as both a portfolio and a learning ground for implementing and experimenting with various web development practices.
-![Spotify Genres](./public/sample.png)
+![Main Page](./public/main.png)
 
 ## Features
 - **Responsive Design:** Works seamlessly across devices.
