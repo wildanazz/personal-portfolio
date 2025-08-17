@@ -97,7 +97,7 @@ export default function Home({
         {/* Open Graph Meta Tags for Social Media */}
         <meta
           property="og:description"
-          content="Hi, I'm Naz - I'm a Software Engineer from Brisbane, AU. I work with various technologies like Node.js, Python, and more."
+          content="Hi, I'm Naz."
         />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="WA | Home" /> 
@@ -142,9 +142,9 @@ export default function Home({
               alt="helmet"
             />
           </div>
-          <p className="font-medium pb-4 text-xl sm:text-2xl lg:text-3xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
-            I&apos;m a Software Engineer and currently living in Brisbane, AU.
-          </p>
+            {/* <p className="font-medium pb-4 text-xl sm:text-2xl lg:text-3xl w-11/12 sm:w-5/6 md:w-11/12 lg:w-4/5 xl:w-3/5">
+              I&apos;m a Software Engineer and currently living in Brisbane, AU.
+            </p> */}
         </div>
 
         {/* About */}
