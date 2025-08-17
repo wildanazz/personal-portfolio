@@ -149,9 +149,9 @@ export default function Home({
 
         {/* About */}
         <div className="text-base sm:text-lg font-light leading-relaxed lg:w-4/5 2xl:w-2/3 text-gray-600 dark:text-gray-300 mt-4">
-          <h2 className="text-2xl md:text-3xl mb-4 text-[#00020d] dark:text-white font-normal">
+{/*           <h2 className="text-2xl md:text-3xl mb-4 text-[#00020d] dark:text-white font-normal">
             About
-          </h2>
+          </h2> */}
           <p className="my-2">
             I mainly build and develop applications using Node.js (with TypeScript), Python, and Java.
             I&apos;m also passionate about cloud computing technologies and computational learning.
