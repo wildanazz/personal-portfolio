@@ -110,7 +110,7 @@ export default function Home({
         <meta name="twitter:title" content="Naz | Software Engineer" />
         <meta
           name="twitter:description"
-          content="Hi, I'm Naz - I'm a Software Engineer from Brisbane, AU. I work with various technologies like Node.js, Python, and more."
+          content="Hi, I'm Naz."
         />
         <meta
           name="twitter:image"
